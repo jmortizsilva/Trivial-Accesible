@@ -1,0 +1,26 @@
+# Configuración para desplegar en Render.com
+services:
+  # Backend
+  - type: web
+    name: trivial-backend
+    env: node
+    buildCommand: cd backend && npm install
+    startCommand: cd backend && node server.js
+    plan: free
+    envVars:
+      - key: NODE_ENV
+        value: production
+    
+  # Frontend
+  - type: web
+    name: trivial-frontend
+    env: static
+    buildCommand: cd frontend && npm install && npm run build
+    staticPublishPath: frontend/build
+    plan: free
+    envVars:
+      - key: REACT_APP_API_URL
+        fromService:
+          name: trivial-backend
+          type: web
+          property: host
