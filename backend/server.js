@@ -17,6 +17,24 @@ const io = socketIo(server, {
 app.use(cors());
 app.use(express.json());
 
+// Health check endpoint para mantener el servicio activo
+app.get('/', (req, res) => {
+  res.json({ 
+    status: 'online',
+    message: 'Servidor de Trivial Accesible funcionando',
+    timestamp: new Date().toISOString(),
+    questions: questions.length
+  });
+});
+
+app.get('/api/health', (req, res) => {
+  res.json({ 
+    status: 'healthy',
+    uptime: process.uptime(),
+    questions: questions.length 
+  });
+});
+
 // Almacenamiento en memoria (migrar a DB en producción)
 const games = new Map();
 
