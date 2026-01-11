@@ -40,6 +40,22 @@ app.get('/api/health', (req, res) => {
   });
 });
 
+// Ping endpoint para mantener el servicio activo (Cron-Job)
+app.get('/api/ping', (req, res) => {
+  res.status(200).send('pong');
+});
+
+// Endpoint de status más completo
+app.get('/api/status', (req, res) => {
+  res.status(200).json({
+    status: 'online',
+    timestamp: new Date().toISOString(),
+    activeGames: games.size,
+    totalQuestions: questions.length,
+    uptime: process.uptime()
+  });
+});
+
 // Almacenamiento en memoria (migrar a DB en producción)
 const games = new Map();
 
