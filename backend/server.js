@@ -18,19 +18,24 @@ app.use(cors());
 app.use(express.json());
 
 // Health check endpoint para mantener el servicio activo
+// Endpoint raíz para verificar que el servidor está activo
 app.get('/', (req, res) => {
-  res.json({ 
+  res.status(200).json({ 
     status: 'online',
-    message: 'Servidor de Trivial Accesible funcionando',
+    service: 'Trivial Accesible API',
+    message: 'Servidor funcionando correctamente',
     timestamp: new Date().toISOString(),
-    questions: questions.length
+    questions: questions.length,
+    version: '1.0.0'
   });
 });
 
+// Health check alternativo
 app.get('/api/health', (req, res) => {
-  res.json({ 
+  res.status(200).json({ 
     status: 'healthy',
     uptime: process.uptime(),
+    memory: process.memoryUsage(),
     questions: questions.length 
   });
 });
