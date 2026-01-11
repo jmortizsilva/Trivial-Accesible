@@ -517,13 +517,17 @@ io.on('connection', (socket) => {
 });
 
 const PORT = process.env.PORT || 3001;
-const HOST = '0.0.0.0'; // Permitir conexiones desde cualquier IP en la red local
 
-server.listen(PORT, HOST, () => {
-  console.log(`Servidor corriendo en puerto ${PORT}`);
-  console.log(`Accede localmente en: http://localhost:${PORT}`);
-  
-  // Mostrar IPs locales para acceso desde móvil
+// En producción (Render), no especificar HOST
+// En local, usar 0.0.0.0 para permitir acceso desde red local
+const HOST = process.env.NODE_ENV === 'production' ? undefined : '0.0.0.0';
+
+if (HOST) {
+  server.listen(PORT, HOST, () => {
+    console.log(`Servidor corriendo en puerto ${PORT}`);
+    console.log(`Accede localmente en: http://localhost:${PORT}`);
+    
+    // Mostrar IPs locales para acceso desde móvil
   const networkInterfaces = require('os').networkInterfaces();
   const addresses = [];
   for (const interfaceName in networkInterfaces) {
@@ -540,4 +544,11 @@ server.listen(PORT, HOST, () => {
       console.log(`   http://${addr}:${PORT}`);
     });
   }
-});
+  });
+} else {
+  // En producción (Render), no especificar HOST
+  server.listen(PORT, () => {
+    console.log(`Servidor corriendo en puerto ${PORT}`);
+    console.log(`Modo: ${process.env.NODE_ENV || 'development'}`);
+  });
+}
