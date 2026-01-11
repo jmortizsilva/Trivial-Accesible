@@ -497,6 +497,15 @@ app.post('/api/games/:gameCode/chooseDirection', (req, res) => {
   });
 });
 
+// Health check - mantener servidor activo
+app.get('/api/games', (req, res) => {
+  res.status(200).json({ 
+    status: 'ok',
+    games: games.size,
+    timestamp: Date.now()
+  });
+});
+
 // Obtener estado de la partida
 app.get('/api/games/:gameCode', (req, res) => {
   const { gameCode } = req.params;
