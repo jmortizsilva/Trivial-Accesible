@@ -69,9 +69,22 @@ try {
   console.log('💡 Usa el script convert-openquizzdb.js para generar questions.json');
 }
 
-// Generar código de partida único
+// Lista de palabras para códigos de partida
+const PALABRAS_CODIGO = [
+  'DRAGON', 'FENIX', 'TIGRE', 'AGUILA', 'LOBO', 'ORCA', 'PUMA', 'HALCON',
+  'ZORRO', 'DELFIN', 'LEOPARDO', 'COBRA', 'BUHO', 'CONDOR', 'LINCE', 'KOALA',
+  'PANTERA', 'CIERVO', 'CASTOR', 'NUTRIA', 'SALMON', 'TRUCHA', 'ATUN', 'PULPO',
+  'MEDUSA', 'ESTRELLA', 'CORAL', 'PERLA', 'DIAMANTE', 'RUBI', 'ZAFIRO', 'TOPACIO',
+  'LUNA', 'SOL', 'VENUS', 'MARTE', 'JUPITER', 'SATURNO', 'COMETA', 'GALAXIA',
+  'NEBULA', 'AURORA', 'ECLIPSE', 'METEORO', 'QUASAR', 'PULSAR', 'TITAN', 'TRITON',
+  'VOLCAN', 'CASCADA', 'MONTAÑA', 'BOSQUE', 'OCEANO', 'DESIERTO', 'SELVA', 'GLACIAR'
+];
+
+// Generar palabra clave única para partida
 function generateGameCode() {
-  return Math.random().toString(36).substring(2, 8).toUpperCase();
+  const palabraBase = PALABRAS_CODIGO[Math.floor(Math.random() * PALABRAS_CODIGO.length)];
+  const numero = Math.floor(Math.random() * 100);
+  return `${palabraBase}${numero}`;
 }
 
 // API REST
@@ -212,6 +225,12 @@ app.post('/api/games/:gameCode/question', (req, res) => {
   // No enviar la respuesta correcta al cliente
   const { correctAnswer, ...questionWithoutAnswer } = question;
   
+  // Emitir la pregunta a TODOS los jugadores vía Socket.IO
+  io.to(gameCode.toUpperCase()).emit('questionAsked', {
+    question: questionWithoutAnswer,
+    playerAsking: playerName
+  });
+  
   res.json({ 
     success: true, 
     question: questionWithoutAnswer 
@@ -302,11 +321,13 @@ app.post('/api/games/:gameCode/answer', (req, res) => {
     playerName,
     isCorrect,
     correctAnswer: question.correctAnswer,
+    correctAnswerText: question.options[question.correctAnswer],
     hasWon,
     players: game.players,
     currentTurn: game.currentTurn,
     turnPlayer: game.turnPlayer,
-    needsRoll: game.needsRoll
+    needsRoll: game.needsRoll,
+    questionId: question.id
   });
   
   res.json({ 

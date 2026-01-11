@@ -112,12 +112,25 @@ function App() {
         ...prev,
         players: data.players,
         currentTurn: data.currentTurn,
-        turnPlayer: data.turnPlayer
+        turnPlayer: data.turnPlayer,
+        needsRoll: data.needsRoll
+      }));
+      
+      // Emitir evento para que GameBoard muestre el resultado a todos
+      window.dispatchEvent(new CustomEvent('answerSubmitted', { 
+        detail: { 
+          playerName: data.playerName,
+          isCorrect: data.isCorrect, 
+          correctAnswer: data.correctAnswer,
+          correctAnswerText: data.correctAnswerText,
+          hasWon: data.hasWon,
+          questionId: data.questionId
+        } 
       }));
       
       const message = data.isCorrect 
         ? `${data.playerName} respondió correctamente`
-        : `${data.playerName} respondió incorrectamente. La respuesta correcta era: ${data.correctAnswer}`;
+        : `${data.playerName} respondió incorrectamente. La respuesta correcta era: ${data.correctAnswerText}`;
       
       announce(message);
 
@@ -140,11 +153,22 @@ function App() {
       announce(`Es el turno de ${data.turnPlayer}`);
     });
 
+    socket.on('questionAsked', (data) => {
+      // Emitir evento personalizado para que GameBoard lo capture
+      window.dispatchEvent(new CustomEvent('questionAsked', { 
+        detail: { 
+          question: data.question, 
+          playerAsking: data.playerAsking 
+        } 
+      }));
+    });
+
     return () => {
       socket.off('playerJoined');
       socket.off('gameStarted');
       socket.off('answerSubmitted');
       socket.off('turnChanged');
+      socket.off('questionAsked');
     };
   }, []);
 

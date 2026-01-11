@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 // Detectar automáticamente la URL del backend
@@ -40,6 +40,52 @@ function GameBoard({ gameData, playerName, announce, setGameData }) {
   const currentPlayer = gameData.players.find(p => p.name === playerName);
   const isMyTurn = gameData.turnPlayer === playerName;
   const isDigitalMode = gameData.mode === 'digital';
+
+  // Escuchar preguntas de otros jugadores
+  useEffect(() => {
+    const handleQuestionAsked = (event) => {
+      const { question, playerAsking } = event.detail;
+      if (playerAsking !== playerName) {
+        setCurrentQuestion(question);
+        setSelectedAnswer(null);
+        setShowResult(false);
+        announce(`${playerAsking} está respondiendo una pregunta de ${question.category}`);
+      }
+    };
+
+    const handleAnswerSubmitted = (event) => {
+      const { playerName: answerer, isCorrect, correctAnswer, correctAnswerText, hasWon, questionId } = event.detail;
+      
+      // Solo actualizar si la pregunta coincide
+      if (currentQuestion && currentQuestion.id === questionId) {
+        setResult({
+          isCorrect,
+          correctAnswer,
+          hasWon,
+          player: answerer
+        });
+        setShowResult(true);
+        
+        // Si no es mi turno, solo mostrar resultado brevemente y volver
+        if (answerer !== playerName) {
+          setTimeout(() => {
+            setCurrentQuestion(null);
+            setShowResult(false);
+            setDiceResult(null);
+            setSelectedCategory(null);
+          }, 5000); // 5 segundos para leer el resultado
+        }
+      }
+    };
+
+    window.addEventListener('questionAsked', handleQuestionAsked);
+    window.addEventListener('answerSubmitted', handleAnswerSubmitted);
+    
+    return () => {
+      window.removeEventListener('questionAsked', handleQuestionAsked);
+      window.removeEventListener('answerSubmitted', handleAnswerSubmitted);
+    };
+  }, [playerName, announce, currentQuestion]);
 
   // Función para tirar el dado (modo digital)
   const rollDice = async () => {
@@ -505,13 +551,19 @@ function GameBoard({ gameData, playerName, announce, setGameData }) {
   // Vista de pregunta (visible para todos como en el Trivial físico)
   return (
     <div className="game-container">
-      <h1>Pregunta</h1>
+      <h1>Pregunta en Juego</h1>
 
-      {!isMyTurn && !showResult && (
-        <div className="alert alert-info" style={{ marginBottom: '1rem' }}>
-          👁️ Es el turno de <strong>{gameData.turnPlayer}</strong>. Puedes ver la pregunta pero no responder.
-        </div>
-      )}
+      {/* Indicador de turno siempre visible */}
+      <div 
+        className={`alert ${isMyTurn ? 'alert-success' : 'alert-info'}`} 
+        style={{ marginBottom: '1rem', fontSize: '1.1rem', fontWeight: 'bold' }}
+      >
+        {isMyTurn ? (
+          <div>🎯 Es tu turno - Responde la pregunta</div>
+        ) : (
+          <div>👁️ Es el turno de <strong>{gameData.turnPlayer}</strong> - Solo puedes observar</div>
+        )}
+      </div>
 
       <div className="card">
         <div style={{ 

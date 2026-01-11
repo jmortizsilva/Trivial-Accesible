@@ -1,10 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function Home({ onCreateGame, onJoinGame, announce }) {
   const [action, setAction] = useState(null); // 'create' o 'join'
   const [playerName, setPlayerName] = useState('');
   const [gameCode, setGameCode] = useState('');
   const [gameMode, setGameMode] = useState('board'); // 'board' o 'digital'
+
+  // Detectar si hay un código en la URL (?join=CODIGO)
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const joinCode = urlParams.get('join');
+    if (joinCode) {
+      setGameCode(joinCode.toUpperCase());
+      setAction('join');
+      announce(`Enlace detectado. Únete a la partida ${joinCode}`);
+    }
+  }, [announce]);
 
   const handleCreateGame = (e) => {
     e.preventDefault();
@@ -181,10 +192,9 @@ function Home({ onCreateGame, onJoinGame, announce }) {
                 type="text"
                 value={gameCode}
                 onChange={(e) => setGameCode(e.target.value.toUpperCase())}
-                placeholder="Ej: ABC123"
+                placeholder="Ej: DRAGON42"
                 required
                 aria-required="true"
-                maxLength={6}
                 style={{ textTransform: 'uppercase' }}
               />
             </div>
