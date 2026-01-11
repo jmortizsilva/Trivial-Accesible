@@ -1,3 +1,5 @@
+// Trivial Accesible - Backend API
+// Versión: 2.0 - Códigos memorables
 const express = require('express');
 const http = require('http');
 const socketIo = require('socket.io');
