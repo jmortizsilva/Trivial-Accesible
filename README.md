@@ -2,7 +2,7 @@
 
 Juego de Trivial Pursuit completamente accesible para personas con ceguera y deficiencia visual grave. Implementa las reglas oficiales del Trivial Pursuit con soporte completo para lectores de pantalla.
 
-## ✨ Características
+## 🌟 Características Principales
 
 - 🦯 **100% Accesible**: Diseñado específicamente para usuarios de lectores de pantalla (NVDA, JAWS, Narrator, VoiceOver)
 - 🎲 **Dos modos de juego**:
@@ -15,35 +15,46 @@ Juego de Trivial Pursuit completamente accesible para personas con ceguera y def
 - 🔊 **Anuncios automáticos** de todos los eventos importantes
 - 👁️ **Otros jugadores ven las preguntas** como en el Trivial real
 - 📊 **Marcador colapsable** para consultar cuando quieras
-- 📖 **Instrucciones en <details>** para no saturar la interfaz
 
-## 🎮 Categorías
-
-1. 🌍 **Geografía** (azul)
-2. 📜 **Historia** (amarillo)
-3. 🔬 **Ciencia** (verde)
-4. 🎨 **Arte** (morado)
-5. ⚽ **Deportes** (naranja)
-6. 🎬 **Entretenimiento** (rosa)
-
-## 🚀 Instalación Local
-
-### Requisitos Previos
-
-- Node.js 14 o superior
-- npm o yarn
+## 🛠️ Tecnologías
 
 ### Backend
+- Node.js + Express
+- Socket.IO para tiempo real
+- CORS configurado
+
+### Frontend
+- React 18
+- Socket.IO Client
+- Axios
+- CSS modular con enfoque en accesibilidad
+
+## 🎮 Categorías de Preguntas
+
+1. 🌍 **Geografía** (Azul)
+2. 📜 **Historia** (Amarillo)
+3. 🔬 **Ciencia** (Verde)
+4. 🎨 **Arte y Literatura** (Morado)
+5. ⚽ **Deportes** (Naranja)
+6. 🎬 **Entretenimiento** (Rosa)
+
+## 🚀 Instalación y Uso Local
+
+### Requisitos Previos
+- Node.js 14 o superior
+- npm (incluido con Node.js)
+
+### 1. Instalar Backend
 
 ```bash
 cd backend
 npm install
-node server.js
+npm start
 ```
 
-El servidor se iniciará en `http://localhost:3001`
+El servidor arrancará en `http://localhost:3001`
 
-### Frontend
+### 2. Instalar Frontend
 
 ```bash
 cd frontend
@@ -51,80 +62,121 @@ npm install
 npm start
 ```
 
-La aplicación se abrirá en `http://localhost:3000`
+La aplicación se abrirá automáticamente en `http://localhost:3000`
 
-## 🌐 Despliegue en Producción
-
-Ver **[DEPLOY.md](DEPLOY.md)** para guía completa paso a paso.
-
-### Opción Recomendada: Render.com (Gratis)
-
-**Ventajas:**
-- ✅ Completamente gratuito
-- ✅ Despliegue automático desde GitHub
-- ✅ HTTPS incluido
-- ✅ Soporte para WebSockets (Socket.IO)
-- ✅ Sin tarjeta de crédito requerida
-
-**Resumen de pasos:**
-
-1. Sube tu código a GitHub
-2. Crea cuenta en [Render.com](https://render.com)
-3. Despliega backend: Web Service con `node server.js`
-4. Despliega frontend: Static Site con `npm run build`
-5. Configura variable `REACT_APP_API_URL` en frontend
-
-Ver guía detallada en [DEPLOY.md](DEPLOY.md)
-
-### Otras Opciones
-
-- **Railway**: $5/mes, muy fácil
-- **Fly.io**: Gratis, muy rápido
-- **Netlify + Render**: Frontend en Netlify, backend en Render
-
-## 🎯 Reglas del Juego
+## 🎯 Cómo Jugar
 
 ### Modo Tablero Físico
 
-1. Usa tu tablero, dado y fichas reales
-2. Tira el dado y mueve tu ficha
-3. En la app, selecciona la categoría según donde caíste
+1. Configura tu tablero, dado y fichas reales
+2. Tira el dado y mueve tu ficha físicamente
+3. En la aplicación, selecciona la categoría según tu casilla
 4. Responde la pregunta
-5. Si aciertas: continúa jugando
-6. Si fallas: pasa el turno automáticamente
+5. Si aciertas → continúa jugando
+6. Si fallas → pasa turno automáticamente
 
 ### Modo Digital
 
-1. Haz clic en "🎲 Tirar Dado"
-2. **Elige dirección** (horario/antihorario): El sistema te informa dónde caerás con cada opción y **si hay quesitos disponibles**
-3. Responde la pregunta de la categoría asignada
-4. Si aciertas en casilla de quesito (posiciones 6, 12, 18, 24, 30, 36): ¡ganas el quesito!
-5. Completa los 6 quesitos para ganar
+1. Click en **"🎲 Tirar Dado"**
+2. **Elige dirección** (horario/antihorario)
+   - El sistema indica dónde caerás con cada opción
+   - Te avisa si hay quesitos disponibles
+3. Responde la pregunta
+4. Si aciertas en casilla de quesito → ¡ganas el quesito!
+5. Primer jugador en completar los 6 quesitos gana
 
-## ♿ Accesibilidad
+### Casillas de Quesito
+Posiciones: 6, 12, 18, 24, 30, 36
 
-### Para Usuarios Ciegos
+## ♿ Características de Accesibilidad
 
-- **Navegación completa por teclado**: Todo funciona con Tab + Enter
-- **Anuncios automáticos**: El lector de pantalla anuncia todos los eventos
-- **Información anticipada**: Antes de elegir dirección, sabes exactamente dónde caerás y si hay quesitos
-- **Etiquetas ARIA descriptivas**: Cada botón describe completamente su función
-- **Sin barreras visuales**: No hay CAPTCHAs ni elementos que requieran visión
-- **Otros jugadores ven preguntas**: Como en el Trivial físico, todos ven la pregunta aunque no sea su turno
+### Optimizado para Lectores de Pantalla
+
+- ✅ **Navegación completa por teclado**: Tab + Enter para todas las acciones
+- ✅ **Anuncios automáticos**: Notificaciones de todos los eventos del juego
+- ✅ **Información anticipada**: Conoce el destino y disponibilidad de quesitos antes de mover
+- ✅ **Etiquetas ARIA descriptivas**: Botones con descripciones completas
+- ✅ **Sin barreras visuales**: No requiere visión para jugar
+- ✅ **Modo espectador**: Otros jugadores ven las preguntas en pantalla
 
 ### Lectores de Pantalla Compatibles
 
-✅ NVDA (Windows)
-✅ JAWS (Windows)
-✅ Narrator (Windows)
-✅ VoiceOver (macOS/iOS)
-✅ TalkBack (Android)
-6. 🎬 **Entretenimiento** (Rosa) - Cine, TV, música pop
+- NVDA (Windows)
+- JAWS (Windows)
+- Narrator (Windows)
+- VoiceOver (macOS/iOS)
+- TalkBack (Android)
 
-## 📝 Atribuciones
+## 📁 Estructura del Proyecto
 
-Este proyecto utiliza preguntas de [OpenQuizzDB](https://www.openquizzdb.org/), una base de datos gratuita de preguntas de quiz bajo licencia [Creative Commons BY-SA 4.0](http://creativecommons.org/licenses/by-sa/4.0/).
+```
+trivial-accesible/
+├── backend/
+│   ├── server.js           # Servidor Express + Socket.IO
+│   ├── data/
+│   │   ├── questions.json  # Base de datos de preguntas
+│   │   └── openquizzdb/    # Preguntas originales de OpenQuizzDB
+│   └── utils/              # Utilidades de conversión
+│
+├── frontend/
+│   ├── public/
+│   │   └── index.html      # HTML base
+│   └── src/
+│       ├── App.js          # Componente principal
+│       ├── components/     # Componentes React
+│       └── index.css       # Estilos accesibles
+│
+├── README.md               # Este archivo
+└── DEPLOY.md              # Guía de despliegue
+```
 
-## Licencia
+## 🌐 Despliegue en Producción
 
-MIT
+Para desplegar esta aplicación en la nube de forma gratuita, consulta la [Guía de Despliegue](DEPLOY.md).
+
+### Opciones Recomendadas:
+
+1. **Render.com** (Gratis) - Recomendado
+   - WebSockets incluidos
+   - Despliegue automático desde GitHub
+   - HTTPS gratis
+
+2. **Railway** ($5/mes)
+   - Muy fácil de configurar
+   - Despliegue rápido
+
+3. **Fly.io** (Gratis)
+   - Muy rápido
+   - Mayor complejidad
+
+Ver [DEPLOY.md](DEPLOY.md) para instrucciones detalladas paso a paso.
+
+## 📝 Créditos y Licencia
+
+### Preguntas
+
+Las preguntas de este proyecto provienen de [OpenQuizzDB](https://www.openquizzdb.org/), una base de datos gratuita y abierta bajo licencia [Creative Commons BY-SA 4.0](http://creativecommons.org/licenses/by-sa/4.0/).
+
+Se han adaptado y traducido al español 1901 preguntas distribuidas en las 6 categorías del Trivial clásico.
+
+### Licencia del Proyecto
+
+MIT License - Libre para uso, modificación y distribución.
+
+## 🤝 Contribuciones
+
+Las contribuciones son bienvenidas. Por favor:
+
+1. Fork el proyecto
+2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
+3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
+4. Push a la rama (`git push origin feature/AmazingFeature`)
+5. Abre un Pull Request
+
+## 📧 Contacto
+
+Para reportar problemas o sugerir mejoras, abre un issue en el repositorio de GitHub.
+
+---
+
+Desarrollado con ♿ pensando en la accesibilidad universal

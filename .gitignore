@@ -37,25 +37,8 @@ Thumbs.db
 *.swp
 *.swo
 
-# Lock files (opcional, algunos prefieren subirlos)
-# package-lock.json
-# yarn.lock
+# Archivos temporales y backup
+*.backup.*
+*.bak
+*.tmp
 
-# Documentación temporal/antigua (mantener solo las principales)
-ALTERNATIVAS_EVALUADAS.md
-TURNOS_IMPLEMENTADOS.md
-MOBILE_ACCESS.md
-EMPEZAR_AQUI.md
-USER_GUIDE.md
-QUICKSTART.md
-INSTALL.md
-DESCARGA_OPENQUIZZDB.md
-OPENQUIZZDB.md
-OPENQUIZZDB_QUICKSTART.md
-FAQ.md
-ACCESSIBILITY.md
-
-# Scripts de instalación local (no necesarios en producción)
-install.bat
-setup-openquizzdb.bat
-start.bat
