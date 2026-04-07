@@ -14,14 +14,41 @@ const getBackendURL = () => {
 
 const API_URL = getBackendURL();
 
-const CATEGORIES = [
-  { name: 'Geografia', emoji: '🌍', color: '#3b82f6' },
-  { name: 'Historia', emoji: '📜', color: '#8b5cf6' },
-  { name: 'Ciencia', emoji: '🔬', color: '#10b981' },
-  { name: 'Arte', emoji: '🎨', color: '#f59e0b' },
-  { name: 'Deportes', emoji: '⚽', color: '#ef4444' },
-  { name: 'Entretenimiento', emoji: '🎬', color: '#ec4899' }
-];
+const DEFAULT_CATEGORIES = ['Geografia', 'Historia', 'Ciencia', 'Arte', 'Deportes', 'Entretenimiento'];
+
+const CATEGORY_STYLES = {
+  geografia: { emoji: '🌍', color: '#3b82f6' },
+  historia: { emoji: '📜', color: '#8b5cf6' },
+  ciencia: { emoji: '🔬', color: '#10b981' },
+  arte: { emoji: '🎨', color: '#f59e0b' },
+  deportes: { emoji: '⚽', color: '#ef4444' },
+  entretenimiento: { emoji: '🎬', color: '#ec4899' },
+  tecnologia: { emoji: '💻', color: '#06b6d4' },
+  'cultura general': { emoji: '🧠', color: '#f97316' }
+};
+
+const normalizeCategory = (value) => String(value || '')
+  .normalize('NFD')
+  .replace(/[\u0300-\u036f]/g, '')
+  .trim()
+  .toLowerCase();
+
+const getCategoryStyle = (categoryName, index) => {
+  const normalized = normalizeCategory(categoryName);
+  const style = CATEGORY_STYLES[normalized] || CATEGORY_STYLES[categoryName?.toLowerCase()];
+  if (style) {
+    return style;
+  }
+
+  const fallback = [
+    { emoji: '📚', color: '#6366f1' },
+    { emoji: '🧩', color: '#14b8a6' },
+    { emoji: '🎯', color: '#e11d48' },
+    { emoji: '🌟', color: '#d97706' }
+  ];
+
+  return fallback[index % fallback.length];
+};
 
 function GameBoard({ gameData, playerName, announce, setGameData }) {
   const [currentQuestion, setCurrentQuestion] = useState(null);
@@ -40,6 +67,10 @@ function GameBoard({ gameData, playerName, announce, setGameData }) {
   const currentPlayer = gameData.players.find(p => p.name === playerName);
   const isMyTurn = gameData.turnPlayer === playerName;
   const isDigitalMode = gameData.mode === 'digital';
+  const gameCategories = gameData.categories && gameData.categories.length > 0
+    ? gameData.categories
+    : DEFAULT_CATEGORIES;
+  const totalCategories = gameCategories.length;
 
   // Escuchar preguntas de otros jugadores
   useEffect(() => {
@@ -339,7 +370,7 @@ function GameBoard({ gameData, playerName, announce, setGameData }) {
                       {player.name === playerName && <span> (Tú)</span>}
                     </div>
                     <div className="player-score">
-                      {player.score} pts | {progressCount}/6 {isDigitalMode ? 'quesitos' : 'categorías'}
+                      {player.score} pts | {progressCount}/{totalCategories} {isDigitalMode ? 'quesitos' : 'categorías'}
                     </div>
                   </div>
                   {progressItems.length > 0 && (
@@ -485,7 +516,7 @@ function GameBoard({ gameData, playerName, announce, setGameData }) {
                 <li><strong>Elige la dirección:</strong> horario o antihorario (como en el Trivial real)</li>
                 <li>Cada 6 casillas hay un <strong>quesito</strong> disponible (posiciones 6, 12, 18, 24, 30, 36)</li>
                 <li>Responde correctamente en esas casillas especiales para ganar el quesito</li>
-                <li>Completa los 6 quesitos (uno por categoría) para ganar</li>
+                <li>Completa los {totalCategories} quesitos (uno por categoría) para ganar</li>
               </ul>
             </details>
           </div>
@@ -498,26 +529,27 @@ function GameBoard({ gameData, playerName, announce, setGameData }) {
             </p>
 
             <div className="categories-grid">
-            {CATEGORIES.map((category) => {
-              const hasCategory = currentPlayer.categories.includes(category.name);
+            {gameCategories.map((categoryName, index) => {
+              const hasCategory = currentPlayer.categories.includes(categoryName);
+              const categoryStyle = getCategoryStyle(categoryName, index);
               
               return (
                 <button
-                  key={category.name}
+                  key={categoryName}
                   className="category-button"
-                  onClick={() => getQuestion(category.name)}
+                  onClick={() => getQuestion(categoryName)}
                   disabled={loading || !isMyTurn}
                   style={{ 
                     background: hasCategory 
                       ? '#10b981' 
-                      : `linear-gradient(135deg, ${category.color}, ${category.color}dd)`
+                      : `linear-gradient(135deg, ${categoryStyle.color}, ${categoryStyle.color}dd)`
                   }}
-                  aria-label={`${category.name}${hasCategory ? ', completada' : ''}${!isMyTurn ? ', no es tu turno' : ''}`}
+                  aria-label={`${categoryName}${hasCategory ? ', completada' : ''}${!isMyTurn ? ', no es tu turno' : ''}`}
                 >
                   <div style={{ fontSize: '2rem', marginBottom: '8px', opacity: isMyTurn ? 1 : 0.5 }}>
-                    {category.emoji}
+                    {categoryStyle.emoji}
                   </div>
-                  <div>{category.name}</div>
+                  <div>{categoryName}</div>
                   {hasCategory && <div style={{ fontSize: '0.9rem', marginTop: '4px' }}>✓ Completada</div>}
                   {!isMyTurn && <div style={{ fontSize: '0.8rem', marginTop: '4px', opacity: 0.7 }}>Esperando turno...</div>}
                 </button>
