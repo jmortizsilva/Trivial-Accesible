@@ -5,6 +5,8 @@ const http = require('http');
 const socketIo = require('socket.io');
 const cors = require('cors');
 const { v4: uuidv4 } = require('uuid');
+const fs = require('fs');
+const path = require('path');
 
 const app = express();
 const server = http.createServer(app);
@@ -61,14 +63,90 @@ app.get('/api/status', (req, res) => {
 // Almacenamiento en memoria (migrar a DB en producción)
 const games = new Map();
 
-// Cargar preguntas (pueden ser de OpenQuizzDB o locales)
-let questions = [];
-try {
-  questions = require('./data/questions.json');
-  console.log(`✅ Cargadas ${questions.length} preguntas`);
-} catch (error) {
-  console.error('❌ Error cargando preguntas:', error.message);
-  console.log('💡 Usa el script convert-openquizzdb.js para generar questions.json');
+function normalizeText(value) {
+  return String(value || '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .trim()
+    .toLowerCase();
+}
+
+function adaptQuestion(rawQuestion) {
+  if (rawQuestion && rawQuestion.category && rawQuestion.question && Array.isArray(rawQuestion.options)) {
+    return rawQuestion;
+  }
+
+  if (!rawQuestion || !rawQuestion.categoria || !rawQuestion.pregunta || !Array.isArray(rawQuestion.opciones)) {
+    return null;
+  }
+
+  const options = rawQuestion.opciones;
+  const normalizedCorrect = normalizeText(rawQuestion.respuesta_correcta);
+  const correctAnswer = options.findIndex((option) => normalizeText(option) === normalizedCorrect);
+
+  if (correctAnswer < 0) {
+    return null;
+  }
+
+  const difficultyMap = {
+    facil: 'easy',
+    media: 'medium',
+    dificil: 'hard',
+    experto: 'expert'
+  };
+
+  return {
+    id: rawQuestion.id,
+    category: rawQuestion.categoria,
+    question: rawQuestion.pregunta,
+    options,
+    correctAnswer,
+    difficulty: difficultyMap[normalizeText(rawQuestion.dificultad)] || 'medium',
+    source: 'Preguntas Trivial Accesible 300',
+    author: rawQuestion.autor || 'Dataset local'
+  };
+}
+
+function loadQuestions() {
+  const candidates = [
+    path.join(__dirname, 'data', 'preguntas_trivial_accesible_300.json'),
+    path.join(__dirname, 'data', 'questions.json')
+  ];
+
+  for (const filePath of candidates) {
+    if (!fs.existsSync(filePath)) {
+      continue;
+    }
+
+    try {
+      const rawData = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+      const adapted = rawData.map(adaptQuestion).filter(Boolean);
+
+      if (adapted.length === 0) {
+        console.warn(`⚠️ ${path.basename(filePath)} no contiene preguntas válidas`);
+        continue;
+      }
+
+      console.log(`✅ Cargadas ${adapted.length} preguntas desde ${path.basename(filePath)}`);
+      return adapted;
+    } catch (error) {
+      console.error(`❌ Error leyendo ${path.basename(filePath)}:`, error.message);
+    }
+  }
+
+  return [];
+}
+
+// Cargar preguntas (dataset accesible prioritario con fallback)
+const questions = loadQuestions();
+const GAME_CATEGORIES = [...new Set(questions.map((q) => q.category))];
+const DIGITAL_BOARD_SIZE = 42;
+const DIGITAL_BOARD_SEGMENTS = 6;
+const DIGITAL_CATEGORY_SPAN = DIGITAL_BOARD_SIZE / DIGITAL_BOARD_SEGMENTS;
+const DIGITAL_WEDGE_INTERVAL = 6;
+
+if (GAME_CATEGORIES.length === 0) {
+  console.error('❌ No hay categorías disponibles. Revisa los archivos de preguntas.');
 }
 
 // Lista de palabras para códigos de partida
@@ -94,6 +172,22 @@ function generateGameCode() {
 // Crear nueva partida
 app.post('/api/games/create', (req, res) => {
   const { hostName, gameMode } = req.body;
+
+  if (questions.length === 0 || GAME_CATEGORIES.length === 0) {
+    return res.status(500).json({
+      success: false,
+      message: 'No hay preguntas o categorias disponibles para crear partidas.'
+    });
+  }
+
+  // El modo digital usa un tablero fijo de 42 casillas dividido en 6 segmentos.
+  if (gameMode === 'digital' && GAME_CATEGORIES.length !== DIGITAL_BOARD_SEGMENTS) {
+    return res.status(500).json({
+      success: false,
+      message: `El modo digital requiere exactamente ${DIGITAL_BOARD_SEGMENTS} categorias. Disponibles: ${GAME_CATEGORIES.length}.`
+    });
+  }
+
   const gameCode = generateGameCode();
   
   const game = {
@@ -111,6 +205,7 @@ app.post('/api/games/create', (req, res) => {
       wedges: [] // Quesitos ganados (modo digital)
     }],
     usedQuestions: [],
+    categories: [...GAME_CATEGORIES],
     currentQuestion: null,
     currentTurn: 0, // Índice del jugador actual
     turnPlayer: hostName, // Nombre del jugador actual
@@ -260,10 +355,17 @@ app.post('/api/games/:gameCode/answer', (req, res) => {
       message: `No es tu turno. Es el turno de ${game.turnPlayer}` 
     });
   }
+
+  if (String(game.currentQuestion.id) !== String(questionId)) {
+    return res.status(400).json({
+      success: false,
+      message: 'La respuesta no corresponde a la pregunta actual.'
+    });
+  }
   
-  const question = questions.find(q => q.id === questionId);
+  const question = game.currentQuestion;
   const isCorrect = answer === question.correctAnswer;
-  const allCategories = ['Geografia', 'Historia', 'Ciencia', 'Arte', 'Deportes', 'Entretenimiento'];
+  const allCategories = game.categories || GAME_CATEGORIES;
   const player = game.players.find(p => p.name === playerName);
   
   if (isCorrect) {
@@ -273,7 +375,7 @@ app.post('/api/games/:gameCode/answer', (req, res) => {
       // En modo digital, verificar si está en casilla de quesito
       let wonWedge = false;
       if (game.mode === 'digital') {
-        const isWedgeSpace = player.position % 6 === 0 && player.position !== 0;
+        const isWedgeSpace = player.position % DIGITAL_WEDGE_INTERVAL === 0 && player.position !== 0;
         if (isWedgeSpace && !player.wedges.includes(question.category)) {
           player.wedges.push(question.category);
           wonWedge = true;
@@ -421,18 +523,35 @@ app.post('/api/games/:gameCode/rollDice', (req, res) => {
   
   // Calcular las posiciones posibles con cada dirección
   const oldPosition = player.position;
-  const categories = ['Geografia', 'Historia', 'Ciencia', 'Arte', 'Deportes', 'Entretenimiento'];
+  const categories = Array.isArray(game.categories) && game.categories.length > 0
+    ? game.categories
+    : GAME_CATEGORIES;
+
+  if (categories.length === 0) {
+    return res.status(500).json({
+      success: false,
+      message: 'No hay categorias disponibles para calcular el movimiento.'
+    });
+  }
+
+  if (game.mode === 'digital' && categories.length !== DIGITAL_BOARD_SEGMENTS) {
+    return res.status(500).json({
+      success: false,
+      message: `La partida digital requiere ${DIGITAL_BOARD_SEGMENTS} categorias. Recibidas: ${categories.length}.`
+    });
+  }
+  const categoryCount = categories.length;
   
-  const clockwisePosition = (oldPosition + diceResult) % 42;
-  const counterclockwisePosition = (oldPosition - diceResult + 42) % 42;
+  const clockwisePosition = (oldPosition + diceResult) % DIGITAL_BOARD_SIZE;
+  const counterclockwisePosition = (oldPosition - diceResult + DIGITAL_BOARD_SIZE) % DIGITAL_BOARD_SIZE;
   
   // Verificar si son casillas de quesito
-  const clockwiseIsWedge = clockwisePosition % 6 === 0 && clockwisePosition !== 0;
-  const counterclockwiseIsWedge = counterclockwisePosition % 6 === 0 && counterclockwisePosition !== 0;
+  const clockwiseIsWedge = clockwisePosition % DIGITAL_WEDGE_INTERVAL === 0 && clockwisePosition !== 0;
+  const counterclockwiseIsWedge = counterclockwisePosition % DIGITAL_WEDGE_INTERVAL === 0 && counterclockwisePosition !== 0;
   
   // Obtener categorías
-  const clockwiseCategory = categories[Math.floor(clockwisePosition / 7) % 6];
-  const counterclockwiseCategory = categories[Math.floor(counterclockwisePosition / 7) % 6];
+  const clockwiseCategory = categories[Math.floor(clockwisePosition / DIGITAL_CATEGORY_SPAN) % categoryCount];
+  const counterclockwiseCategory = categories[Math.floor(counterclockwisePosition / DIGITAL_CATEGORY_SPAN) % categoryCount];
   
   const directionOptions = {
     clockwise: {
@@ -477,6 +596,10 @@ app.post('/api/games/:gameCode/chooseDirection', (req, res) => {
     return res.status(400).json({ success: false, message: 'No hay movimiento pendiente' });
   }
   
+  if (direction !== 'clockwise' && direction !== 'counterclockwise') {
+    return res.status(400).json({ success: false, message: 'Direccion no valida' });
+  }
+
   const diceResult = player.pendingMove;
   const oldPosition = player.position;
   
@@ -485,19 +608,36 @@ app.post('/api/games/:gameCode/chooseDirection', (req, res) => {
   let newPosition;
   if (direction === 'clockwise') {
     // Sentido horario en el anillo exterior
-    newPosition = (oldPosition + diceResult) % 42;
+    newPosition = (oldPosition + diceResult) % DIGITAL_BOARD_SIZE;
   } else if (direction === 'counterclockwise') {
     // Sentido antihorario en el anillo exterior
-    newPosition = (oldPosition - diceResult + 42) % 42;
+    newPosition = (oldPosition - diceResult + DIGITAL_BOARD_SIZE) % DIGITAL_BOARD_SIZE;
   }
   
   // Determinar categoría según posición
-  const categories = ['Geografia', 'Historia', 'Ciencia', 'Arte', 'Deportes', 'Entretenimiento'];
-  const categoryIndex = Math.floor(newPosition / 7);
-  const category = categories[categoryIndex % 6];
+  const categories = Array.isArray(game.categories) && game.categories.length > 0
+    ? game.categories
+    : GAME_CATEGORIES;
+  if (categories.length === 0) {
+    return res.status(500).json({
+      success: false,
+      message: 'No hay categorias disponibles para determinar la casilla.'
+    });
+  }
+
+  if (game.mode === 'digital' && categories.length !== DIGITAL_BOARD_SEGMENTS) {
+    return res.status(500).json({
+      success: false,
+      message: `La partida digital requiere ${DIGITAL_BOARD_SEGMENTS} categorias. Recibidas: ${categories.length}.`
+    });
+  }
+
+  const categoryCount = categories.length;
+  const categoryIndex = Math.floor(newPosition / DIGITAL_CATEGORY_SPAN);
+  const category = categories[categoryIndex % categoryCount];
   
   // Verificar si es casilla de quesito (cada 6 casillas)
-  const isWedgeSpace = newPosition % 6 === 0 && newPosition !== 0;
+  const isWedgeSpace = newPosition % DIGITAL_WEDGE_INTERVAL === 0 && newPosition !== 0;
   
   // Actualizar posición
   player.position = newPosition;
