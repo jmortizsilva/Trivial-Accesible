@@ -14,7 +14,9 @@ const getBackendURL = () => {
 
 const API_URL = getBackendURL();
 
-const DEFAULT_CATEGORIES = ['Geografia', 'Historia', 'Ciencia', 'Arte', 'Deportes', 'Entretenimiento'];
+const DEFAULT_CATEGORIES = ['Geografía', 'Historia', 'Ciencia', 'Arte', 'Deportes', 'Entretenimiento'];
+const DIGITAL_BOARD_SIZE = 42;
+const DIGITAL_WEDGE_INTERVAL = 6;
 
 const CATEGORY_STYLES = {
   geografia: { emoji: '🌍', color: '#3b82f6' },
@@ -71,6 +73,10 @@ function GameBoard({ gameData, playerName, announce, setGameData }) {
     ? gameData.categories
     : DEFAULT_CATEGORIES;
   const totalCategories = gameCategories.length;
+  const wedgePositionsLabel = Array.from(
+    { length: Math.floor((DIGITAL_BOARD_SIZE - 1) / DIGITAL_WEDGE_INTERVAL) },
+    (_, i) => (i + 1) * DIGITAL_WEDGE_INTERVAL
+  ).join(', ');
 
   // Escuchar preguntas de otros jugadores
   useEffect(() => {
@@ -380,7 +386,7 @@ function GameBoard({ gameData, playerName, announce, setGameData }) {
                   )}
                   {isDigitalMode && player.position !== undefined && (
                     <div style={{ marginTop: '4px', fontSize: '0.85rem', color: '#64748b' }}>
-                      📍 Posición: {player.position}/42
+                      📍 Posición: {player.position}/{DIGITAL_BOARD_SIZE}
                     </div>
                   )}
                 </li>
@@ -412,7 +418,7 @@ function GameBoard({ gameData, playerName, announce, setGameData }) {
                     <div style={{ fontSize: '1.1rem', fontWeight: 'bold', color: '#1e40af', marginBottom: '8px' }}>
                       Categoría: {selectedCategory}
                     </div>
-                    {currentPlayer.position % 6 === 0 && currentPlayer.position !== 0 && (
+                    {currentPlayer.position % DIGITAL_WEDGE_INTERVAL === 0 && currentPlayer.position !== 0 && (
                       <div style={{ fontSize: '1rem', color: '#059669', fontWeight: 'bold' }}>
                         🎯 ¡Casilla de Quesito!
                       </div>
@@ -514,7 +520,7 @@ function GameBoard({ gameData, playerName, announce, setGameData }) {
               <ul style={{ paddingLeft: '20px', marginTop: '12px' }}>
                 <li>Tira el dado (1-6) para determinar cuántas casillas moverte</li>
                 <li><strong>Elige la dirección:</strong> horario o antihorario (como en el Trivial real)</li>
-                <li>Cada 6 casillas hay un <strong>quesito</strong> disponible (posiciones 6, 12, 18, 24, 30, 36)</li>
+                <li>Cada {DIGITAL_WEDGE_INTERVAL} casillas hay un <strong>quesito</strong> disponible (posiciones {wedgePositionsLabel})</li>
                 <li>Responde correctamente en esas casillas especiales para ganar el quesito</li>
                 <li>Completa los {totalCategories} quesitos (uno por categoría) para ganar</li>
               </ul>
@@ -573,7 +579,7 @@ function GameBoard({ gameData, playerName, announce, setGameData }) {
           <ul style={{ marginTop: '0.5rem', marginBottom: 0, paddingLeft: '1.5rem' }}>
             <li>✅ <strong>Si aciertas:</strong> Continúas jugando y puedes responder otra pregunta</li>
             <li>❌ <strong>Si fallas:</strong> Tu turno termina automáticamente y pasa al siguiente jugador</li>
-            <li>🎯 <strong>Objetivo:</strong> Conseguir las 6 categorías (una de cada color)</li>
+            <li>🎯 <strong>Objetivo:</strong> Conseguir las {totalCategories} categorías (una de cada color)</li>
           </ul>
         </details>
       </div>
