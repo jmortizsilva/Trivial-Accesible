@@ -65,12 +65,12 @@ function GameLobby({ gameData, playerName, onStartGame, announce }) {
         >
           {copiedLink ? (
             <>
-              <span>✓</span>
+              <span aria-hidden="true">✓</span>
               <span>Enlace Copiado</span>
             </>
           ) : (
             <>
-              <span>🔗</span>
+              <span aria-hidden="true">🔗</span>
               <span>Copiar Enlace para Compartir</span>
             </>
           )}
@@ -89,8 +89,8 @@ function GameLobby({ gameData, playerName, onStartGame, announce }) {
         <h2>Modo de Juego</h2>
         <div className="alert alert-info">
           {gameData.mode === 'board' 
-            ? '🎲 Con tablero físico' 
-            : '📱 Solo digital'
+            ? <><span aria-hidden="true">🎲 </span>Con tablero físico</>
+            : <><span aria-hidden="true">📱 </span>Solo digital</>
           }
         </div>
       </div>

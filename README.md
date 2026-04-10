@@ -114,9 +114,8 @@ trivial-accesible/
 ├── backend/
 │   ├── server.js           # Servidor Express + Socket.IO
 │   ├── data/
-│   │   ├── questions.json  # Base de datos de preguntas
-│   │   └── openquizzdb/    # Preguntas originales de OpenQuizzDB
-│   └── utils/              # Utilidades de conversión
+│   │   └── questions.json  # Base de datos de preguntas
+│   └── utils/              # Utilidades internas del proyecto
 │
 ├── frontend/
 │   ├── public/
@@ -155,9 +154,9 @@ Ver [DEPLOY.md](DEPLOY.md) para instrucciones detalladas paso a paso.
 
 ### Preguntas
 
-Las preguntas de este proyecto provienen de [OpenQuizzDB](https://www.openquizzdb.org/), una base de datos gratuita y abierta bajo licencia [Creative Commons BY-SA 4.0](http://creativecommons.org/licenses/by-sa/4.0/).
+Las preguntas de este proyecto se gestionan desde el dataset local incluido en el repositorio.
 
-Se han adaptado y traducido al español 1901 preguntas distribuidas en las 6 categorías del Trivial clásico.
+Se han adaptado al formato del juego para las 6 categorías del Trivial clásico.
 
 ### Licencia del Proyecto
 

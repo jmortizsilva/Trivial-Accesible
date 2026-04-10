@@ -342,7 +342,7 @@ function GameBoard({ gameData, playerName, announce, setGameData }) {
             </div>
           ) : (
             <div style={{ fontSize: '1.1rem' }}>
-              ⏳ Es el turno de <strong>{gameData.turnPlayer}</strong>. Espera tu turno...
+              <span aria-hidden="true">⏳ </span>Es el turno de <strong>{gameData.turnPlayer}</strong>. Espera tu turno...
             </div>
           )}
         </div>
@@ -363,7 +363,7 @@ function GameBoard({ gameData, playerName, announce, setGameData }) {
             }}
             aria-label={showScoreboard ? 'Ocultar marcador' : 'Mostrar marcador'}
           >
-            {showScoreboard ? '▼ Ocultar Marcador' : '▶ Ver Marcador'}
+            {showScoreboard ? (<><span aria-hidden="true">▼ </span>Ocultar Marcador</>) : (<><span aria-hidden="true">▶ </span>Ver Marcador</>)}
           </button>
         </div>
 
@@ -466,7 +466,7 @@ function GameBoard({ gameData, playerName, announce, setGameData }) {
                     }}
                     aria-label={`Mover en sentido horario a posición ${directionOptions.clockwise.position}, categoría ${directionOptions.clockwise.category}${directionOptions.clockwise.isWedgeSpace ? ', casilla de quesito disponible' : ''}`}
                   >
-                    <div>➡️ <strong>Sentido Horario</strong></div>
+                    <div><span aria-hidden="true">➡️ </span><strong>Sentido Horario</strong></div>
                     <div style={{ fontSize: '0.85rem', marginTop: '6px' }}>
                       Pos. {directionOptions.clockwise.position} - {directionOptions.clockwise.category}
                     </div>
@@ -489,7 +489,7 @@ function GameBoard({ gameData, playerName, announce, setGameData }) {
                     }}
                     aria-label={`Mover en sentido antihorario a posición ${directionOptions.counterclockwise.position}, categoría ${directionOptions.counterclockwise.category}${directionOptions.counterclockwise.isWedgeSpace ? ', casilla de quesito disponible' : ''}`}
                   >
-                    <div>⬅️ <strong>Sentido Antihorario</strong></div>
+                    <div><span aria-hidden="true">⬅️ </span><strong>Sentido Antihorario</strong></div>
                     <div style={{ fontSize: '0.85rem', marginTop: '6px' }}>
                       Pos. {directionOptions.counterclockwise.position} - {directionOptions.counterclockwise.category}
                     </div>
@@ -502,7 +502,7 @@ function GameBoard({ gameData, playerName, announce, setGameData }) {
                 </div>
                 <p style={{ marginTop: '12px', fontSize: '0.9rem', color: '#64748b', textAlign: 'center' }}>
                   {directionOptions.clockwise.isWedgeSpace || directionOptions.counterclockwise.isWedgeSpace 
-                    ? '⭐ Hay casillas de quesito disponibles. Los botones con borde dorado tienen quesito.' 
+                    ? (<><span aria-hidden="true">⭐ </span>Hay casillas de quesito disponibles. Los botones con borde dorado tienen quesito.</>)
                     : 'Según las reglas oficiales del Trivial Pursuit, puedes elegir la dirección de tu movimiento'}
                 </p>
               </div>
@@ -533,7 +533,7 @@ function GameBoard({ gameData, playerName, announce, setGameData }) {
             
             <details style={{ marginTop: '20px', fontSize: '0.9rem', color: '#64748b' }}>
               <summary style={{ cursor: 'pointer', fontWeight: 'bold', padding: '8px', background: '#f1f5f9', borderRadius: '6px' }}>
-                <span aria-hidden="true">💡 </span>Cómo funciona el modo digital (haz clic para ver instrucciones)
+                <span aria-hidden="true">💡 </span>Cómo funciona el modo digital (pulsa para ver instrucciones)
               </summary>
               <ul style={{ paddingLeft: '20px', marginTop: '12px' }}>
                 <li>Tira el dado (1-6) para determinar cuántas casillas moverte</li>
@@ -584,11 +584,11 @@ function GameBoard({ gameData, playerName, announce, setGameData }) {
                   }}
                   aria-label={`${categoryName}${hasCategory ? ', completada' : ''}${!isMyTurn ? ', no es tu turno' : ''}`}
                 >
-                  <div style={{ fontSize: '2rem', marginBottom: '8px', opacity: isMyTurn ? 1 : 0.5 }}>
+                  <div style={{ fontSize: '2rem', marginBottom: '8px', opacity: isMyTurn ? 1 : 0.5 }} aria-hidden="true">
                     {categoryStyle.emoji}
                   </div>
                   <div>{categoryName}</div>
-                  {hasCategory && <div style={{ fontSize: '0.9rem', marginTop: '4px' }}>✓ Completada</div>}
+                  {hasCategory && <div style={{ fontSize: '0.9rem', marginTop: '4px' }}><span aria-hidden="true">✓ </span>Completada</div>}
                   {!isMyTurn && <div style={{ fontSize: '0.8rem', marginTop: '4px', opacity: 0.7 }}>Esperando turno...</div>}
                 </button>
               );
@@ -606,11 +606,11 @@ function GameBoard({ gameData, playerName, announce, setGameData }) {
         {/* Reglas del Trivial */}
         <details className="alert alert-info" style={{ marginTop: '1rem', fontSize: '0.9rem' }}>
           <summary style={{ cursor: 'pointer', fontWeight: 'bold', listStyle: 'none' }}>
-            <span aria-hidden="true">📋 </span>Reglas del Trivial Pursuit (haz clic para ver)
+            <span aria-hidden="true">📋 </span>Reglas del Trivial Pursuit (pulsa para ver)
           </summary>
           <ul style={{ marginTop: '0.5rem', marginBottom: 0, paddingLeft: '1.5rem' }}>
-            <li>✅ <strong>Si aciertas:</strong> Continúas jugando y puedes responder otra pregunta</li>
-            <li>❌ <strong>Si fallas:</strong> Tu turno termina automáticamente y pasa al siguiente jugador</li>
+            <li><span aria-hidden="true">✅ </span><strong>Si aciertas:</strong> Continúas jugando y puedes responder otra pregunta</li>
+            <li><span aria-hidden="true">❌ </span><strong>Si fallas:</strong> Tu turno termina automáticamente y pasa al siguiente jugador</li>
             <li><span aria-hidden="true">🎯 </span><strong>Objetivo:</strong> Conseguir las {totalCategories} categorías (una de cada color)</li>
           </ul>
         </details>
@@ -631,7 +631,7 @@ function GameBoard({ gameData, playerName, announce, setGameData }) {
         {isMyTurn ? (
           <div><span aria-hidden="true">🎯 </span>Es tu turno - Responde la pregunta</div>
         ) : (
-          <div>👁️ Es el turno de <strong>{gameData.turnPlayer}</strong> - Solo puedes observar</div>
+          <div><span aria-hidden="true">👁️ </span>Es el turno de <strong>{gameData.turnPlayer}</strong> - Solo puedes observar</div>
         )}
       </div>
 
@@ -701,57 +701,7 @@ function GameBoard({ gameData, playerName, announce, setGameData }) {
               )}
               {result.isCorrect && result.hasWon && (
                 <div style={{ marginTop: '12px', fontSize: '1.2rem' }}>
-                  🎉 ¡Has ganado la partida!
-                </div>
-              )}
-              
-              {/* Mostrar anécdota si existe (OpenQuizzDB) */}
-              {currentQuestion.anecdote && (
-                <div style={{ 
-                  marginTop: '12px', 
-                  padding: '12px', 
-                  background: '#f0f9ff',
-                  borderLeft: '4px solid #0ea5e9',
-                  borderRadius: '4px'
-                }}>
-                  <div style={{ fontWeight: 'bold', marginBottom: '4px' }}><span aria-hidden="true">💡 </span>¿Sabías que...?</div>
-                  <div style={{ fontSize: '0.95rem' }}>{currentQuestion.anecdote}</div>
-                </div>
-              )}
-              
-              {/* Enlace a Wikipedia si existe (OpenQuizzDB) */}
-              {currentQuestion.wikipedia && (
-                <div style={{ marginTop: '12px' }}>
-                  <a 
-                    href={currentQuestion.wikipedia}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{ 
-                      color: '#0ea5e9',
-                      textDecoration: 'underline'
-                    }}
-                    aria-label="Más información en Wikipedia (se abre en nueva pestaña)"
-                  >
-                    📚 Más información en Wikipedia →
-                  </a>
-                </div>
-              )}
-              
-              {/* Atribución OpenQuizzDB si la pregunta es de allí */}
-              {currentQuestion.source === 'OpenQuizzDB' && (
-                <div style={{ 
-                  marginTop: '12px', 
-                  fontSize: '0.85rem',
-                  color: '#64748b'
-                }}>
-                  Pregunta por <a 
-                    href="https://www.openquizzdb.org/" 
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{ color: '#64748b', textDecoration: 'underline' }}
-                  >
-                    OpenQuizzDB
-                  </a>
+                  <span aria-hidden="true">🎉 </span>¡Has ganado la partida!
                 </div>
               )}
             </div>

@@ -40,7 +40,7 @@ function Home({ onCreateGame, onJoinGame, announce }) {
       <header>
         <h1>Trivial Accesible</h1>
         <p style={{ fontSize: '1.2rem', marginBottom: '2rem' }}>
-          Juego de preguntas y respuestas accesible para todos
+          Juego de preguntas y respuestas
         </p>
       </header>
 
@@ -214,7 +214,6 @@ function Home({ onCreateGame, onJoinGame, announce }) {
       )}
 
       <footer style={{ marginTop: '3rem', textAlign: 'center', color: '#6b7280' }}>
-        <p>Diseñado para ser accesible con lectores de pantalla</p>
       </footer>
     </div>
   );
