@@ -91,13 +91,15 @@ function GameBoard({ gameData, playerName, announce, setGameData }) {
     };
 
     const handleAnswerSubmitted = (event) => {
-      const { playerName: answerer, isCorrect, correctAnswer, correctAnswerText, hasWon, questionId } = event.detail;
+      const { playerName: answerer, isCorrect, correctAnswer, correctAnswerText, wonWedge, wonWedgeCategory, hasWon, questionId } = event.detail;
       
       // Solo actualizar si la pregunta coincide
       if (currentQuestion && currentQuestion.id === questionId) {
         setResult({
           isCorrect,
           correctAnswer,
+          wonWedge,
+          wonWedgeCategory,
           hasWon,
           player: answerer
         });
@@ -283,8 +285,12 @@ function GameBoard({ gameData, playerName, announce, setGameData }) {
         const message = response.data.isCorrect
           ? `¡Correcto! La respuesta es: ${currentQuestion.options[response.data.correctAnswer]}`
           : `Incorrecto. La respuesta correcta es: ${currentQuestion.options[response.data.correctAnswer]}`;
-        
-        announce(message);
+
+        const wedgeMessage = response.data.wonWedge
+          ? ` Has conseguido un quesito de ${response.data.wonWedgeCategory}.`
+          : '';
+
+        announce(`${message}${wedgeMessage}`);
 
         if (response.data.hasWon) {
           setTimeout(() => {
@@ -310,7 +316,10 @@ function GameBoard({ gameData, playerName, announce, setGameData }) {
     setDirectionOptions(null);
     
     if (result && result.isCorrect) {
-      announce('¡Respuesta correcta! Continúas con tu turno. Selecciona otra categoría');
+      const nextStepMessage = isDigitalMode
+        ? '¡Respuesta correcta! Continúas con tu turno. Tira el dado.'
+        : '¡Respuesta correcta! Continúas con tu turno. Selecciona otra categoría.';
+      announce(nextStepMessage);
     } else {
       // Si fallas, el turno ya cambió automáticamente en el backend
       announce(`Respuesta incorrecta. Es el turno de ${gameData.turnPlayer}`);
@@ -327,7 +336,7 @@ function GameBoard({ gameData, playerName, announce, setGameData }) {
         <div className={`alert ${isMyTurn ? 'alert-success' : 'alert-info'}`} style={{ marginBottom: '1.5rem' }}>
           {isMyTurn ? (
             <div style={{ fontSize: '1.1rem' }}>
-              🎯 <strong>¡Es tu turno!</strong> {isDigitalMode && gameData.needsRoll !== false ? 'Tira el dado' : 'Selecciona una categoría'}
+              <span aria-hidden="true">🎯 </span><strong>¡Es tu turno!</strong> {isDigitalMode && gameData.needsRoll !== false ? 'Tira el dado' : 'Selecciona una categoría'}
             </div>
           ) : (
             <div style={{ fontSize: '1.1rem' }}>
@@ -386,7 +395,7 @@ function GameBoard({ gameData, playerName, announce, setGameData }) {
                   )}
                   {isDigitalMode && player.position !== undefined && (
                     <div style={{ marginTop: '4px', fontSize: '0.85rem', color: '#64748b' }}>
-                      📍 Posición: {player.position}/{DIGITAL_BOARD_SIZE}
+                      <span aria-hidden="true">📍 </span>Posición: {player.position}/{DIGITAL_BOARD_SIZE}
                     </div>
                   )}
                 </li>
@@ -399,7 +408,7 @@ function GameBoard({ gameData, playerName, announce, setGameData }) {
         {/* Modo Digital: Dado Virtual */}
         {isDigitalMode ? (
           <div className="card">
-            <h2>🎲 Tablero Digital</h2>
+            <h2><span aria-hidden="true">🎲 </span>Tablero Digital</h2>
             
             {/* Resultado del dado */}
             {diceResult && (
@@ -411,7 +420,7 @@ function GameBoard({ gameData, playerName, announce, setGameData }) {
                 textAlign: 'center'
               }}>
                 <div style={{ fontSize: '3rem', marginBottom: '10px' }}>
-                  🎲 {diceResult}
+                  <span aria-hidden="true">🎲 </span>{diceResult}
                 </div>
                 {selectedCategory && (
                   <>
@@ -420,7 +429,7 @@ function GameBoard({ gameData, playerName, announce, setGameData }) {
                     </div>
                     {currentPlayer.position % DIGITAL_WEDGE_INTERVAL === 0 && currentPlayer.position !== 0 && (
                       <div style={{ fontSize: '1rem', color: '#059669', fontWeight: 'bold' }}>
-                        🎯 ¡Casilla de Quesito!
+                        <span aria-hidden="true">🎯 </span>¡Casilla de Quesito!
                       </div>
                     )}
                   </>
@@ -454,7 +463,7 @@ function GameBoard({ gameData, playerName, announce, setGameData }) {
                     </div>
                     {directionOptions.clockwise.isWedgeSpace && (
                       <div style={{ fontSize: '0.9rem', marginTop: '4px', fontWeight: 'bold' }}>
-                        🎯 ¡QUESITO!
+                        <span aria-hidden="true">🎯 </span>¡QUESITO!
                       </div>
                     )}
                   </button>
@@ -477,7 +486,7 @@ function GameBoard({ gameData, playerName, announce, setGameData }) {
                     </div>
                     {directionOptions.counterclockwise.isWedgeSpace && (
                       <div style={{ fontSize: '0.9rem', marginTop: '4px', fontWeight: 'bold' }}>
-                        🎯 ¡QUESITO!
+                        <span aria-hidden="true">🎯 </span>¡QUESITO!
                       </div>
                     )}
                   </button>
@@ -503,7 +512,7 @@ function GameBoard({ gameData, playerName, announce, setGameData }) {
                 }}
                 aria-label="Tirar el dado"
               >
-                {rollingDice ? '🎲 Tirando...' : '🎲 Tirar Dado'}
+                {rollingDice ? (<><span aria-hidden="true">🎲 </span>Tirando...</>) : (<><span aria-hidden="true">🎲 </span>Tirar Dado</>)}
               </button>
             )}
             
@@ -515,7 +524,7 @@ function GameBoard({ gameData, playerName, announce, setGameData }) {
             
             <details style={{ marginTop: '20px', fontSize: '0.9rem', color: '#64748b' }}>
               <summary style={{ cursor: 'pointer', fontWeight: 'bold', padding: '8px', background: '#f1f5f9', borderRadius: '6px' }}>
-                💡 Cómo funciona el modo digital (haz clic para ver instrucciones)
+                <span aria-hidden="true">💡 </span>Cómo funciona el modo digital (haz clic para ver instrucciones)
               </summary>
               <ul style={{ paddingLeft: '20px', marginTop: '12px' }}>
                 <li>Tira el dado (1-6) para determinar cuántas casillas moverte</li>
@@ -567,19 +576,19 @@ function GameBoard({ gameData, playerName, announce, setGameData }) {
 
         {gameData.mode === 'board' && (
           <div className="alert alert-info">
-            🎲 Recuerda: Usa el tablero físico para moverte y selecciona aquí la categoría según donde caigas
+            <span aria-hidden="true">🎲 </span>Recuerda: Usa el tablero físico para moverte y selecciona aquí la categoría según donde caigas
           </div>
         )}
         
         {/* Reglas del Trivial */}
         <details className="alert alert-info" style={{ marginTop: '1rem', fontSize: '0.9rem' }}>
           <summary style={{ cursor: 'pointer', fontWeight: 'bold', listStyle: 'none' }}>
-            📋 Reglas del Trivial Pursuit (haz clic para ver)
+            <span aria-hidden="true">📋 </span>Reglas del Trivial Pursuit (haz clic para ver)
           </summary>
           <ul style={{ marginTop: '0.5rem', marginBottom: 0, paddingLeft: '1.5rem' }}>
             <li>✅ <strong>Si aciertas:</strong> Continúas jugando y puedes responder otra pregunta</li>
             <li>❌ <strong>Si fallas:</strong> Tu turno termina automáticamente y pasa al siguiente jugador</li>
-            <li>🎯 <strong>Objetivo:</strong> Conseguir las {totalCategories} categorías (una de cada color)</li>
+            <li><span aria-hidden="true">🎯 </span><strong>Objetivo:</strong> Conseguir las {totalCategories} categorías (una de cada color)</li>
           </ul>
         </details>
       </div>
@@ -597,7 +606,7 @@ function GameBoard({ gameData, playerName, announce, setGameData }) {
         style={{ marginBottom: '1rem', fontSize: '1.1rem', fontWeight: 'bold' }}
       >
         {isMyTurn ? (
-          <div>🎯 Es tu turno - Responde la pregunta</div>
+          <div><span aria-hidden="true">🎯 </span>Es tu turno - Responde la pregunta</div>
         ) : (
           <div>👁️ Es el turno de <strong>{gameData.turnPlayer}</strong> - Solo puedes observar</div>
         )}
@@ -662,6 +671,11 @@ function GameBoard({ gameData, playerName, announce, setGameData }) {
                 ? '✓ ¡Respuesta correcta! Continúas con tu turno' 
                 : `✗ Respuesta incorrecta. La correcta era: ${currentQuestion.options[result.correctAnswer]}. Tu turno ha terminado`
               }
+              {result.isCorrect && result.wonWedge && (
+                <div style={{ marginTop: '12px', fontSize: '1.05rem', fontWeight: 'bold' }}>
+                  ¡Has conseguido un quesito de {result.wonWedgeCategory}!
+                </div>
+              )}
               {result.isCorrect && result.hasWon && (
                 <div style={{ marginTop: '12px', fontSize: '1.2rem' }}>
                   🎉 ¡Has ganado la partida!
@@ -677,7 +691,7 @@ function GameBoard({ gameData, playerName, announce, setGameData }) {
                   borderLeft: '4px solid #0ea5e9',
                   borderRadius: '4px'
                 }}>
-                  <div style={{ fontWeight: 'bold', marginBottom: '4px' }}>💡 ¿Sabías que...?</div>
+                  <div style={{ fontWeight: 'bold', marginBottom: '4px' }}><span aria-hidden="true">💡 </span>¿Sabías que...?</div>
                   <div style={{ fontSize: '0.95rem' }}>{currentQuestion.anecdote}</div>
                 </div>
               )}

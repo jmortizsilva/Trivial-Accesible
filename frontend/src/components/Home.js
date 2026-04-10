@@ -98,47 +98,43 @@ function Home({ onCreateGame, onJoinGame, announce }) {
                 </legend>
                 
                 <div className="mode-selector">
-                  <div
+                  <label
                     className={`mode-card ${gameMode === 'board' ? 'selected' : ''}`}
-                    onClick={() => {
-                      setGameMode('board');
-                      announce('Modo con tablero físico seleccionado');
-                    }}
-                    onKeyPress={(e) => {
-                      if (e.key === 'Enter' || e.key === ' ') {
+                    htmlFor="mode-board"
+                  >
+                    <input
+                      id="mode-board"
+                      type="radio"
+                      name="game-mode"
+                      value="board"
+                      checked={gameMode === 'board'}
+                      onChange={() => {
                         setGameMode('board');
                         announce('Modo con tablero físico seleccionado');
-                      }
-                    }}
-                    tabIndex={0}
-                    role="radio"
-                    aria-checked={gameMode === 'board'}
-                    aria-label="Modo con tablero físico"
-                  >
+                      }}
+                    />
                     <h3>🎲 Con Tablero Físico</h3>
                     <p>Usa un tablero físico y la aplicación solo para las preguntas</p>
-                  </div>
+                  </label>
 
-                  <div
+                  <label
                     className={`mode-card ${gameMode === 'digital' ? 'selected' : ''}`}
-                    onClick={() => {
-                      setGameMode('digital');
-                      announce('Modo solo digital seleccionado');
-                    }}
-                    onKeyPress={(e) => {
-                      if (e.key === 'Enter' || e.key === ' ') {
+                    htmlFor="mode-digital"
+                  >
+                    <input
+                      id="mode-digital"
+                      type="radio"
+                      name="game-mode"
+                      value="digital"
+                      checked={gameMode === 'digital'}
+                      onChange={() => {
                         setGameMode('digital');
                         announce('Modo solo digital seleccionado');
-                      }
-                    }}
-                    tabIndex={0}
-                    role="radio"
-                    aria-checked={gameMode === 'digital'}
-                    aria-label="Modo solo digital"
-                  >
+                      }}
+                    />
                     <h3>📱 Solo Digital</h3>
                     <p>Juega completamente desde la aplicación</p>
-                  </div>
+                  </label>
                 </div>
               </fieldset>
             </div>

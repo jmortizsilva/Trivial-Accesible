@@ -367,18 +367,20 @@ app.post('/api/games/:gameCode/answer', (req, res) => {
   const isCorrect = answer === question.correctAnswer;
   const allCategories = game.categories || GAME_CATEGORIES;
   const player = game.players.find(p => p.name === playerName);
+  let wonWedge = false;
+  let wonWedgeCategory = null;
   
   if (isCorrect) {
     if (player) {
       player.score += 1;
       
       // En modo digital, verificar si está en casilla de quesito
-      let wonWedge = false;
       if (game.mode === 'digital') {
         const isWedgeSpace = player.position % DIGITAL_WEDGE_INTERVAL === 0 && player.position !== 0;
         if (isWedgeSpace && !player.wedges.includes(question.category)) {
           player.wedges.push(question.category);
           wonWedge = true;
+          wonWedgeCategory = question.category;
           
           // Verificar si completó todas las categorías
           if (player.wedges.length === allCategories.length) {
@@ -426,6 +428,8 @@ app.post('/api/games/:gameCode/answer', (req, res) => {
     isCorrect,
     correctAnswer: question.correctAnswer,
     correctAnswerText: question.options[question.correctAnswer],
+    wonWedge,
+    wonWedgeCategory,
     hasWon,
     players: game.players,
     currentTurn: game.currentTurn,
@@ -438,6 +442,8 @@ app.post('/api/games/:gameCode/answer', (req, res) => {
     success: true, 
     isCorrect,
     correctAnswer: question.correctAnswer,
+    wonWedge,
+    wonWedgeCategory,
     hasWon,
     player,
     game: {

@@ -144,12 +144,17 @@
 }
 
 .mode-card {
+  display: block;
   flex: 1;
   padding: 24px;
   border: 3px solid var(--border-color);
   border-radius: 12px;
   cursor: pointer;
   transition: all 0.2s;
+}
+
+.mode-card input[type="radio"] {
+  margin-bottom: 12px;
 }
 
 .mode-card:hover,
