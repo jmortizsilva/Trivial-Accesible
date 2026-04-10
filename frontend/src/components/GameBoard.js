@@ -65,6 +65,7 @@ function GameBoard({ gameData, playerName, announce, setGameData }) {
   const [movingPlayer, setMovingPlayer] = useState(false);
   const [directionOptions, setDirectionOptions] = useState(null);
   const [showScoreboard, setShowScoreboard] = useState(false);
+  const [isWedgeSpace, setIsWedgeSpace] = useState(false);
 
   const currentPlayer = gameData.players.find(p => p.name === playerName);
   const isMyTurn = gameData.turnPlayer === playerName;
@@ -233,13 +234,14 @@ function GameBoard({ gameData, playerName, announce, setGameData }) {
     try {
       const response = await axios.post(
         `${API_URL}/api/games/${gameData.code}/question`,
-        { category, playerName }
+        { category, playerName, isWedgeSpace: !isDigitalMode ? isWedgeSpace : undefined }
       );
 
       if (response.data.success) {
         setCurrentQuestion(response.data.question);
         setSelectedAnswer(null);
         setShowResult(false);
+        setIsWedgeSpace(false); // Reset checkbox after question loaded
         announce(`Pregunta: ${response.data.question.question}`);
       }
     } catch (error) {
@@ -372,12 +374,13 @@ function GameBoard({ gameData, playerName, announce, setGameData }) {
             {gameData.players.map((player, index) => {
               const progressCount = isDigitalMode ? (player.wedges?.length || 0) : player.categories.length;
               const progressItems = isDigitalMode ? (player.wedges || []) : player.categories;
+              const wedgeCount = player.wedges?.length || 0;
               
               return (
                 <li 
                   key={index} 
                   className={`player-item ${player.name === playerName ? 'is-host' : ''}`}
-                  aria-label={`${player.name}: ${player.score} puntos, ${progressCount} ${isDigitalMode ? 'quesitos' : 'categorías'}`}
+                  aria-label={`${player.name}: ${player.score} puntos, ${progressCount} ${isDigitalMode ? 'quesitos' : 'categorías'}${!isDigitalMode && wedgeCount > 0 ? `, ${wedgeCount} quesitos` : ''}`}
                 >
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <div>
@@ -386,11 +389,17 @@ function GameBoard({ gameData, playerName, announce, setGameData }) {
                     </div>
                     <div className="player-score">
                       {player.score} pts | {progressCount}/{totalCategories} {isDigitalMode ? 'quesitos' : 'categorías'}
+                      {!isDigitalMode && wedgeCount > 0 && <span style={{ marginLeft: '8px' }}>({wedgeCount} quesitos)</span>}
                     </div>
                   </div>
                   {progressItems.length > 0 && (
                     <div style={{ marginTop: '8px', fontSize: '0.9rem' }}>
                       {isDigitalMode ? 'Quesitos' : 'Categorías'}: {progressItems.join(', ')}
+                    </div>
+                  )}
+                  {!isDigitalMode && wedgeCount > 0 && (
+                    <div style={{ marginTop: '4px', fontSize: '0.9rem' }}>
+                      Quesitos: {(player.wedges || []).join(', ')}
                     </div>
                   )}
                   {isDigitalMode && player.position !== undefined && (
@@ -542,6 +551,20 @@ function GameBoard({ gameData, playerName, announce, setGameData }) {
             <p style={{ marginBottom: '1.5rem' }}>
               Elige la categoría según donde hayas caído en tu tablero físico
             </p>
+
+            {isMyTurn && (
+              <div style={{ marginBottom: '1.5rem', padding: '12px', background: '#fef3c7', borderRadius: '8px', border: '1px solid #fbbf24' }}>
+                <label style={{ display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer' }}>
+                  <input
+                    type="checkbox"
+                    checked={isWedgeSpace}
+                    onChange={(e) => setIsWedgeSpace(e.target.checked)}
+                    aria-label="¿Es una casilla de quesito?"
+                  />
+                  <span><strong>¿Es una casilla de quesito?</strong> (marca si caíste en una casilla roja)</span>
+                </label>
+              </div>
+            )}
 
             <div className="categories-grid">
             {gameCategories.map((categoryName, index) => {

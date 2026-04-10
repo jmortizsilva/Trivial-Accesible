@@ -279,7 +279,7 @@ app.post('/api/games/join', (req, res) => {
 // Obtener pregunta aleatoria
 app.post('/api/games/:gameCode/question', (req, res) => {
   const { gameCode } = req.params;
-  const { category, playerName } = req.body;
+  const { category, playerName, isWedgeSpace } = req.body;
   
   const game = games.get(gameCode.toUpperCase());
   
@@ -318,6 +318,8 @@ app.post('/api/games/:gameCode/question', (req, res) => {
   // Marcar pregunta como usada
   game.usedQuestions.push(question.id);
   game.currentQuestion = question;
+  // En modo físico, guardar si es casilla de quesito
+  game.currentQuestionIsWedgeSpace = isWedgeSpace || false;
   
   // No enviar la respuesta correcta al cliente
   const { correctAnswer, ...questionWithoutAnswer } = question;
@@ -389,9 +391,18 @@ app.post('/api/games/:gameCode/answer', (req, res) => {
           }
         }
       } else {
-        // En modo tablero físico, usar el sistema de categorías
+        // En modo tablero físico, usar el sistema de categorías y quesitos
+        const isPhysicalWedge = game.currentQuestionIsWedgeSpace === true;
+        
         if (!player.categories.includes(question.category)) {
           player.categories.push(question.category);
+          
+          // Si está en casilla de quesito (según lo que marcó el usuario), sumar quesito
+          if (isPhysicalWedge && !player.wedges.includes(question.category)) {
+            player.wedges.push(question.category);
+            wonWedge = true;
+            wonWedgeCategory = question.category;
+          }
           
           // Verificar si completó todas las categorías
           if (player.categories.length === allCategories.length) {
