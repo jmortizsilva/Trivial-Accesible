@@ -98,10 +98,7 @@ function Home({ onCreateGame, onJoinGame, announce }) {
                 </legend>
                 
                 <div className="mode-selector">
-                  <label
-                    className={`mode-card ${gameMode === 'board' ? 'selected' : ''}`}
-                    htmlFor="mode-board"
-                  >
+                  <div className={`mode-option ${gameMode === 'board' ? 'selected' : ''}`}>
                     <input
                       id="mode-board"
                       type="radio"
@@ -113,14 +110,13 @@ function Home({ onCreateGame, onJoinGame, announce }) {
                         announce('Modo con tablero físico seleccionado');
                       }}
                     />
-                    <h3>🎲 Con Tablero Físico</h3>
-                    <p>Usa un tablero físico y la aplicación solo para las preguntas</p>
-                  </label>
+                    <label className="mode-card" htmlFor="mode-board">
+                      <span className="mode-title">Con tablero físico</span>
+                      <span className="mode-description">Usa un tablero físico y la aplicación para recibir preguntas.</span>
+                    </label>
+                  </div>
 
-                  <label
-                    className={`mode-card ${gameMode === 'digital' ? 'selected' : ''}`}
-                    htmlFor="mode-digital"
-                  >
+                  <div className={`mode-option ${gameMode === 'digital' ? 'selected' : ''}`}>
                     <input
                       id="mode-digital"
                       type="radio"
@@ -132,9 +128,11 @@ function Home({ onCreateGame, onJoinGame, announce }) {
                         announce('Modo solo digital seleccionado');
                       }}
                     />
-                    <h3>📱 Solo Digital</h3>
-                    <p>Juega completamente desde la aplicación</p>
-                  </label>
+                    <label className="mode-card" htmlFor="mode-digital">
+                      <span className="mode-title">Solo digital</span>
+                      <span className="mode-description">Juega completamente desde la aplicación, sin tablero físico.</span>
+                    </label>
+                  </div>
                 </div>
               </fieldset>
             </div>
