@@ -140,10 +140,21 @@ function loadQuestions() {
 // Cargar preguntas (dataset accesible prioritario con fallback)
 const questions = loadQuestions();
 const GAME_CATEGORIES = [...new Set(questions.map((q) => q.category))];
-const DIGITAL_BOARD_SIZE = 42;
+const DIGITAL_BOARD_SIZE = 72;
 const DIGITAL_BOARD_SEGMENTS = 6;
-const DIGITAL_CATEGORY_SPAN = DIGITAL_BOARD_SIZE / DIGITAL_BOARD_SEGMENTS;
-const DIGITAL_WEDGE_INTERVAL = 6;
+const DIGITAL_WEDGE_INTERVAL = 12;
+
+function getDigitalCell(position, categories) {
+  const normalizedPosition = ((position % DIGITAL_BOARD_SIZE) + DIGITAL_BOARD_SIZE) % DIGITAL_BOARD_SIZE;
+  const category = categories[normalizedPosition % categories.length];
+  const isWedgeSpace = normalizedPosition % DIGITAL_WEDGE_INTERVAL === 0 && normalizedPosition !== 0;
+
+  return {
+    position: normalizedPosition,
+    category,
+    isWedgeSpace
+  };
+}
 
 if (GAME_CATEGORIES.length === 0) {
   console.error('❌ No hay categorías disponibles. Revisa los archivos de preguntas.');
@@ -557,29 +568,21 @@ app.post('/api/games/:gameCode/rollDice', (req, res) => {
       message: `La partida digital requiere ${DIGITAL_BOARD_SEGMENTS} categorias. Recibidas: ${categories.length}.`
     });
   }
-  const categoryCount = categories.length;
-  
   const clockwisePosition = (oldPosition + diceResult) % DIGITAL_BOARD_SIZE;
   const counterclockwisePosition = (oldPosition - diceResult + DIGITAL_BOARD_SIZE) % DIGITAL_BOARD_SIZE;
-  
-  // Verificar si son casillas de quesito
-  const clockwiseIsWedge = clockwisePosition % DIGITAL_WEDGE_INTERVAL === 0 && clockwisePosition !== 0;
-  const counterclockwiseIsWedge = counterclockwisePosition % DIGITAL_WEDGE_INTERVAL === 0 && counterclockwisePosition !== 0;
-  
-  // Obtener categorías
-  const clockwiseCategory = categories[Math.floor(clockwisePosition / DIGITAL_CATEGORY_SPAN) % categoryCount];
-  const counterclockwiseCategory = categories[Math.floor(counterclockwisePosition / DIGITAL_CATEGORY_SPAN) % categoryCount];
+  const clockwiseCell = getDigitalCell(clockwisePosition, categories);
+  const counterclockwiseCell = getDigitalCell(counterclockwisePosition, categories);
   
   const directionOptions = {
     clockwise: {
-      position: clockwisePosition,
-      isWedgeSpace: clockwiseIsWedge,
-      category: clockwiseCategory
+      position: clockwiseCell.position,
+      isWedgeSpace: clockwiseCell.isWedgeSpace,
+      category: clockwiseCell.category
     },
     counterclockwise: {
-      position: counterclockwisePosition,
-      isWedgeSpace: counterclockwiseIsWedge,
-      category: counterclockwiseCategory
+      position: counterclockwiseCell.position,
+      isWedgeSpace: counterclockwiseCell.isWedgeSpace,
+      category: counterclockwiseCell.category
     }
   };
   
@@ -649,12 +652,9 @@ app.post('/api/games/:gameCode/chooseDirection', (req, res) => {
     });
   }
 
-  const categoryCount = categories.length;
-  const categoryIndex = Math.floor(newPosition / DIGITAL_CATEGORY_SPAN);
-  const category = categories[categoryIndex % categoryCount];
-  
-  // Verificar si es casilla de quesito (cada 6 casillas)
-  const isWedgeSpace = newPosition % DIGITAL_WEDGE_INTERVAL === 0 && newPosition !== 0;
+  const cell = getDigitalCell(newPosition, categories);
+  const category = cell.category;
+  const isWedgeSpace = cell.isWedgeSpace;
   
   // Actualizar posición
   player.position = newPosition;

@@ -123,25 +123,28 @@ function App() {
           isCorrect: data.isCorrect, 
           correctAnswer: data.correctAnswer,
           correctAnswerText: data.correctAnswerText,
+          wonWedge: data.wonWedge,
+          wonWedgeCategory: data.wonWedgeCategory,
           hasWon: data.hasWon,
           questionId: data.questionId
         } 
       }));
       
-      const message = data.isCorrect 
-        ? `${data.playerName} respondió correctamente`
-        : `${data.playerName} respondió incorrectamente. La respuesta correcta era: ${data.correctAnswerText}`;
-      
-      announce(message);
+      const baseMessage = data.isCorrect
+        ? `${data.playerName} respondió correctamente.`
+        : `${data.playerName} respondió incorrectamente.`;
+      const answerMessage = ` La respuesta correcta era: ${data.correctAnswerText}.`;
+      const wedgeMessage = data.wonWedge
+        ? ` ${data.playerName} consiguió un quesito de ${data.wonWedgeCategory}.`
+        : '';
+      const winnerMessage = data.hasWon
+        ? ` ¡${data.playerName} ha ganado la partida!`
+        : '';
+      const turnMessage = data.turnPlayer !== data.playerName
+        ? ` Es el turno de ${data.turnPlayer}.`
+        : ' Continúa el mismo turno.';
 
-      if (data.hasWon) {
-        announce(`¡${data.playerName} ha ganado la partida!`);
-      }
-      
-      // Anunciar cambio de turno si cambió
-      if (data.turnPlayer !== data.playerName) {
-        announce(`Es el turno de ${data.turnPlayer}`);
-      }
+      announce(`${baseMessage}${answerMessage}${wedgeMessage}${winnerMessage}${turnMessage}`);
     });
     
     socket.on('turnChanged', (data) => {
@@ -163,12 +166,33 @@ function App() {
       }));
     });
 
+    socket.on('diceRolled', (data) => {
+      window.dispatchEvent(new CustomEvent('diceRolled', { detail: data }));
+      announce(`${data.playerName} ha sacado un ${data.result} en el dado`);
+    });
+
+    socket.on('playerMoved', (data) => {
+      setGameData(prev => ({
+        ...prev,
+        players: prev.players.map(player =>
+          player.name === data.playerName
+            ? { ...player, position: data.newPosition }
+            : player
+        )
+      }));
+
+      window.dispatchEvent(new CustomEvent('playerMoved', { detail: data }));
+      announce(`${data.playerName} se movió a la posición ${data.newPosition}, categoría ${data.category}`);
+    });
+
     return () => {
       socket.off('playerJoined');
       socket.off('gameStarted');
       socket.off('answerSubmitted');
       socket.off('turnChanged');
       socket.off('questionAsked');
+      socket.off('diceRolled');
+      socket.off('playerMoved');
     };
   }, []);
 

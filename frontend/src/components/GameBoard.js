@@ -15,8 +15,8 @@ const getBackendURL = () => {
 const API_URL = getBackendURL();
 
 const DEFAULT_CATEGORIES = ['Geografía', 'Historia', 'Ciencia', 'Arte', 'Deportes', 'Entretenimiento'];
-const DIGITAL_BOARD_SIZE = 42;
-const DIGITAL_WEDGE_INTERVAL = 6;
+const DIGITAL_BOARD_SIZE = 72;
+const DIGITAL_WEDGE_INTERVAL = 12;
 
 const CATEGORY_STYLES = {
   geografia: { emoji: '🌍', color: '#3b82f6' },
@@ -118,12 +118,33 @@ function GameBoard({ gameData, playerName, announce, setGameData }) {
       }
     };
 
+    const handleDiceRolled = (event) => {
+      const { playerName: roller, result, directionOptions: options } = event.detail;
+      if (roller !== playerName) {
+        setDiceResult(result);
+        setDirectionOptions(options || null);
+        setNeedsDirectionChoice(false);
+      }
+    };
+
+    const handlePlayerMoved = (event) => {
+      const { playerName: mover, category } = event.detail;
+      if (mover !== playerName) {
+        setSelectedCategory(category);
+        setNeedsDirectionChoice(false);
+      }
+    };
+
     window.addEventListener('questionAsked', handleQuestionAsked);
     window.addEventListener('answerSubmitted', handleAnswerSubmitted);
+    window.addEventListener('diceRolled', handleDiceRolled);
+    window.addEventListener('playerMoved', handlePlayerMoved);
     
     return () => {
       window.removeEventListener('questionAsked', handleQuestionAsked);
       window.removeEventListener('answerSubmitted', handleAnswerSubmitted);
+      window.removeEventListener('diceRolled', handleDiceRolled);
+      window.removeEventListener('playerMoved', handlePlayerMoved);
     };
   }, [playerName, announce, currentQuestion]);
 
