@@ -410,7 +410,7 @@ axios.get(`${API_URL}/api/games/${gameCode}`)
 
 ## 🧪 Ejemplos de Uso Completo
 
-### React Native / Flutter
+### React Native / Swift / TypeScript
 
 ```javascript
 // PAUSAR

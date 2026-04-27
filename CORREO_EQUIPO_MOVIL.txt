@@ -1,0 +1,253 @@
+Asunto: 📱 Nuevas funcionalidades en API - Pausa/Reanuda + Persistencia de Sesiones (v1.1)
+
+---
+
+Hola equipo,
+
+He publicado en la rama `main` una actualización importante con nuevas funcionalidades para la app móvil.
+
+## 🎯 ¿Qué hay de nuevo?
+
+Se han agregado 4 nuevos endpoints REST que permiten:
+
+✅ **Pausar partidas** - El host puede pausar en cualquier momento
+✅ **Reanudar partidas** - Continuar donde se dejó (hasta 24h después)
+✅ **Abandonar partidas** - Cualquier jugador puede irse sin afectar otros
+✅ **Terminar partidas** - El host puede finalizar para todos
+
+Además, todas las partidas se guardan automáticamente en el servidor durante 24 horas, perfecta para apps móviles donde los usuarios pueden cerrar la app y reconectar después.
+
+---
+
+## 🚀 Comit publicado
+
+**Rama:** main  
+**Commit:** a73ee69  
+**Fecha:** 27 de Abril de 2026
+
+```
+feat: Agregar pausa/reanuda de partidas + persistencia JSON
+- Nuevos endpoints: /pause, /resume, /leave, /end
+- Nuevos eventos Socket.IO: gamePaused, gameResumed, gameEnded, playerLeft
+- Persistencia automática de sesiones en JSON (24h expiración)
+- Botones de control en GameBoard
+- Optimizado para apps móviles
+```
+
+---
+
+## 📖 Documentación disponible
+
+He preparado 3 documentos específicos para integración:
+
+### 1. **API_UPDATES.md** (👈 Comenzar aquí)
+Documentación completa con:
+- Detalle de cada endpoint (request, response, errores)
+- Nuevos eventos Socket.IO
+- Estados de partida
+- Ejemplos de código para iOS/Swift/React Native
+- Guía completa de manejo de desconexiones
+- FAQ
+
+**Leerlo en:** `/API_UPDATES.md`
+
+### 2. **QUICK_REFERENCE.md** (Consulta rápida)
+Para cuando ya entiendas todo:
+- Matriz de permisos
+- Estados y transiciones
+- Comandos curl para testing
+- Integración mínima (3 pasos)
+
+**Consultar en:** `/QUICK_REFERENCE.md`
+
+### 3. **CHANGELOG.md** (Detalles técnicos)
+Para desarrolladores que quieran ver exactamente qué cambió:
+- Cambios línea por línea en cada archivo
+- Nueva estructura de datos
+- Checklist de integración
+
+**Revisar en:** `/CHANGELOG.md`
+
+---
+
+## 💾 Cambios técnicos resumidos
+
+### Backend (`backend/server.js`)
+```
++ POST /api/games/:gameCode/pause        (nuevo endpoint)
++ POST /api/games/:gameCode/resume       (nuevo endpoint)
++ POST /api/games/:gameCode/leave        (nuevo endpoint)
++ POST /api/games/:gameCode/end          (nuevo endpoint)
++ saveGamesToFile()                      (guardar en JSON)
++ loadGamesFromFile()                    (cargar desde JSON)
++ cleanOldGamesFile()                    (limpiar antiguas)
+~ Mejorado manejo de Socket.IO disconnect
+```
+
+### Frontend (`frontend/src/App.js`)
+```
++ pauseGame()                            (función nueva)
++ resumeGame()                           (función nueva)
++ leaveGame()                            (función nueva)
++ endGame()                              (función nueva)
++ Listeners: gamePaused, gameResumed, gameEnded, playerLeft
+```
+
+### UI (`frontend/src/components/GameBoard.js`)
+```
++ Botones: Pausar, Reanudar, Abandonar, Terminar
++ Indicador visual cuando está pausada
++ Disponibles en ambas vistas (categorías y pregunta)
++ Solo host ve opciones de pausar/reanudar/terminar
+```
+
+---
+
+## 🔌 Endpoints nuevos (resumen)
+
+| Endpoint | Permisos | Acción |
+|----------|----------|--------|
+| `POST /pause` | Solo host | Pausa la partida (recoverable) |
+| `POST /resume` | Solo host | Reanuda desde pausa |
+| `POST /leave` | Cualquiera | Abandona sin borrar partida |
+| `POST /end` | Solo host | Termina para todos |
+
+**Todos usan el mismo formato:**
+```json
+{
+  "playerName": "Juan"
+}
+```
+
+---
+
+## 📱 Flujo típico en app móvil
+
+### Pausar y reconectar después
+```
+1. Usuario hace tap en "Pausar" (en app web funciona, mobile lo hará igual)
+2. → Llamar: POST /api/games/{code}/pause
+3. → Escuchar: socket.on('gamePaused', ...)
+4. → Mostrar: "Partida pausada - Tap para reanudar"
+5. Usuario cierra app (desconexión)
+6. Usuario abre app 6 horas después
+7. → Llamar: GET /api/games/{code}
+8. → Mostrar: Estado pausada con opción "Reanudar"
+9. Usuario hace tap en "Reanudar"
+10. → Llamar: POST /api/games/{code}/resume
+11. → ¡Partida continúa donde estaba!
+```
+
+---
+
+## 🧪 Cómo probar
+
+Opción 1 - Con curl (desde terminal):
+```bash
+# Pausar
+curl -X POST http://localhost:3001/api/games/DRAGON42/pause \
+  -H "Content-Type: application/json" \
+  -d '{"playerName":"Juan"}'
+
+# Reanudar
+curl -X POST http://localhost:3001/api/games/DRAGON42/resume \
+  -H "Content-Type: application/json" \
+  -d '{"playerName":"Juan"}'
+```
+
+Ver más comandos en `QUICK_REFERENCE.md`
+
+Opción 2 - En la web:
+- Ya hay botones implementados que pueden usar para testear
+- Pausar → Reanudar → Abandonar → Terminar
+
+---
+
+## ✅ Checklist de integración
+
+Para integrar en la app iOS:
+
+- [ ] Leer `API_UPDATES.md` completo
+- [ ] Revisar ejemplos de código (React Native / Swift)
+- [ ] Implementar funciones de axios.post para los 4 endpoints
+- [ ] Agregar listeners Socket.IO
+- [ ] Agregar botones en la UI (pausar, reanudar, abandonar)
+- [ ] Testear pausar/reconectar
+- [ ] Testear abandonar como jugador
+- [ ] Testear terminar como host
+- [ ] Validar persistencia 24h
+
+---
+
+## 🎯 Puntos importantes
+
+1. **Solo el host** puede pausar, reanudar y terminar
+   - Cualquier jugador puede abandonar
+
+2. **Persistencia automática**
+   - Se guarda al pausar, reanudar, abandonar, terminar
+   - Expira después de 24 horas
+   - Si servidor reinicia, se recuperan las partidas
+
+3. **Eventos en tiempo real**
+   - Todos reciben notificaciones via Socket.IO
+   - No necesitas pooling o fetch periódico
+
+4. **Manejo de desconexiones**
+   - Si pierden conexión, partida sigue en servidor
+   - Al reconectar, pueden ver estado actual
+   - Perfecto para apps móviles
+
+---
+
+## 📚 Recursos adicionales
+
+- **Repositorio:** https://github.com/jmortizsilva/Trivial-Accesible
+- **Rama:** main
+- **Último commit:** a73ee69
+
+---
+
+## ❓ Preguntas frecuentes
+
+**P: ¿Cuánto tiempo dura una sesión pausada?**
+R: 24 horas. Después se descarta automáticamente.
+
+**P: ¿Puedo abandonar en medio de una pregunta?**
+R: Sí, en cualquier momento.
+
+**P: ¿Si pierdo conexión, ¿qué pasa?**
+R: La partida sigue en el servidor. Al reconectar, verás el estado actual.
+
+**P: ¿El host puede ver quién abandonó?**
+R: Sí, recibe un evento `playerLeft` con el nombre.
+
+**P: ¿Necesito cambiar algo en la web?**
+R: No, ya está implementado. Los botones ya están en la interfaz.
+
+---
+
+## 🚀 Próximos pasos
+
+1. **Revisar documentación** - Comenzar con `API_UPDATES.md`
+2. **Implementar endpoints** - Crear funciones para llamarlos
+3. **Agregar listeners** - Escuchar eventos Socket.IO
+4. **Crear UI** - Botones y estados visuales
+5. **Testear** - Con los comandos curl proporcionados
+6. **Validar** - Desconexiones, reconexiones, persistencia
+
+---
+
+Si tienen preguntas o necesitan aclaraciones, avísame. La documentación tiene ejemplos completos de código para React Native y Swift (iOS).
+
+¡Adelante con la integración! 🎉
+
+---
+
+**Saludos,**  
+[Tu nombre]
+
+**P.D.** - Todos los archivos de documentación están en la raíz del repositorio. Pueden buscarlos por:
+- `API_UPDATES.md` - Lo más importante
+- `QUICK_REFERENCE.md` - Consulta rápida
+- `CHANGELOG.md` - Detalles técnicos
