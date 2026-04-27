@@ -790,15 +790,17 @@ app.post('/api/games/:gameCode/rollDice', (req, res) => {
     path: [oldPosition, clockwisePosition]
   });
 
-  // Opción 2: Antihorario
-  const counterClockwiseCell = getDigitalCell(counterClockwisePosition, categories, player);
-  directionOptions.push({
-    position: counterClockwiseCell.position,
-    isWedgeSpace: counterClockwiseCell.isWedgeSpace,
-    category: counterClockwiseCell.category,
-    direction: 'antihorario',
-    path: [oldPosition, counterClockwisePosition]
-  });
+  // Opción 2: Antihorario - solo si es diferente al horario
+  if (counterClockwisePosition !== clockwisePosition) {
+    const counterClockwiseCell = getDigitalCell(counterClockwisePosition, categories, player);
+    directionOptions.push({
+      position: counterClockwiseCell.position,
+      isWedgeSpace: counterClockwiseCell.isWedgeSpace,
+      category: counterClockwiseCell.category,
+      direction: 'antihorario',
+      path: [oldPosition, counterClockwisePosition]
+    });
+  }
   
   io.to(gameCode).emit('diceRolled', {
     playerName: game.turnPlayer,
