@@ -367,7 +367,6 @@ function App() {
             onLeaveGame={leaveGame}
             onEndGame={endGame}
           />
-          />
         )}
       </main>
 
