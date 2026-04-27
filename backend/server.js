@@ -773,23 +773,32 @@ app.post('/api/games/:gameCode/rollDice', (req, res) => {
       message: `La partida digital requiere ${DIGITAL_BOARD_SEGMENTS} categorias. Recibidas: ${categories.length}.`
     });
   }
-  const reachableNodes = getReachableNodes(oldPosition, diceResult);
-  const directionOptions = reachableNodes.map(({ position, path }) => {
-    const cell = getDigitalCell(position, categories, player);
-    return {
-      position: cell.position,
-      isWedgeSpace: cell.isWedgeSpace,
-      category: cell.category,
-      path
-    };
+
+  // Movimiento oficial: solo horario o antihorario
+  const clockwisePosition = (oldPosition + diceResult) % DIGITAL_BOARD_SIZE;
+  const counterClockwisePosition = (oldPosition - diceResult + DIGITAL_BOARD_SIZE * 10) % DIGITAL_BOARD_SIZE;
+
+  const directionOptions = [];
+
+  // Opción 1: Horario
+  const clockwiseCell = getDigitalCell(clockwisePosition, categories, player);
+  directionOptions.push({
+    position: clockwiseCell.position,
+    isWedgeSpace: clockwiseCell.isWedgeSpace,
+    category: clockwiseCell.category,
+    direction: 'horario',
+    path: [oldPosition, clockwisePosition]
   });
 
-  if (directionOptions.length === 0) {
-    return res.status(500).json({
-      success: false,
-      message: 'No se encontraron movimientos válidos para esta tirada.'
-    });
-  }
+  // Opción 2: Antihorario
+  const counterClockwiseCell = getDigitalCell(counterClockwisePosition, categories, player);
+  directionOptions.push({
+    position: counterClockwiseCell.position,
+    isWedgeSpace: counterClockwiseCell.isWedgeSpace,
+    category: counterClockwiseCell.category,
+    direction: 'antihorario',
+    path: [oldPosition, counterClockwisePosition]
+  });
   
   io.to(gameCode).emit('diceRolled', {
     playerName: game.turnPlayer,
@@ -823,16 +832,20 @@ app.post('/api/games/:gameCode/chooseDirection', (req, res) => {
   }
   
   if (typeof targetPosition !== 'number') {
-    return res.status(400).json({ success: false, message: 'Movimiento no valido' });
+    return res.status(400).json({ success: false, message: 'Movimiento no válido' });
   }
 
   const diceResult = player.pendingMove;
   const oldPosition = player.position;
   
-  const validMoves = getReachableNodes(oldPosition, diceResult).map((move) => move.position);
-  if (!validMoves.includes(targetPosition)) {
-    return res.status(400).json({ success: false, message: 'Movimiento no permitido para la tirada actual' });
+  // Validar que sea una de las dos direcciones válidas (oficial)
+  const clockwisePosition = (oldPosition + diceResult) % DIGITAL_BOARD_SIZE;
+  const counterClockwisePosition = (oldPosition - diceResult + DIGITAL_BOARD_SIZE * 10) % DIGITAL_BOARD_SIZE;
+  
+  if (targetPosition !== clockwisePosition && targetPosition !== counterClockwisePosition) {
+    return res.status(400).json({ success: false, message: 'Movimiento no permitido. Elige horario o antihorario.' });
   }
+
   const newPosition = targetPosition;
   
   // Determinar categoría según posición
@@ -842,14 +855,14 @@ app.post('/api/games/:gameCode/chooseDirection', (req, res) => {
   if (categories.length === 0) {
     return res.status(500).json({
       success: false,
-      message: 'No hay categorias disponibles para determinar la casilla.'
+      message: 'No hay categorías disponibles para determinar la casilla.'
     });
   }
 
   if (game.mode === 'digital' && categories.length !== DIGITAL_BOARD_SEGMENTS) {
     return res.status(500).json({
       success: false,
-      message: `La partida digital requiere ${DIGITAL_BOARD_SEGMENTS} categorias. Recibidas: ${categories.length}.`
+      message: `La partida digital requiere ${DIGITAL_BOARD_SEGMENTS} categorías. Recibidas: ${categories.length}.`
     });
   }
 

@@ -686,18 +686,18 @@ function GameBoard({ gameData, playerName, announce, setGameData, onPauseGame, o
             <h2><span aria-hidden="true">🎲 </span>Tablero Digital</h2>
 
             <div style={{ marginBottom: '16px', padding: '12px', background: '#f8fafc', borderRadius: '8px', border: '1px solid #cbd5e1' }}>
-              <strong>Distancia a quesitos:</strong>
+              <strong>Distancia a quesitos (oficial):</strong>
               <p style={{ margin: '8px 0 0', fontSize: '0.9rem', color: '#475569' }}>
-                Cada línea indica cuántas casillas faltan, por dónde empieza el camino más corto y a qué casilla llegas.
+                Cuántas casillas faltan para cada quesito si vas en dirección horaria.
               </p>
               <ul style={{ marginTop: '8px', marginBottom: 0 }}>
                 {wedgeDistanceInfo.map((item) => (
                   <li key={item.category}>
                     {item.category}: {item.distance === null
-                      ? 'sin ruta'
+                      ? 'sin quesito'
                       : item.distance === 0
                         ? 'ya estás en esa casilla'
-                        : `${item.distance} casillas${item.direction ? `, ${item.direction}` : ''}, hasta la casilla ${item.wedgeNode}`
+                        : `${item.distance} casillas`
                     }
                   </li>
                 ))}
@@ -735,12 +735,12 @@ function GameBoard({ gameData, playerName, announce, setGameData, onPauseGame, o
             {needsDirectionChoice && isMyTurn && Array.isArray(directionOptions) && directionOptions.length > 0 && (
               <div style={{ marginBottom: '20px' }}>
                 <h3 style={{ fontSize: '1.1rem', marginBottom: '12px', textAlign: 'center' }}>
-                  Elige tu movimiento:
+                  Elige dirección: Horario o Antihorario
                 </h3>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '12px' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '12px' }}>
                   {directionOptions.map((option, index) => (
                     <button
-                      key={`${option.position}-${index}`}
+                      key={`${option.direction}-${index}`}
                       onClick={() => chooseDirection(option)}
                       disabled={movingPlayer}
                       style={{
@@ -751,11 +751,14 @@ function GameBoard({ gameData, playerName, announce, setGameData, onPauseGame, o
                           : 'linear-gradient(135deg, #3b82f6 0%, #2563eb 100%)',
                         border: option.isWedgeSpace ? '3px solid #fbbf24' : 'none'
                       }}
-                      aria-label={`Mover a opción ${index + 1}, posición ${option.position}, categoría ${option.category}${option.isWedgeSpace ? ', casilla de quesito disponible' : ''}`}
+                      aria-label={`${option.direction}: posición ${option.position}, categoría ${option.category}${option.isWedgeSpace ? ', casilla de quesito disponible' : ''}`}
                     >
-                      <div><strong>Opción {index + 1}</strong></div>
+                      <div><strong>{option.direction === 'horario' ? '🔵 Horario' : '⚪ Antihorario'}</strong></div>
                       <div style={{ fontSize: '0.85rem', marginTop: '6px' }}>
-                        Pos. {option.position} - {option.category}
+                        Pos. {option.position}
+                      </div>
+                      <div style={{ fontSize: '0.85rem', marginTop: '4px' }}>
+                        {option.category}
                       </div>
                       {option.isWedgeSpace && (
                         <div style={{ fontSize: '0.9rem', marginTop: '4px', fontWeight: 'bold' }}>
@@ -767,8 +770,8 @@ function GameBoard({ gameData, playerName, announce, setGameData, onPauseGame, o
                 </div>
                 <p style={{ marginTop: '12px', fontSize: '0.9rem', color: '#64748b', textAlign: 'center' }}>
                   {directionOptions.some((option) => option.isWedgeSpace)
-                    ? (<><span aria-hidden="true">⭐ </span>Hay casillas de quesito disponibles. Los botones con borde dorado tienen quesito.</>)
-                    : 'Según las reglas oficiales del Trivial Pursuit, puedes elegir entre los movimientos disponibles'}
+                    ? (<><span aria-hidden="true">⭐ </span>Una dirección tiene quesito disponible (borde dorado)</>)
+                    : 'Elige la dirección hacia la que quieres moverte'}
                 </p>
               </div>
             )}
