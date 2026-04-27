@@ -90,12 +90,13 @@ La aplicación se abrirá automáticamente en `http://localhost:3000`
 2. **Elige dirección** (horario/antihorario)
    - El sistema indica dónde caerás con cada opción
    - Te avisa si hay quesitos disponibles
+  - El tablero digital es circular y tiene **36 casillas** (0 a 35)
 3. Responde la pregunta
 4. Si aciertas en casilla de quesito → ¡ganas el quesito!
 5. Primer jugador en completar los 6 quesitos gana
 
 ### Casillas de Quesito
-Posiciones: 6, 12, 18, 24, 30, 36
+Posiciones: 0, 6, 12, 18, 24, 30
 
 ## ♿ Características de Accesibilidad
 

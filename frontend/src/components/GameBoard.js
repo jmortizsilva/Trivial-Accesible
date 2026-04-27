@@ -15,12 +15,10 @@ const getBackendURL = () => {
 const API_URL = getBackendURL();
 
 const DEFAULT_CATEGORIES = ['Geografía', 'Historia', 'Ciencia', 'Arte', 'Deportes', 'Entretenimiento'];
-const DIGITAL_BOARD_SIZE = 72;
+const DIGITAL_BOARD_SIZE = 36;
 const DIGITAL_WEDGE_INTERVAL = 6;
-const DIGITAL_OUTER_TRACK_SIZE = 36;
+const DIGITAL_OUTER_TRACK_SIZE = DIGITAL_BOARD_SIZE;
 const DIGITAL_BOARD_SEGMENTS = 6;
-const DIGITAL_SPOKE_LENGTH = 5;
-const DIGITAL_CENTER_NODE = DIGITAL_OUTER_TRACK_SIZE + (DIGITAL_BOARD_SEGMENTS * DIGITAL_SPOKE_LENGTH);
 
 const CATEGORY_STYLES = {
   geografia: { emoji: '🌍', color: '#3b82f6' },
@@ -83,142 +81,13 @@ function GameBoard({ gameData, playerName, announce, setGameData, onPauseGame, o
     (_, i) => i * DIGITAL_WEDGE_INTERVAL
   ).join(', ');
 
-  const getSpokeNodeId = (segmentIndex, depth) => DIGITAL_OUTER_TRACK_SIZE + (segmentIndex * DIGITAL_SPOKE_LENGTH) + (depth - 1);
-
-  const getNeighbors = (nodeId) => {
-    if (nodeId < 0 || nodeId >= DIGITAL_BOARD_SIZE) {
-      return [];
-    }
-
-    const neighbors = new Set();
-    if (nodeId < DIGITAL_OUTER_TRACK_SIZE) {
-      neighbors.add((nodeId - 1 + DIGITAL_OUTER_TRACK_SIZE) % DIGITAL_OUTER_TRACK_SIZE);
-      neighbors.add((nodeId + 1) % DIGITAL_OUTER_TRACK_SIZE);
-
-      if (nodeId % (DIGITAL_OUTER_TRACK_SIZE / DIGITAL_BOARD_SEGMENTS) === 0) {
-        const segmentIndex = nodeId / (DIGITAL_OUTER_TRACK_SIZE / DIGITAL_BOARD_SEGMENTS);
-        neighbors.add(getSpokeNodeId(segmentIndex, 1));
-      }
-    } else if (nodeId === DIGITAL_CENTER_NODE) {
-      for (let segment = 0; segment < DIGITAL_BOARD_SEGMENTS; segment += 1) {
-        neighbors.add(getSpokeNodeId(segment, DIGITAL_SPOKE_LENGTH));
-      }
-    } else {
-      const offset = nodeId - DIGITAL_OUTER_TRACK_SIZE;
-      const segmentIndex = Math.floor(offset / DIGITAL_SPOKE_LENGTH);
-      const depth = (offset % DIGITAL_SPOKE_LENGTH) + 1;
-
-      if (depth === 1) {
-        neighbors.add(segmentIndex * (DIGITAL_OUTER_TRACK_SIZE / DIGITAL_BOARD_SEGMENTS));
-        neighbors.add(getSpokeNodeId(segmentIndex, depth + 1));
-      } else if (depth === DIGITAL_SPOKE_LENGTH) {
-        neighbors.add(getSpokeNodeId(segmentIndex, depth - 1));
-        neighbors.add(DIGITAL_CENTER_NODE);
-      } else {
-        neighbors.add(getSpokeNodeId(segmentIndex, depth - 1));
-        neighbors.add(getSpokeNodeId(segmentIndex, depth + 1));
-      }
-    }
-
-    return [...neighbors];
-  };
-
-  const getShortestPath = (start, end) => {
-    if (start === end) {
-      return [start];
-    }
-
-    const queue = [start];
-    const previous = new Map();
-    const visited = new Set([start]);
-
-    while (queue.length > 0) {
-      const node = queue.shift();
-      for (const neighbor of getNeighbors(node)) {
-        if (visited.has(neighbor)) {
-          continue;
-        }
-
-        visited.add(neighbor);
-        previous.set(neighbor, node);
-
-        if (neighbor === end) {
-          const path = [end];
-          let current = node;
-
-          while (current !== undefined) {
-            path.unshift(current);
-            current = previous.get(current);
-          }
-
-          return path;
-        }
-
-        queue.push(neighbor);
-      }
-    }
-
-    return null;
-  };
-
-  const getDirectionHint = (path) => {
-    if (!path || path.length < 2) {
-      return null;
-    }
-
-    const fromNode = path[0];
-    const nextNode = path[1];
-    const fromIsOuter = fromNode < DIGITAL_OUTER_TRACK_SIZE;
-    const nextIsOuter = nextNode < DIGITAL_OUTER_TRACK_SIZE;
-
-    if (fromIsOuter && nextIsOuter) {
-      if ((fromNode + 1) % DIGITAL_OUTER_TRACK_SIZE === nextNode) {
-        return 'en sentido horario';
-      }
-
-      if ((fromNode - 1 + DIGITAL_OUTER_TRACK_SIZE) % DIGITAL_OUTER_TRACK_SIZE === nextNode) {
-        return 'en sentido antihorario';
-      }
-    }
-
-    if (fromNode === DIGITAL_CENTER_NODE) {
-      return nextIsOuter ? 'hacia el borde exterior' : 'hacia un radio';
-    }
-
-    if (nextNode === DIGITAL_CENTER_NODE) {
-      return 'hacia el centro';
-    }
-
-    if (fromIsOuter && !nextIsOuter) {
-      return 'hacia el centro';
-    }
-
-    if (!fromIsOuter && nextIsOuter) {
-      return 'hacia el borde exterior';
-    }
-
-    const fromOffset = fromNode - DIGITAL_OUTER_TRACK_SIZE;
-    const nextOffset = nextNode - DIGITAL_OUTER_TRACK_SIZE;
-    const fromSegment = Math.floor(fromOffset / DIGITAL_SPOKE_LENGTH);
-    const nextSegment = Math.floor(nextOffset / DIGITAL_SPOKE_LENGTH);
-
-    if (fromSegment === nextSegment) {
-      const fromDepth = (fromOffset % DIGITAL_SPOKE_LENGTH) + 1;
-      const nextDepth = (nextOffset % DIGITAL_SPOKE_LENGTH) + 1;
-      return nextDepth > fromDepth ? 'hacia el centro' : 'hacia el borde exterior';
-    }
-
-    return 'por la ruta más corta';
-  };
-
   const wedgeDistanceInfo = isDigitalMode && currentPlayer
     ? gameCategories.map((category, index) => {
         const wedgeNode = index * DIGITAL_WEDGE_INTERVAL;
-        const path = getShortestPath(currentPlayer.position, wedgeNode);
+        const distance = (wedgeNode - currentPlayer.position + DIGITAL_BOARD_SIZE) % DIGITAL_BOARD_SIZE;
         return {
           category,
-          distance: path ? path.length - 1 : null,
-          direction: getDirectionHint(path),
+          distance,
           wedgeNode
         };
       })

@@ -165,81 +165,17 @@ loadGamesFromFile();
 
 const DIGITAL_BOARD_SEGMENTS = 6;
 const DIGITAL_OUTER_TRACK_SIZE = 36;
-const DIGITAL_SPOKE_LENGTH = 5;
-const DIGITAL_CENTER_NODE = DIGITAL_OUTER_TRACK_SIZE + (DIGITAL_BOARD_SEGMENTS * DIGITAL_SPOKE_LENGTH);
-const DIGITAL_BOARD_SIZE = DIGITAL_CENTER_NODE + 1;
+const DIGITAL_BOARD_SIZE = DIGITAL_OUTER_TRACK_SIZE;
 const DIGITAL_WEDGE_INTERVAL = 6;
 
-function getSpokeNodeId(segmentIndex, depth) {
-  return DIGITAL_OUTER_TRACK_SIZE + (segmentIndex * DIGITAL_SPOKE_LENGTH) + (depth - 1);
-}
-
-function getDigitalBoardNeighbors(nodeId) {
-  if (nodeId < 0 || nodeId >= DIGITAL_BOARD_SIZE) {
-    return [];
-  }
-
-  const neighbors = new Set();
-
-  if (nodeId < DIGITAL_OUTER_TRACK_SIZE) {
-    neighbors.add((nodeId - 1 + DIGITAL_OUTER_TRACK_SIZE) % DIGITAL_OUTER_TRACK_SIZE);
-    neighbors.add((nodeId + 1) % DIGITAL_OUTER_TRACK_SIZE);
-
-    if (nodeId % (DIGITAL_OUTER_TRACK_SIZE / DIGITAL_BOARD_SEGMENTS) === 0) {
-      const segmentIndex = nodeId / (DIGITAL_OUTER_TRACK_SIZE / DIGITAL_BOARD_SEGMENTS);
-      neighbors.add(getSpokeNodeId(segmentIndex, 1));
-    }
-  } else if (nodeId === DIGITAL_CENTER_NODE) {
-    for (let segmentIndex = 0; segmentIndex < DIGITAL_BOARD_SEGMENTS; segmentIndex += 1) {
-      neighbors.add(getSpokeNodeId(segmentIndex, DIGITAL_SPOKE_LENGTH));
-    }
-  } else {
-    const offset = nodeId - DIGITAL_OUTER_TRACK_SIZE;
-    const segmentIndex = Math.floor(offset / DIGITAL_SPOKE_LENGTH);
-    const depth = (offset % DIGITAL_SPOKE_LENGTH) + 1;
-
-    if (depth === 1) {
-      neighbors.add(segmentIndex * (DIGITAL_OUTER_TRACK_SIZE / DIGITAL_BOARD_SEGMENTS));
-      neighbors.add(getSpokeNodeId(segmentIndex, depth + 1));
-    } else if (depth === DIGITAL_SPOKE_LENGTH) {
-      neighbors.add(getSpokeNodeId(segmentIndex, depth - 1));
-      neighbors.add(DIGITAL_CENTER_NODE);
-    } else {
-      neighbors.add(getSpokeNodeId(segmentIndex, depth - 1));
-      neighbors.add(getSpokeNodeId(segmentIndex, depth + 1));
-    }
-  }
-
-  return [...neighbors];
-}
-
 function getNodeCategoryIndex(nodeId) {
-  if (nodeId < DIGITAL_OUTER_TRACK_SIZE) {
-    return Math.floor(nodeId / (DIGITAL_OUTER_TRACK_SIZE / DIGITAL_BOARD_SEGMENTS));
-  }
-
-  if (nodeId === DIGITAL_CENTER_NODE) {
-    return null;
-  }
-
-  const offset = nodeId - DIGITAL_OUTER_TRACK_SIZE;
-  return Math.floor(offset / DIGITAL_SPOKE_LENGTH);
+  return Math.floor(nodeId / (DIGITAL_OUTER_TRACK_SIZE / DIGITAL_BOARD_SEGMENTS));
 }
 
-function getDigitalCell(position, categories, player = null) {
+function getDigitalCell(position, categories) {
   const normalizedPosition = ((position % DIGITAL_BOARD_SIZE) + DIGITAL_BOARD_SIZE) % DIGITAL_BOARD_SIZE;
   const categoryIndex = getNodeCategoryIndex(normalizedPosition);
-
-  let category;
-  if (categoryIndex === null) {
-    const missingCategories = player
-      ? categories.filter((categoryName) => !(player.wedges || []).includes(categoryName))
-      : [];
-    const pool = missingCategories.length > 0 ? missingCategories : categories;
-    category = pool[Math.floor(Math.random() * pool.length)];
-  } else {
-    category = categories[categoryIndex % categories.length];
-  }
+  const category = categories[categoryIndex % categories.length];
 
   const isWedgeSpace = normalizedPosition < DIGITAL_OUTER_TRACK_SIZE
     && normalizedPosition % (DIGITAL_OUTER_TRACK_SIZE / DIGITAL_BOARD_SEGMENTS) === 0;
@@ -249,30 +185,6 @@ function getDigitalCell(position, categories, player = null) {
     category,
     isWedgeSpace
   };
-}
-
-function getReachableNodes(startPosition, steps) {
-  const results = new Map();
-
-  function dfs(current, remaining, previous, path) {
-    if (remaining === 0) {
-      if (!results.has(current)) {
-        results.set(current, path);
-      }
-      return;
-    }
-
-    const neighbors = getDigitalBoardNeighbors(current);
-    neighbors.forEach((neighbor) => {
-      if (neighbor === previous) {
-        return;
-      }
-      dfs(neighbor, remaining - 1, current, [...path, neighbor]);
-    });
-  }
-
-  dfs(startPosition, steps, null, [startPosition]);
-  return [...results.entries()].map(([position, path]) => ({ position, path }));
 }
 
 if (GAME_CATEGORIES.length === 0) {
@@ -390,7 +302,7 @@ app.post('/api/games/create', (req, res) => {
     });
   }
 
-  // El modo digital usa un tablero fijo de 42 casillas dividido en 6 segmentos.
+  // El modo digital usa un tablero circular fijo de 36 casillas dividido en 6 segmentos.
   if (gameMode === 'digital' && GAME_CATEGORIES.length !== DIGITAL_BOARD_SEGMENTS) {
     return res.status(500).json({
       success: false,
