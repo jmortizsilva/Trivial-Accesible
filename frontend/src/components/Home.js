@@ -1,19 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 function Home({ onCreateGame, onJoinGame, announce }) {
   const [action, setAction] = useState(null); // 'create' o 'join'
   const [playerName, setPlayerName] = useState('');
   const [gameCode, setGameCode] = useState('');
   const [gameMode, setGameMode] = useState('board'); // 'board' o 'digital'
+  const lastAnnouncedJoinCodeRef = useRef('');
 
   // Detectar si hay un código en la URL (?join=CODIGO)
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
     const joinCode = urlParams.get('join');
     if (joinCode) {
-      setGameCode(joinCode.toUpperCase());
+      const normalizedJoinCode = joinCode.toUpperCase();
+      setGameCode(normalizedJoinCode);
       setAction('join');
-      announce(`Enlace detectado. Únete a la partida ${joinCode}`);
+      if (lastAnnouncedJoinCodeRef.current !== normalizedJoinCode) {
+        lastAnnouncedJoinCodeRef.current = normalizedJoinCode;
+        announce(`Enlace detectado. Únete a la partida ${normalizedJoinCode}`);
+      }
     }
   }, [announce]);
 
