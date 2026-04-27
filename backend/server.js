@@ -71,6 +71,24 @@ function normalizeText(value) {
     .toLowerCase();
 }
 
+function shuffleQuestionOptions(question) {
+  const indexedOptions = question.options.map((option, index) => ({ option, index }));
+
+  for (let i = indexedOptions.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [indexedOptions[i], indexedOptions[j]] = [indexedOptions[j], indexedOptions[i]];
+  }
+
+  const options = indexedOptions.map((entry) => entry.option);
+  const correctAnswer = indexedOptions.findIndex((entry) => entry.index === question.correctAnswer);
+
+  return {
+    ...question,
+    options,
+    correctAnswer
+  };
+}
+
 function adaptQuestion(rawQuestion) {
   if (rawQuestion && rawQuestion.category && rawQuestion.question && Array.isArray(rawQuestion.options)) {
     return rawQuestion;
@@ -140,20 +158,121 @@ function loadQuestions() {
 // Cargar preguntas (dataset accesible prioritario con fallback)
 const questions = loadQuestions();
 const GAME_CATEGORIES = [...new Set(questions.map((q) => q.category))];
-const DIGITAL_BOARD_SIZE = 72;
-const DIGITAL_BOARD_SEGMENTS = 6;
-const DIGITAL_WEDGE_INTERVAL = 12;
 
-function getDigitalCell(position, categories) {
+// Limpiar y cargar partidas guardadas después de inicializar
+cleanOldGamesFile();
+loadGamesFromFile();
+
+const DIGITAL_BOARD_SEGMENTS = 6;
+const DIGITAL_OUTER_TRACK_SIZE = 36;
+const DIGITAL_SPOKE_LENGTH = 5;
+const DIGITAL_CENTER_NODE = DIGITAL_OUTER_TRACK_SIZE + (DIGITAL_BOARD_SEGMENTS * DIGITAL_SPOKE_LENGTH);
+const DIGITAL_BOARD_SIZE = DIGITAL_CENTER_NODE + 1;
+const DIGITAL_WEDGE_INTERVAL = 6;
+
+function getSpokeNodeId(segmentIndex, depth) {
+  return DIGITAL_OUTER_TRACK_SIZE + (segmentIndex * DIGITAL_SPOKE_LENGTH) + (depth - 1);
+}
+
+function getDigitalBoardNeighbors(nodeId) {
+  if (nodeId < 0 || nodeId >= DIGITAL_BOARD_SIZE) {
+    return [];
+  }
+
+  const neighbors = new Set();
+
+  if (nodeId < DIGITAL_OUTER_TRACK_SIZE) {
+    neighbors.add((nodeId - 1 + DIGITAL_OUTER_TRACK_SIZE) % DIGITAL_OUTER_TRACK_SIZE);
+    neighbors.add((nodeId + 1) % DIGITAL_OUTER_TRACK_SIZE);
+
+    if (nodeId % (DIGITAL_OUTER_TRACK_SIZE / DIGITAL_BOARD_SEGMENTS) === 0) {
+      const segmentIndex = nodeId / (DIGITAL_OUTER_TRACK_SIZE / DIGITAL_BOARD_SEGMENTS);
+      neighbors.add(getSpokeNodeId(segmentIndex, 1));
+    }
+  } else if (nodeId === DIGITAL_CENTER_NODE) {
+    for (let segmentIndex = 0; segmentIndex < DIGITAL_BOARD_SEGMENTS; segmentIndex += 1) {
+      neighbors.add(getSpokeNodeId(segmentIndex, DIGITAL_SPOKE_LENGTH));
+    }
+  } else {
+    const offset = nodeId - DIGITAL_OUTER_TRACK_SIZE;
+    const segmentIndex = Math.floor(offset / DIGITAL_SPOKE_LENGTH);
+    const depth = (offset % DIGITAL_SPOKE_LENGTH) + 1;
+
+    if (depth === 1) {
+      neighbors.add(segmentIndex * (DIGITAL_OUTER_TRACK_SIZE / DIGITAL_BOARD_SEGMENTS));
+      neighbors.add(getSpokeNodeId(segmentIndex, depth + 1));
+    } else if (depth === DIGITAL_SPOKE_LENGTH) {
+      neighbors.add(getSpokeNodeId(segmentIndex, depth - 1));
+      neighbors.add(DIGITAL_CENTER_NODE);
+    } else {
+      neighbors.add(getSpokeNodeId(segmentIndex, depth - 1));
+      neighbors.add(getSpokeNodeId(segmentIndex, depth + 1));
+    }
+  }
+
+  return [...neighbors];
+}
+
+function getNodeCategoryIndex(nodeId) {
+  if (nodeId < DIGITAL_OUTER_TRACK_SIZE) {
+    return Math.floor(nodeId / (DIGITAL_OUTER_TRACK_SIZE / DIGITAL_BOARD_SEGMENTS));
+  }
+
+  if (nodeId === DIGITAL_CENTER_NODE) {
+    return null;
+  }
+
+  const offset = nodeId - DIGITAL_OUTER_TRACK_SIZE;
+  return Math.floor(offset / DIGITAL_SPOKE_LENGTH);
+}
+
+function getDigitalCell(position, categories, player = null) {
   const normalizedPosition = ((position % DIGITAL_BOARD_SIZE) + DIGITAL_BOARD_SIZE) % DIGITAL_BOARD_SIZE;
-  const category = categories[normalizedPosition % categories.length];
-  const isWedgeSpace = normalizedPosition % DIGITAL_WEDGE_INTERVAL === 0 && normalizedPosition !== 0;
+  const categoryIndex = getNodeCategoryIndex(normalizedPosition);
+
+  let category;
+  if (categoryIndex === null) {
+    const missingCategories = player
+      ? categories.filter((categoryName) => !(player.wedges || []).includes(categoryName))
+      : [];
+    const pool = missingCategories.length > 0 ? missingCategories : categories;
+    category = pool[Math.floor(Math.random() * pool.length)];
+  } else {
+    category = categories[categoryIndex % categories.length];
+  }
+
+  const isWedgeSpace = normalizedPosition < DIGITAL_OUTER_TRACK_SIZE
+    && normalizedPosition % (DIGITAL_OUTER_TRACK_SIZE / DIGITAL_BOARD_SEGMENTS) === 0;
 
   return {
     position: normalizedPosition,
     category,
     isWedgeSpace
   };
+}
+
+function getReachableNodes(startPosition, steps) {
+  const results = new Map();
+
+  function dfs(current, remaining, previous, path) {
+    if (remaining === 0) {
+      if (!results.has(current)) {
+        results.set(current, path);
+      }
+      return;
+    }
+
+    const neighbors = getDigitalBoardNeighbors(current);
+    neighbors.forEach((neighbor) => {
+      if (neighbor === previous) {
+        return;
+      }
+      dfs(neighbor, remaining - 1, current, [...path, neighbor]);
+    });
+  }
+
+  dfs(startPosition, steps, null, [startPosition]);
+  return [...results.entries()].map(([position, path]) => ({ position, path }));
 }
 
 if (GAME_CATEGORIES.length === 0) {
@@ -176,6 +295,86 @@ function generateGameCode() {
   const palabraBase = PALABRAS_CODIGO[Math.floor(Math.random() * PALABRAS_CODIGO.length)];
   const numero = Math.floor(Math.random() * 100);
   return `${palabraBase}${numero}`;
+}
+
+// ═══════════════════════════════════════════════════════════════════
+// PERSISTENCIA DE PARTIDAS EN JSON
+// ═══════════════════════════════════════════════════════════════════
+
+const GAMES_FILE = path.join(__dirname, 'data', 'games.json');
+const GAME_EXPIRY_TIME = 24 * 60 * 60 * 1000; // 24 horas en ms
+
+function saveGamesToFile() {
+  try {
+    const gamesArray = Array.from(games.entries()).map(([code, game]) => ({
+      code,
+      game,
+      savedAt: new Date().toISOString()
+    }));
+    
+    fs.writeFileSync(GAMES_FILE, JSON.stringify(gamesArray, null, 2), 'utf8');
+    console.log(`✅ ${games.size} partidas guardadas en ${path.basename(GAMES_FILE)}`);
+  } catch (error) {
+    console.error(`❌ Error guardando partidas:`, error.message);
+  }
+}
+
+function loadGamesFromFile() {
+  try {
+    if (!fs.existsSync(GAMES_FILE)) {
+      console.log(`ℹ️ No hay partidas guardadas (${path.basename(GAMES_FILE)} no existe)`);
+      return;
+    }
+
+    const data = JSON.parse(fs.readFileSync(GAMES_FILE, 'utf8'));
+    let loaded = 0;
+    let expired = 0;
+
+    data.forEach(({ code, game, savedAt }) => {
+      const savedTime = new Date(savedAt).getTime();
+      const now = Date.now();
+      const age = now - savedTime;
+
+      // Si la partida tiene más de 24 horas, descartarla
+      if (age > GAME_EXPIRY_TIME) {
+        expired++;
+        return;
+      }
+
+      games.set(code, game);
+      loaded++;
+    });
+
+    console.log(`✅ Cargadas ${loaded} partidas del archivo guardado`);
+    if (expired > 0) {
+      console.log(`🗑️  Descartadas ${expired} partidas expiradas (> 24h)`);
+    }
+  } catch (error) {
+    console.error(`❌ Error cargando partidas:`, error.message);
+  }
+}
+
+function cleanOldGamesFile() {
+  try {
+    if (!fs.existsSync(GAMES_FILE)) {
+      return;
+    }
+
+    const data = JSON.parse(fs.readFileSync(GAMES_FILE, 'utf8'));
+    const now = Date.now();
+    const filtered = data.filter(({ savedAt }) => {
+      const age = now - new Date(savedAt).getTime();
+      return age <= GAME_EXPIRY_TIME;
+    });
+
+    if (filtered.length < data.length) {
+      fs.writeFileSync(GAMES_FILE, JSON.stringify(filtered, null, 2), 'utf8');
+      const removed = data.length - filtered.length;
+      console.log(`🗑️  Limpiadas ${removed} partidas antiguas del archivo`);
+    }
+  } catch (error) {
+    console.error(`❌ Error limpiando partidas antiguas:`, error.message);
+  }
 }
 
 // API REST
@@ -229,6 +428,7 @@ app.post('/api/games/create', (req, res) => {
   };
   
   games.set(gameCode, game);
+  saveGamesToFile();
   
   res.json({ 
     success: true, 
@@ -324,7 +524,7 @@ app.post('/api/games/:gameCode/question', (req, res) => {
   
   // Seleccionar pregunta aleatoria
   const randomIndex = Math.floor(Math.random() * availableQuestions.length);
-  const question = availableQuestions[randomIndex];
+  const question = shuffleQuestionOptions(availableQuestions[randomIndex]);
   
   // Marcar pregunta como usada
   game.usedQuestions.push(question.id);
@@ -389,7 +589,8 @@ app.post('/api/games/:gameCode/answer', (req, res) => {
       
       // En modo digital, verificar si está en casilla de quesito
       if (game.mode === 'digital') {
-        const isWedgeSpace = player.position % DIGITAL_WEDGE_INTERVAL === 0 && player.position !== 0;
+        const currentCell = getDigitalCell(player.position, allCategories, player);
+        const isWedgeSpace = currentCell.isWedgeSpace;
         if (isWedgeSpace && !player.wedges.includes(question.category)) {
           player.wedges.push(question.category);
           wonWedge = true;
@@ -447,6 +648,8 @@ app.post('/api/games/:gameCode/answer', (req, res) => {
   
   io.to(gameCode).emit('answerSubmitted', {
     playerName,
+    submittedAnswer: answer,
+    submittedAnswerText: question.options[answer],
     isCorrect,
     correctAnswer: question.correctAnswer,
     correctAnswerText: question.options[question.correctAnswer],
@@ -462,6 +665,8 @@ app.post('/api/games/:gameCode/answer', (req, res) => {
   
   res.json({ 
     success: true, 
+    submittedAnswer: answer,
+    submittedAnswerText: question.options[answer],
     isCorrect,
     correctAnswer: question.correctAnswer,
     wonWedge,
@@ -549,7 +754,7 @@ app.post('/api/games/:gameCode/rollDice', (req, res) => {
   player.pendingMove = diceResult;
   game.needsRoll = false;
   
-  // Calcular las posiciones posibles con cada dirección
+  // Calcular posiciones alcanzables en el grafo del tablero
   const oldPosition = player.position;
   const categories = Array.isArray(game.categories) && game.categories.length > 0
     ? game.categories
@@ -568,28 +773,29 @@ app.post('/api/games/:gameCode/rollDice', (req, res) => {
       message: `La partida digital requiere ${DIGITAL_BOARD_SEGMENTS} categorias. Recibidas: ${categories.length}.`
     });
   }
-  const clockwisePosition = (oldPosition + diceResult) % DIGITAL_BOARD_SIZE;
-  const counterclockwisePosition = (oldPosition - diceResult + DIGITAL_BOARD_SIZE) % DIGITAL_BOARD_SIZE;
-  const clockwiseCell = getDigitalCell(clockwisePosition, categories);
-  const counterclockwiseCell = getDigitalCell(counterclockwisePosition, categories);
-  
-  const directionOptions = {
-    clockwise: {
-      position: clockwiseCell.position,
-      isWedgeSpace: clockwiseCell.isWedgeSpace,
-      category: clockwiseCell.category
-    },
-    counterclockwise: {
-      position: counterclockwiseCell.position,
-      isWedgeSpace: counterclockwiseCell.isWedgeSpace,
-      category: counterclockwiseCell.category
-    }
-  };
+  const reachableNodes = getReachableNodes(oldPosition, diceResult);
+  const directionOptions = reachableNodes.map(({ position, path }) => {
+    const cell = getDigitalCell(position, categories, player);
+    return {
+      position: cell.position,
+      isWedgeSpace: cell.isWedgeSpace,
+      category: cell.category,
+      path
+    };
+  });
+
+  if (directionOptions.length === 0) {
+    return res.status(500).json({
+      success: false,
+      message: 'No se encontraron movimientos válidos para esta tirada.'
+    });
+  }
   
   io.to(gameCode).emit('diceRolled', {
     playerName: game.turnPlayer,
     result: diceResult,
     needsDirectionChoice: true,
+    fromPosition: oldPosition,
     directionOptions
   });
   
@@ -604,7 +810,7 @@ app.post('/api/games/:gameCode/rollDice', (req, res) => {
 // Elegir dirección de movimiento (modo digital)
 app.post('/api/games/:gameCode/chooseDirection', (req, res) => {
   const { gameCode } = req.params;
-  const { playerName, direction } = req.body;
+  const { playerName, targetPosition } = req.body;
   const game = games.get(gameCode.toUpperCase());
   
   if (!game) {
@@ -616,23 +822,18 @@ app.post('/api/games/:gameCode/chooseDirection', (req, res) => {
     return res.status(400).json({ success: false, message: 'No hay movimiento pendiente' });
   }
   
-  if (direction !== 'clockwise' && direction !== 'counterclockwise') {
-    return res.status(400).json({ success: false, message: 'Direccion no valida' });
+  if (typeof targetPosition !== 'number') {
+    return res.status(400).json({ success: false, message: 'Movimiento no valido' });
   }
 
   const diceResult = player.pendingMove;
   const oldPosition = player.position;
   
-  // Calcular nueva posición según dirección elegida
-  // Reglas oficiales: puedes moverte en cualquier dirección legal
-  let newPosition;
-  if (direction === 'clockwise') {
-    // Sentido horario en el anillo exterior
-    newPosition = (oldPosition + diceResult) % DIGITAL_BOARD_SIZE;
-  } else if (direction === 'counterclockwise') {
-    // Sentido antihorario en el anillo exterior
-    newPosition = (oldPosition - diceResult + DIGITAL_BOARD_SIZE) % DIGITAL_BOARD_SIZE;
+  const validMoves = getReachableNodes(oldPosition, diceResult).map((move) => move.position);
+  if (!validMoves.includes(targetPosition)) {
+    return res.status(400).json({ success: false, message: 'Movimiento no permitido para la tirada actual' });
   }
+  const newPosition = targetPosition;
   
   // Determinar categoría según posición
   const categories = Array.isArray(game.categories) && game.categories.length > 0
@@ -652,7 +853,7 @@ app.post('/api/games/:gameCode/chooseDirection', (req, res) => {
     });
   }
 
-  const cell = getDigitalCell(newPosition, categories);
+  const cell = getDigitalCell(newPosition, categories, player);
   const category = cell.category;
   const isWedgeSpace = cell.isWedgeSpace;
   
@@ -662,7 +863,7 @@ app.post('/api/games/:gameCode/chooseDirection', (req, res) => {
   
   io.to(gameCode).emit('playerMoved', {
     playerName,
-    direction,
+    fromPosition: oldPosition,
     newPosition,
     category,
     isWedgeSpace
@@ -673,8 +874,144 @@ app.post('/api/games/:gameCode/chooseDirection', (req, res) => {
     newPosition,
     category,
     isWedgeSpace,
-    direction
+    targetPosition
   });
+});
+
+// Pausar partida
+app.post('/api/games/:gameCode/pause', (req, res) => {
+  const { gameCode } = req.params;
+  const { playerName } = req.body;
+  const game = games.get(gameCode.toUpperCase());
+
+  if (!game) {
+    return res.status(404).json({ success: false, message: 'Partida no encontrada' });
+  }
+
+  if (game.host !== playerName) {
+    return res.status(403).json({ success: false, message: 'Solo el anfitrión puede pausar la partida' });
+  }
+
+  if (game.status !== 'playing') {
+    return res.status(400).json({ success: false, message: 'La partida no está en juego' });
+  }
+
+  game.status = 'paused';
+  game.pausedAt = new Date();
+  game.pausedBy = playerName;
+  saveGamesToFile();
+
+  io.to(gameCode.toUpperCase()).emit('gamePaused', {
+    pausedBy: playerName,
+    pausedAt: game.pausedAt
+  });
+
+  res.json({ success: true });
+});
+
+// Reanudar partida
+app.post('/api/games/:gameCode/resume', (req, res) => {
+  const { gameCode } = req.params;
+  const { playerName } = req.body;
+  const game = games.get(gameCode.toUpperCase());
+
+  if (!game) {
+    return res.status(404).json({ success: false, message: 'Partida no encontrada' });
+  }
+
+  if (game.host !== playerName) {
+    return res.status(403).json({ success: false, message: 'Solo el anfitrión puede reanudar la partida' });
+  }
+
+  if (game.status !== 'paused') {
+    return res.status(400).json({ success: false, message: 'La partida no está pausada' });
+  }
+
+  game.status = 'playing';
+  delete game.pausedAt;
+  delete game.pausedBy;
+  saveGamesToFile();
+
+  io.to(gameCode.toUpperCase()).emit('gameResumed', {
+    resumedBy: playerName,
+    turnPlayer: game.turnPlayer
+  });
+
+  res.json({ success: true });
+});
+
+// Abandonar partida (jugador o anfitrión durante el juego)
+app.post('/api/games/:gameCode/leave', (req, res) => {
+  const { gameCode } = req.params;
+  const { playerName } = req.body;
+  const game = games.get(gameCode.toUpperCase());
+
+  if (!game) {
+    return res.status(404).json({ success: false, message: 'Partida no encontrada' });
+  }
+
+  const playerIndex = game.players.findIndex(p => p.name === playerName);
+  if (playerIndex === -1) {
+    return res.status(404).json({ success: false, message: 'Jugador no encontrado en la partida' });
+  }
+
+  // Si era su turno, pasar al siguiente jugador antes de eliminarlo
+  const wasTheirTurn = game.turnPlayer === playerName;
+  game.players.splice(playerIndex, 1);
+
+  if (game.players.length === 0) {
+    // No quedan jugadores: borrar la partida
+    games.delete(gameCode.toUpperCase());
+    saveGamesToFile();
+    return res.json({ success: true, message: 'Partida eliminada por no quedar jugadores' });
+  }
+
+  if (wasTheirTurn) {
+    // Ajustar el índice de turno al nuevo tamaño del array
+    game.currentTurn = game.currentTurn % game.players.length;
+    game.turnPlayer = game.players[game.currentTurn].name;
+    game.needsRoll = true;
+
+    io.to(gameCode.toUpperCase()).emit('turnChanged', {
+      currentTurn: game.currentTurn,
+      turnPlayer: game.turnPlayer,
+      needsRoll: game.needsRoll
+    });
+  }
+
+  io.to(gameCode.toUpperCase()).emit('playerLeft', {
+    playerName,
+    players: game.players
+  });
+  saveGamesToFile();
+
+  res.json({ success: true });
+});
+
+// Terminar partida (solo el anfitrión)
+app.post('/api/games/:gameCode/end', (req, res) => {
+  const { gameCode } = req.params;
+  const { playerName } = req.body;
+  const game = games.get(gameCode.toUpperCase());
+
+  if (!game) {
+    return res.status(404).json({ success: false, message: 'Partida no encontrada' });
+  }
+
+  if (game.host !== playerName) {
+    return res.status(403).json({ success: false, message: 'Solo el anfitrión puede terminar la partida' });
+  }
+
+  game.status = 'finished';
+
+  io.to(gameCode.toUpperCase()).emit('gameEnded', {
+    reason: 'El anfitrión ha terminado la partida'
+  });
+
+  games.delete(gameCode.toUpperCase());
+  saveGamesToFile();
+
+  res.json({ success: true });
 });
 
 // Health check - mantener servidor activo
@@ -711,6 +1048,15 @@ io.on('connection', (socket) => {
   socket.on('joinGame', (gameCode) => {
     socket.join(gameCode);
     console.log(`Cliente ${socket.id} se unió a la partida ${gameCode}`);
+    
+    // Guardar la referencia del socket al juego para desconexiones
+    const game = games.get(gameCode.toUpperCase());
+    if (game) {
+      if (!game.socketConnections) {
+        game.socketConnections = new Map();
+      }
+      game.socketConnections.set(socket.id, { gameCode: gameCode.toUpperCase() });
+    }
   });
   
   socket.on('startGame', (gameCode) => {
@@ -723,6 +1069,24 @@ io.on('connection', (socket) => {
   
   socket.on('disconnect', () => {
     console.log('Cliente desconectado:', socket.id);
+    
+    // Buscar en qué juego estaba este socket
+    let gameCode = null;
+    let disconnectedPlayerName = null;
+    
+    for (const [code, game] of games.entries()) {
+      if (game.socketConnections && game.socketConnections.has(socket.id)) {
+        gameCode = code;
+        // Buscar el nombre del jugador que se desconectó
+        // Por ahora no tenemos forma de saber el jugador exacto, solo limpiamos la conexión
+        game.socketConnections.delete(socket.id);
+        break;
+      }
+    }
+    
+    if (gameCode) {
+      console.log(`Socket ${socket.id} desconectado de partida ${gameCode}`);
+    }
   });
 });
 

@@ -16,7 +16,11 @@ const API_URL = getBackendURL();
 
 const DEFAULT_CATEGORIES = ['Geografía', 'Historia', 'Ciencia', 'Arte', 'Deportes', 'Entretenimiento'];
 const DIGITAL_BOARD_SIZE = 72;
-const DIGITAL_WEDGE_INTERVAL = 12;
+const DIGITAL_WEDGE_INTERVAL = 6;
+const DIGITAL_OUTER_TRACK_SIZE = 36;
+const DIGITAL_BOARD_SEGMENTS = 6;
+const DIGITAL_SPOKE_LENGTH = 5;
+const DIGITAL_CENTER_NODE = DIGITAL_OUTER_TRACK_SIZE + (DIGITAL_BOARD_SEGMENTS * DIGITAL_SPOKE_LENGTH);
 
 const CATEGORY_STYLES = {
   geografia: { emoji: '🌍', color: '#3b82f6' },
@@ -52,7 +56,7 @@ const getCategoryStyle = (categoryName, index) => {
   return fallback[index % fallback.length];
 };
 
-function GameBoard({ gameData, playerName, announce, setGameData }) {
+function GameBoard({ gameData, playerName, announce, setGameData, onPauseGame, onResumeGame, onLeaveGame, onEndGame }) {
   const [currentQuestion, setCurrentQuestion] = useState(null);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [showResult, setShowResult] = useState(false);
@@ -63,7 +67,7 @@ function GameBoard({ gameData, playerName, announce, setGameData }) {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [needsDirectionChoice, setNeedsDirectionChoice] = useState(false);
   const [movingPlayer, setMovingPlayer] = useState(false);
-  const [directionOptions, setDirectionOptions] = useState(null);
+  const [directionOptions, setDirectionOptions] = useState([]);
   const [showScoreboard, setShowScoreboard] = useState(false);
   const [isWedgeSpace, setIsWedgeSpace] = useState(false);
 
@@ -75,9 +79,150 @@ function GameBoard({ gameData, playerName, announce, setGameData }) {
     : DEFAULT_CATEGORIES;
   const totalCategories = gameCategories.length;
   const wedgePositionsLabel = Array.from(
-    { length: Math.floor((DIGITAL_BOARD_SIZE - 1) / DIGITAL_WEDGE_INTERVAL) },
-    (_, i) => (i + 1) * DIGITAL_WEDGE_INTERVAL
+    { length: DIGITAL_BOARD_SEGMENTS },
+    (_, i) => i * DIGITAL_WEDGE_INTERVAL
   ).join(', ');
+
+  const getSpokeNodeId = (segmentIndex, depth) => DIGITAL_OUTER_TRACK_SIZE + (segmentIndex * DIGITAL_SPOKE_LENGTH) + (depth - 1);
+
+  const getNeighbors = (nodeId) => {
+    if (nodeId < 0 || nodeId >= DIGITAL_BOARD_SIZE) {
+      return [];
+    }
+
+    const neighbors = new Set();
+    if (nodeId < DIGITAL_OUTER_TRACK_SIZE) {
+      neighbors.add((nodeId - 1 + DIGITAL_OUTER_TRACK_SIZE) % DIGITAL_OUTER_TRACK_SIZE);
+      neighbors.add((nodeId + 1) % DIGITAL_OUTER_TRACK_SIZE);
+
+      if (nodeId % (DIGITAL_OUTER_TRACK_SIZE / DIGITAL_BOARD_SEGMENTS) === 0) {
+        const segmentIndex = nodeId / (DIGITAL_OUTER_TRACK_SIZE / DIGITAL_BOARD_SEGMENTS);
+        neighbors.add(getSpokeNodeId(segmentIndex, 1));
+      }
+    } else if (nodeId === DIGITAL_CENTER_NODE) {
+      for (let segment = 0; segment < DIGITAL_BOARD_SEGMENTS; segment += 1) {
+        neighbors.add(getSpokeNodeId(segment, DIGITAL_SPOKE_LENGTH));
+      }
+    } else {
+      const offset = nodeId - DIGITAL_OUTER_TRACK_SIZE;
+      const segmentIndex = Math.floor(offset / DIGITAL_SPOKE_LENGTH);
+      const depth = (offset % DIGITAL_SPOKE_LENGTH) + 1;
+
+      if (depth === 1) {
+        neighbors.add(segmentIndex * (DIGITAL_OUTER_TRACK_SIZE / DIGITAL_BOARD_SEGMENTS));
+        neighbors.add(getSpokeNodeId(segmentIndex, depth + 1));
+      } else if (depth === DIGITAL_SPOKE_LENGTH) {
+        neighbors.add(getSpokeNodeId(segmentIndex, depth - 1));
+        neighbors.add(DIGITAL_CENTER_NODE);
+      } else {
+        neighbors.add(getSpokeNodeId(segmentIndex, depth - 1));
+        neighbors.add(getSpokeNodeId(segmentIndex, depth + 1));
+      }
+    }
+
+    return [...neighbors];
+  };
+
+  const getShortestPath = (start, end) => {
+    if (start === end) {
+      return [start];
+    }
+
+    const queue = [start];
+    const previous = new Map();
+    const visited = new Set([start]);
+
+    while (queue.length > 0) {
+      const node = queue.shift();
+      for (const neighbor of getNeighbors(node)) {
+        if (visited.has(neighbor)) {
+          continue;
+        }
+
+        visited.add(neighbor);
+        previous.set(neighbor, node);
+
+        if (neighbor === end) {
+          const path = [end];
+          let current = node;
+
+          while (current !== undefined) {
+            path.unshift(current);
+            current = previous.get(current);
+          }
+
+          return path;
+        }
+
+        queue.push(neighbor);
+      }
+    }
+
+    return null;
+  };
+
+  const getDirectionHint = (path) => {
+    if (!path || path.length < 2) {
+      return null;
+    }
+
+    const fromNode = path[0];
+    const nextNode = path[1];
+    const fromIsOuter = fromNode < DIGITAL_OUTER_TRACK_SIZE;
+    const nextIsOuter = nextNode < DIGITAL_OUTER_TRACK_SIZE;
+
+    if (fromIsOuter && nextIsOuter) {
+      if ((fromNode + 1) % DIGITAL_OUTER_TRACK_SIZE === nextNode) {
+        return 'en sentido horario';
+      }
+
+      if ((fromNode - 1 + DIGITAL_OUTER_TRACK_SIZE) % DIGITAL_OUTER_TRACK_SIZE === nextNode) {
+        return 'en sentido antihorario';
+      }
+    }
+
+    if (fromNode === DIGITAL_CENTER_NODE) {
+      return nextIsOuter ? 'hacia el borde exterior' : 'hacia un radio';
+    }
+
+    if (nextNode === DIGITAL_CENTER_NODE) {
+      return 'hacia el centro';
+    }
+
+    if (fromIsOuter && !nextIsOuter) {
+      return 'hacia el centro';
+    }
+
+    if (!fromIsOuter && nextIsOuter) {
+      return 'hacia el borde exterior';
+    }
+
+    const fromOffset = fromNode - DIGITAL_OUTER_TRACK_SIZE;
+    const nextOffset = nextNode - DIGITAL_OUTER_TRACK_SIZE;
+    const fromSegment = Math.floor(fromOffset / DIGITAL_SPOKE_LENGTH);
+    const nextSegment = Math.floor(nextOffset / DIGITAL_SPOKE_LENGTH);
+
+    if (fromSegment === nextSegment) {
+      const fromDepth = (fromOffset % DIGITAL_SPOKE_LENGTH) + 1;
+      const nextDepth = (nextOffset % DIGITAL_SPOKE_LENGTH) + 1;
+      return nextDepth > fromDepth ? 'hacia el centro' : 'hacia el borde exterior';
+    }
+
+    return 'por la ruta más corta';
+  };
+
+  const wedgeDistanceInfo = isDigitalMode && currentPlayer
+    ? gameCategories.map((category, index) => {
+        const wedgeNode = index * DIGITAL_WEDGE_INTERVAL;
+        const path = getShortestPath(currentPlayer.position, wedgeNode);
+        return {
+          category,
+          distance: path ? path.length - 1 : null,
+          direction: getDirectionHint(path),
+          wedgeNode
+        };
+      })
+    : [];
 
   // Escuchar preguntas de otros jugadores
   useEffect(() => {
@@ -92,7 +237,7 @@ function GameBoard({ gameData, playerName, announce, setGameData }) {
     };
 
     const handleAnswerSubmitted = (event) => {
-      const { playerName: answerer, isCorrect, correctAnswer, correctAnswerText, wonWedge, wonWedgeCategory, hasWon, questionId } = event.detail;
+      const { playerName: answerer, submittedAnswer, isCorrect, correctAnswer, wonWedge, wonWedgeCategory, hasWon, questionId } = event.detail;
       
       // Solo actualizar si la pregunta coincide
       if (currentQuestion && currentQuestion.id === questionId) {
@@ -104,6 +249,7 @@ function GameBoard({ gameData, playerName, announce, setGameData }) {
           hasWon,
           player: answerer
         });
+        setSelectedAnswer(submittedAnswer);
         setShowResult(true);
         
         // Si no es mi turno, solo mostrar resultado brevemente y volver
@@ -122,7 +268,7 @@ function GameBoard({ gameData, playerName, announce, setGameData }) {
       const { playerName: roller, result, directionOptions: options } = event.detail;
       if (roller !== playerName) {
         setDiceResult(result);
-        setDirectionOptions(options || null);
+        setDirectionOptions(Array.isArray(options) ? options : []);
         setNeedsDirectionChoice(false);
       }
     };
@@ -151,7 +297,7 @@ function GameBoard({ gameData, playerName, announce, setGameData }) {
   // Función para tirar el dado (modo digital)
   const rollDice = async () => {
     if (!isMyTurn) {
-      announce(`No es tu turno. Es el turno de ${gameData.turnPlayer}`);
+      announce(`No es tu turno. Es el turno de ${gameData.turnPlayer}`, { visual: true });
       return;
     }
 
@@ -167,18 +313,20 @@ function GameBoard({ gameData, playerName, announce, setGameData }) {
       if (response.data.success) {
         setDiceResult(response.data.result);
         setNeedsDirectionChoice(response.data.needsDirectionChoice);
-        setDirectionOptions(response.data.directionOptions);
+        setDirectionOptions(Array.isArray(response.data.directionOptions) ? response.data.directionOptions : []);
         
         // Anunciar opciones detalladas para usuarios ciegos
-        const clockwise = response.data.directionOptions.clockwise;
-        const counter = response.data.directionOptions.counterclockwise;
+        const options = Array.isArray(response.data.directionOptions) ? response.data.directionOptions : [];
         
         let announcement = `Dado: ${response.data.result}. `;
-        announcement += `Sentido horario: posición ${clockwise.position}, categoría ${clockwise.category}`;
-        announcement += clockwise.isWedgeSpace ? ', ¡CASILLA DE QUESITO!' : '';
-        announcement += `. Sentido antihorario: posición ${counter.position}, categoría ${counter.category}`;
-        announcement += counter.isWedgeSpace ? ', ¡CASILLA DE QUESITO!' : '';
-        announcement += '. Elige tu dirección.';
+        if (options.length > 0) {
+          const optionsText = options
+            .map((option, index) => `opción ${index + 1}: posición ${option.position}, categoría ${option.category}${option.isWedgeSpace ? ', casilla de quesito' : ''}`)
+            .join('. ');
+          announcement += `${optionsText}. Elige tu movimiento.`;
+        } else {
+          announcement += 'No hay opciones de movimiento disponibles.';
+        }
         
         announce(announcement);
       }
@@ -193,18 +341,14 @@ function GameBoard({ gameData, playerName, announce, setGameData }) {
   };
 
   // Función para elegir dirección de movimiento
-  const chooseDirection = async (direction) => {
+  const chooseDirection = async (selectedOption) => {
     setMovingPlayer(true);
-    const directionLabels = {
-      'clockwise': 'sentido horario',
-      'counterclockwise': 'sentido antihorario'
-    };
-    announce(`Moviendo en ${directionLabels[direction]}`);
+    announce(`Moviendo a la posición ${selectedOption.position}`);
 
     try {
       const response = await axios.post(
         `${API_URL}/api/games/${gameData.code}/chooseDirection`,
-        { playerName, direction }
+        { playerName, targetPosition: selectedOption.position }
       );
 
       if (response.data.success) {
@@ -244,7 +388,7 @@ function GameBoard({ gameData, playerName, announce, setGameData }) {
 
   const getQuestion = async (category) => {
     if (!isMyTurn) {
-      announce(`No es tu turno. Es el turno de ${gameData.turnPlayer}`);
+      announce(`No es tu turno. Es el turno de ${gameData.turnPlayer}`, { visual: true });
       alert(`No es tu turno. Espera a que ${gameData.turnPlayer} termine.`);
       return;
     }
@@ -302,7 +446,8 @@ function GameBoard({ gameData, playerName, announce, setGameData }) {
           ),
           currentTurn: response.data.game.currentTurn,
           turnPlayer: response.data.game.turnPlayer,
-          lastAnswerCorrect: response.data.game.lastAnswerCorrect
+          lastAnswerCorrect: response.data.game.lastAnswerCorrect,
+          needsRoll: response.data.game.needsRoll
         }));
 
         const message = response.data.isCorrect
@@ -336,7 +481,7 @@ function GameBoard({ gameData, playerName, announce, setGameData }) {
     setDiceResult(null);
     setSelectedCategory(null);
     setNeedsDirectionChoice(false);
-    setDirectionOptions(null);
+    setDirectionOptions([]);
     
     if (result && result.isCorrect) {
       const nextStepMessage = isDigitalMode
@@ -347,6 +492,13 @@ function GameBoard({ gameData, playerName, announce, setGameData }) {
       // Si fallas, el turno ya cambió automáticamente en el backend
       announce(`Respuesta incorrecta. Es el turno de ${gameData.turnPlayer}`);
     }
+  };
+
+  const continueAndRoll = async () => {
+    backToCategories();
+    setTimeout(() => {
+      rollDice();
+    }, 150);
   };
 
   // Vista de categorías
@@ -367,6 +519,99 @@ function GameBoard({ gameData, playerName, announce, setGameData }) {
             </div>
           )}
         </div>
+
+        {/* Indicador de pausa */}
+        {gameData.status === 'paused' && (
+          <div className="alert" style={{ marginBottom: '1.5rem', background: '#fef3c7', border: '2px solid #fbbf24', color: '#92400e' }}>
+            <div style={{ fontSize: '1.1rem', fontWeight: 'bold' }}>
+              <span aria-hidden="true">⏸️ </span>LA PARTIDA ESTÁ PAUSADA
+            </div>
+          </div>
+        )}
+
+        {/* Botones de control (Pausa, Reanuda, Abandonar, Terminar) */}
+        {gameData.status === 'playing' && (
+          <div style={{ marginBottom: '1.5rem', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))', gap: '8px' }}>
+            {gameData.host === playerName && (
+              <button
+                onClick={onPauseGame}
+                style={{
+                  padding: '10px',
+                  fontSize: '0.9rem',
+                  background: '#f59e0b',
+                  border: 'none',
+                  borderRadius: '6px',
+                  color: 'white',
+                  cursor: 'pointer',
+                  fontWeight: 'bold'
+                }}
+                title="Solo el anfitrión puede pausar"
+                aria-label="Pausar partida"
+              >
+                <span aria-hidden="true">⏸️ </span>Pausar
+              </button>
+            )}
+            <button
+              onClick={onLeaveGame}
+              style={{
+                padding: '10px',
+                fontSize: '0.9rem',
+                background: '#ef4444',
+                border: 'none',
+                borderRadius: '6px',
+                color: 'white',
+                cursor: 'pointer',
+                fontWeight: 'bold'
+              }}
+              title="Abandonar la partida actual"
+              aria-label="Abandonar partida"
+            >
+              <span aria-hidden="true">🚪 </span>Abandonar
+            </button>
+            {gameData.host === playerName && (
+              <button
+                onClick={onEndGame}
+                style={{
+                  padding: '10px',
+                  fontSize: '0.9rem',
+                  background: '#dc2626',
+                  border: 'none',
+                  borderRadius: '6px',
+                  color: 'white',
+                  cursor: 'pointer',
+                  fontWeight: 'bold'
+                }}
+                title="Terminar la partida para todos"
+                aria-label="Terminar partida"
+              >
+                <span aria-hidden="true">🛑 </span>Terminar
+              </button>
+            )}
+          </div>
+        )}
+
+        {/* Botón de Reanudar cuando está pausada */}
+        {gameData.status === 'paused' && gameData.host === playerName && (
+          <div style={{ marginBottom: '1.5rem' }}>
+            <button
+              onClick={onResumeGame}
+              style={{
+                width: '100%',
+                padding: '12px',
+                fontSize: '1rem',
+                background: '#10b981',
+                border: 'none',
+                borderRadius: '8px',
+                color: 'white',
+                cursor: 'pointer',
+                fontWeight: 'bold'
+              }}
+              aria-label="Reanudar partida"
+            >
+              <span aria-hidden="true">▶️ </span>Reanudar Partida
+            </button>
+          </div>
+        )}
 
         <div style={{ marginBottom: '1.5rem' }}>
           <button
@@ -439,6 +684,25 @@ function GameBoard({ gameData, playerName, announce, setGameData }) {
         {isDigitalMode ? (
           <div className="card">
             <h2><span aria-hidden="true">🎲 </span>Tablero Digital</h2>
+
+            <div style={{ marginBottom: '16px', padding: '12px', background: '#f8fafc', borderRadius: '8px', border: '1px solid #cbd5e1' }}>
+              <strong>Distancia a quesitos:</strong>
+              <p style={{ margin: '8px 0 0', fontSize: '0.9rem', color: '#475569' }}>
+                Cada línea indica cuántas casillas faltan, por dónde empieza el camino más corto y a qué casilla llegas.
+              </p>
+              <ul style={{ marginTop: '8px', marginBottom: 0 }}>
+                {wedgeDistanceInfo.map((item) => (
+                  <li key={item.category}>
+                    {item.category}: {item.distance === null
+                      ? 'sin ruta'
+                      : item.distance === 0
+                        ? 'ya estás en esa casilla'
+                        : `${item.distance} casillas${item.direction ? `, ${item.direction}` : ''}, hasta la casilla ${item.wedgeNode}`
+                    }
+                  </li>
+                ))}
+              </ul>
+            </div>
             
             {/* Resultado del dado */}
             {diceResult && (
@@ -457,7 +721,7 @@ function GameBoard({ gameData, playerName, announce, setGameData }) {
                     <div style={{ fontSize: '1.1rem', fontWeight: 'bold', color: '#1e40af', marginBottom: '8px' }}>
                       Categoría: {selectedCategory}
                     </div>
-                    {currentPlayer.position % DIGITAL_WEDGE_INTERVAL === 0 && currentPlayer.position !== 0 && (
+                    {currentPlayer.position < DIGITAL_OUTER_TRACK_SIZE && currentPlayer.position % DIGITAL_WEDGE_INTERVAL === 0 && (
                       <div style={{ fontSize: '1rem', color: '#059669', fontWeight: 'bold' }}>
                         <span aria-hidden="true">🎯 </span>¡Casilla de Quesito!
                       </div>
@@ -468,63 +732,43 @@ function GameBoard({ gameData, playerName, announce, setGameData }) {
             )}
             
             {/* Elección de dirección */}
-            {needsDirectionChoice && isMyTurn && directionOptions && (
+            {needsDirectionChoice && isMyTurn && Array.isArray(directionOptions) && directionOptions.length > 0 && (
               <div style={{ marginBottom: '20px' }}>
                 <h3 style={{ fontSize: '1.1rem', marginBottom: '12px', textAlign: 'center' }}>
-                  Elige tu dirección de movimiento:
+                  Elige tu movimiento:
                 </h3>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
-                  <button
-                    onClick={() => chooseDirection('clockwise')}
-                    disabled={movingPlayer}
-                    style={{ 
-                      padding: '16px',
-                      fontSize: '0.95rem',
-                      background: directionOptions.clockwise.isWedgeSpace 
-                        ? 'linear-gradient(135deg, #10b981 0%, #059669 100%)' 
-                        : 'linear-gradient(135deg, #3b82f6 0%, #2563eb 100%)',
-                      border: directionOptions.clockwise.isWedgeSpace ? '3px solid #fbbf24' : 'none'
-                    }}
-                    aria-label={`Mover en sentido horario a posición ${directionOptions.clockwise.position}, categoría ${directionOptions.clockwise.category}${directionOptions.clockwise.isWedgeSpace ? ', casilla de quesito disponible' : ''}`}
-                  >
-                    <div><span aria-hidden="true">➡️ </span><strong>Sentido Horario</strong></div>
-                    <div style={{ fontSize: '0.85rem', marginTop: '6px' }}>
-                      Pos. {directionOptions.clockwise.position} - {directionOptions.clockwise.category}
-                    </div>
-                    {directionOptions.clockwise.isWedgeSpace && (
-                      <div style={{ fontSize: '0.9rem', marginTop: '4px', fontWeight: 'bold' }}>
-                        <span aria-hidden="true">🎯 </span>¡QUESITO!
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '12px' }}>
+                  {directionOptions.map((option, index) => (
+                    <button
+                      key={`${option.position}-${index}`}
+                      onClick={() => chooseDirection(option)}
+                      disabled={movingPlayer}
+                      style={{
+                        padding: '16px',
+                        fontSize: '0.95rem',
+                        background: option.isWedgeSpace
+                          ? 'linear-gradient(135deg, #10b981 0%, #059669 100%)'
+                          : 'linear-gradient(135deg, #3b82f6 0%, #2563eb 100%)',
+                        border: option.isWedgeSpace ? '3px solid #fbbf24' : 'none'
+                      }}
+                      aria-label={`Mover a opción ${index + 1}, posición ${option.position}, categoría ${option.category}${option.isWedgeSpace ? ', casilla de quesito disponible' : ''}`}
+                    >
+                      <div><strong>Opción {index + 1}</strong></div>
+                      <div style={{ fontSize: '0.85rem', marginTop: '6px' }}>
+                        Pos. {option.position} - {option.category}
                       </div>
-                    )}
-                  </button>
-                  <button
-                    onClick={() => chooseDirection('counterclockwise')}
-                    disabled={movingPlayer}
-                    style={{ 
-                      padding: '16px',
-                      fontSize: '0.95rem',
-                      background: directionOptions.counterclockwise.isWedgeSpace 
-                        ? 'linear-gradient(135deg, #10b981 0%, #059669 100%)' 
-                        : 'linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%)',
-                      border: directionOptions.counterclockwise.isWedgeSpace ? '3px solid #fbbf24' : 'none'
-                    }}
-                    aria-label={`Mover en sentido antihorario a posición ${directionOptions.counterclockwise.position}, categoría ${directionOptions.counterclockwise.category}${directionOptions.counterclockwise.isWedgeSpace ? ', casilla de quesito disponible' : ''}`}
-                  >
-                    <div><span aria-hidden="true">⬅️ </span><strong>Sentido Antihorario</strong></div>
-                    <div style={{ fontSize: '0.85rem', marginTop: '6px' }}>
-                      Pos. {directionOptions.counterclockwise.position} - {directionOptions.counterclockwise.category}
-                    </div>
-                    {directionOptions.counterclockwise.isWedgeSpace && (
-                      <div style={{ fontSize: '0.9rem', marginTop: '4px', fontWeight: 'bold' }}>
-                        <span aria-hidden="true">🎯 </span>¡QUESITO!
-                      </div>
-                    )}
-                  </button>
+                      {option.isWedgeSpace && (
+                        <div style={{ fontSize: '0.9rem', marginTop: '4px', fontWeight: 'bold' }}>
+                          <span aria-hidden="true">🎯 </span>¡QUESITO!
+                        </div>
+                      )}
+                    </button>
+                  ))}
                 </div>
                 <p style={{ marginTop: '12px', fontSize: '0.9rem', color: '#64748b', textAlign: 'center' }}>
-                  {directionOptions.clockwise.isWedgeSpace || directionOptions.counterclockwise.isWedgeSpace 
+                  {directionOptions.some((option) => option.isWedgeSpace)
                     ? (<><span aria-hidden="true">⭐ </span>Hay casillas de quesito disponibles. Los botones con borde dorado tienen quesito.</>)
-                    : 'Según las reglas oficiales del Trivial Pursuit, puedes elegir la dirección de tu movimiento'}
+                    : 'Según las reglas oficiales del Trivial Pursuit, puedes elegir entre los movimientos disponibles'}
                 </p>
               </div>
             )}
@@ -644,6 +888,15 @@ function GameBoard({ gameData, playerName, announce, setGameData }) {
     <div className="game-container">
       <h1>Pregunta en Juego</h1>
 
+      {/* Indicador de pausa */}
+      {gameData.status === 'paused' && (
+        <div className="alert" style={{ marginBottom: '1.5rem', background: '#fef3c7', border: '2px solid #fbbf24', color: '#92400e' }}>
+          <div style={{ fontSize: '1.1rem', fontWeight: 'bold' }}>
+            <span aria-hidden="true">⏸️ </span>LA PARTIDA ESTÁ PAUSADA
+          </div>
+        </div>
+      )}
+
       {/* Indicador de turno siempre visible */}
       <div 
         className={`alert ${isMyTurn ? 'alert-success' : 'alert-info'}`} 
@@ -655,6 +908,87 @@ function GameBoard({ gameData, playerName, announce, setGameData }) {
           <div><span aria-hidden="true">👁️ </span>Es el turno de <strong>{gameData.turnPlayer}</strong> - Solo puedes observar</div>
         )}
       </div>
+
+      {/* Botones de control en vista de pregunta */}
+      {gameData.status === 'playing' && (
+        <div style={{ marginBottom: '1.5rem', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(100px, 1fr))', gap: '6px' }}>
+          {gameData.host === playerName && (
+            <button
+              onClick={onPauseGame}
+              style={{
+                padding: '8px',
+                fontSize: '0.85rem',
+                background: '#f59e0b',
+                border: 'none',
+                borderRadius: '6px',
+                color: 'white',
+                cursor: 'pointer',
+                fontWeight: 'bold'
+              }}
+              aria-label="Pausar partida"
+            >
+              <span aria-hidden="true">⏸️ </span>Pausar
+            </button>
+          )}
+          <button
+            onClick={onLeaveGame}
+            style={{
+              padding: '8px',
+              fontSize: '0.85rem',
+              background: '#ef4444',
+              border: 'none',
+              borderRadius: '6px',
+              color: 'white',
+              cursor: 'pointer',
+              fontWeight: 'bold'
+            }}
+            aria-label="Abandonar partida"
+          >
+            <span aria-hidden="true">🚪 </span>Abandonar
+          </button>
+          {gameData.host === playerName && (
+            <button
+              onClick={onEndGame}
+              style={{
+                padding: '8px',
+                fontSize: '0.85rem',
+                background: '#dc2626',
+                border: 'none',
+                borderRadius: '6px',
+                color: 'white',
+                cursor: 'pointer',
+                fontWeight: 'bold'
+              }}
+              aria-label="Terminar partida"
+            >
+              <span aria-hidden="true">🛑 </span>Terminar
+            </button>
+          )}
+        </div>
+      )}
+
+      {/* Botón de Reanudar cuando está pausada */}
+      {gameData.status === 'paused' && gameData.host === playerName && (
+        <div style={{ marginBottom: '1.5rem' }}>
+          <button
+            onClick={onResumeGame}
+            style={{
+              width: '100%',
+              padding: '12px',
+              fontSize: '1rem',
+              background: '#10b981',
+              border: 'none',
+              borderRadius: '8px',
+              color: 'white',
+              cursor: 'pointer',
+              fontWeight: 'bold'
+            }}
+            aria-label="Reanudar partida"
+          >
+            <span aria-hidden="true">▶️ </span>Reanudar Partida
+          </button>
+        </div>
+      )}
 
       <div className="card">
         <div style={{ 
@@ -730,11 +1064,15 @@ function GameBoard({ gameData, playerName, announce, setGameData }) {
 
           {showResult && isMyTurn && (
             <button
-              onClick={backToCategories}
+              onClick={isDigitalMode && result.isCorrect ? continueAndRoll : backToCategories}
               style={{ width: '100%', marginTop: '16px' }}
-              aria-label={result.isCorrect ? 'Continuar con tu turno' : 'Terminar turno'}
+              aria-label={isDigitalMode && result.isCorrect ? 'Tirar dado para continuar turno' : (result.isCorrect ? 'Continuar con tu turno' : 'Terminar turno')}
             >
-              {result.isCorrect ? '✓ Continuar Mi Turno' : '✗ Siguiente Jugador'}
+              {isDigitalMode && result.isCorrect
+                ? (<><span aria-hidden="true">🎲 </span>Tirar Dado y Continuar</>)
+                : (result.isCorrect
+                  ? (<><span aria-hidden="true">✓ </span>Continuar Mi Turno</>)
+                  : (<><span aria-hidden="true">✗ </span>Siguiente Jugador</>))}
             </button>
           )}
           

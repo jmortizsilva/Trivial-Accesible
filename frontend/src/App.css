@@ -2,6 +2,19 @@
   min-height: 100vh;
 }
 
+.announcement-banner {
+  max-width: 900px;
+  margin: 16px auto 24px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 1px solid #cbd5e1;
+  background: #eff6ff;
+  color: #1e3a8a;
+  font-size: 0.95rem;
+  font-weight: 600;
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.08);
+}
+
 .game-container {
   max-width: 900px;
   margin: 0 auto;

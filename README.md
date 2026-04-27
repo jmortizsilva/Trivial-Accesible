@@ -16,6 +16,15 @@ Juego de Trivial Pursuit completamente accesible para personas con ceguera y def
 - 👁️ **Otros jugadores ven las preguntas** como en el Trivial real
 - 📊 **Marcador colapsable** para consultar cuando quieras
 
+### ✨ Nuevas Características (v1.1 - 27/04/2026)
+
+- ⏸️ **Pausar partidas** - El host puede pausar la partida en cualquier momento
+- ▶️ **Reanudar partidas** - Continúa donde lo dejaste
+- 🚪 **Abandonar partidas** - Cualquier jugador puede irse sin afectar a otros
+- 🛑 **Terminar partidas** - El host puede terminar para todos
+- 💾 **Persistencia de sesiones** - Las partidas pausadas se guardan 24h en el servidor
+- 📱 **Optimizado para apps móviles** - Manejo de desconexiones y reconexiones
+
 ## 🛠️ Tecnologías
 
 ### Backend
@@ -150,7 +159,39 @@ Para desplegar esta aplicación en la nube de forma gratuita, consulta la [Guía
 
 Ver [DEPLOY.md](DEPLOY.md) para instrucciones detalladas paso a paso.
 
+## � Documentación para App Móvil
+
+Si estás desarrollando la versión móvil, consulta estos documentos:
+
+- **[API_UPDATES.md](API_UPDATES.md)** - Documentación completa de los nuevos endpoints
+  - Detalles de cada endpoint: `/pause`, `/resume`, `/leave`, `/end`
+  - Nuevos eventos Socket.IO
+  - Ejemplos de integración
+  - Manejo de desconexiones
+
+- **[QUICK_REFERENCE.md](QUICK_REFERENCE.md)** - Referencia rápida
+  - Matriz de permisos
+  - Estados de partida
+  - Comandos curl para testing
+  - Integración mínima (3 pasos)
+
+- **[CHANGELOG.md](CHANGELOG.md)** - Detalles técnicos de cambios
+  - Cambios en `backend/server.js`
+  - Cambios en `frontend/src/App.js`
+  - Cambios en `frontend/src/components/GameBoard.js`
+  - Checklist de integración
+
+### Características principales para móvil
+
+✅ **Pausa/Reanuda** - Mantiene sesión pausada 24h  
+✅ **Abandonar** - Salir sin afectar otros jugadores  
+✅ **Terminar** - Host finaliza para todos  
+✅ **Persistencia** - Sesiones guardadas en JSON  
+✅ **Reconexión** - Detecta estado al reconectar  
+✅ **Eventos en tiempo real** - Socket.IO para actualizaciones  
+
 ## 📝 Créditos y Licencia
+
 
 ### Preguntas
 

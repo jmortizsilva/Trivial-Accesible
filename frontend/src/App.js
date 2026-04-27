@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import io from 'socket.io-client';
 import './App.css';
@@ -33,10 +33,22 @@ function App() {
   const [gameData, setGameData] = useState(null);
   const [playerName, setPlayerName] = useState('');
   const [announcement, setAnnouncement] = useState('');
+  const [visibleNotice, setVisibleNotice] = useState('');
+  const noticeTimerRef = useRef(null);
 
   // Función para anunciar mensajes a lectores de pantalla
-  const announce = (message) => {
+  const announce = (message, { visual = false, duration = 4000 } = {}) => {
     setAnnouncement(message);
+    if (visual) {
+      setVisibleNotice(message);
+      if (noticeTimerRef.current) {
+        clearTimeout(noticeTimerRef.current);
+      }
+      noticeTimerRef.current = setTimeout(() => {
+        setVisibleNotice('');
+        noticeTimerRef.current = null;
+      }, duration);
+    }
     setTimeout(() => setAnnouncement(''), 100);
   };
 
@@ -53,11 +65,11 @@ function App() {
         setPlayerName(hostName);
         setScreen('lobby');
         socket.emit('joinGame', response.data.gameCode);
-        announce(`Partida creada con código ${response.data.gameCode}`);
+        announce(`Partida creada con código ${response.data.gameCode}`, { visual: true });
       }
     } catch (error) {
       console.error('Error creando partida:', error);
-      announce('Error al crear la partida. Intenta nuevamente.');
+      announce('Error al crear la partida. Intenta nuevamente.', { visual: true });
     }
   };
 
@@ -74,12 +86,12 @@ function App() {
         setPlayerName(playerNameInput);
         setScreen('lobby');
         socket.emit('joinGame', gameCode);
-        announce(`Te has unido a la partida ${gameCode}`);
+        announce(`Te has unido a la partida ${gameCode}`, { visual: true });
       }
     } catch (error) {
       console.error('Error uniéndose a partida:', error);
       const message = error.response?.data?.message || 'Error al unirse a la partida';
-      announce(message);
+      announce(message, { visual: true });
       alert(message);
     }
   };
@@ -88,7 +100,79 @@ function App() {
   const startGame = () => {
     socket.emit('startGame', gameData.code);
     setScreen('game');
-    announce('La partida ha comenzado');
+    announce('La partida ha comenzado', { visual: true });
+  };
+
+  // Pausar partida
+  const pauseGame = async () => {
+    try {
+      const response = await axios.post(`${API_URL}/api/games/${gameData.code}/pause`, {
+        playerName
+      });
+      if (response.data.success) {
+        announce('Partida pausada', { visual: true });
+      }
+    } catch (error) {
+      console.error('Error pausando partida:', error);
+      const message = error.response?.data?.message || 'Error al pausar la partida';
+      announce(message, { visual: true });
+    }
+  };
+
+  // Reanudar partida
+  const resumeGame = async () => {
+    try {
+      const response = await axios.post(`${API_URL}/api/games/${gameData.code}/resume`, {
+        playerName
+      });
+      if (response.data.success) {
+        announce('Partida reanudada', { visual: true });
+      }
+    } catch (error) {
+      console.error('Error reanudando partida:', error);
+      const message = error.response?.data?.message || 'Error al reanudar la partida';
+      announce(message, { visual: true });
+    }
+  };
+
+  // Abandonar partida
+  const leaveGame = async () => {
+    try {
+      await axios.post(`${API_URL}/api/games/${gameData.code}/leave`, {
+        playerName
+      });
+      announce('Has abandonado la partida', { visual: true });
+      setTimeout(() => {
+        setScreen('home');
+        setGameData(null);
+      }, 1000);
+    } catch (error) {
+      console.error('Error abandonando partida:', error);
+      const message = error.response?.data?.message || 'Error al abandonar la partida';
+      announce(message, { visual: true });
+    }
+  };
+
+  // Terminar partida (solo host)
+  const endGame = async () => {
+    if (gameData.host !== playerName) {
+      announce('Solo el anfitrión puede terminar la partida', { visual: true });
+      return;
+    }
+    try {
+      await axios.post(`${API_URL}/api/games/${gameData.code}/end`, {
+        playerName
+      });
+      announce('Partida terminada por el anfitrión', { visual: true });
+      setTimeout(() => {
+        setScreen('home');
+        setGameData(null);
+      }, 1000);
+    } catch (error) {
+      console.error('Error terminando partida:', error);
+      const message = error.response?.data?.message || 'Error al terminar la partida';
+      announce(message, { visual: true });
+    }
   };
 
   // Escuchar eventos de Socket.io
@@ -98,7 +182,7 @@ function App() {
         ...prev,
         players: data.players
       }));
-      announce(`${data.playerName} se ha unido a la partida`);
+      announce(`${data.playerName} se ha unido a la partida`, { visual: true });
     });
 
     socket.on('gameStarted', (data) => {
@@ -120,6 +204,8 @@ function App() {
       window.dispatchEvent(new CustomEvent('answerSubmitted', { 
         detail: { 
           playerName: data.playerName,
+          submittedAnswer: data.submittedAnswer,
+          submittedAnswerText: data.submittedAnswerText,
           isCorrect: data.isCorrect, 
           correctAnswer: data.correctAnswer,
           correctAnswerText: data.correctAnswerText,
@@ -133,6 +219,9 @@ function App() {
       const baseMessage = data.isCorrect
         ? `${data.playerName} respondió correctamente.`
         : `${data.playerName} respondió incorrectamente.`;
+      const selectedMessage = data.submittedAnswerText
+        ? ` Respondió: ${data.submittedAnswerText}.`
+        : '';
       const answerMessage = ` La respuesta correcta era: ${data.correctAnswerText}.`;
       const wedgeMessage = data.wonWedge
         ? ` ${data.playerName} consiguió un quesito de ${data.wonWedgeCategory}.`
@@ -144,7 +233,7 @@ function App() {
         ? ` Es el turno de ${data.turnPlayer}.`
         : ' Continúa el mismo turno.';
 
-      announce(`${baseMessage}${answerMessage}${wedgeMessage}${winnerMessage}${turnMessage}`);
+      announce(`${baseMessage}${selectedMessage}${answerMessage}${wedgeMessage}${winnerMessage}${turnMessage}`);
     });
     
     socket.on('turnChanged', (data) => {
@@ -185,6 +274,39 @@ function App() {
       announce(`${data.playerName} se movió a la posición ${data.newPosition}, categoría ${data.category}`);
     });
 
+    socket.on('gamePaused', (data) => {
+      setGameData(prev => ({
+        ...prev,
+        status: 'paused'
+      }));
+      announce(`${data.pausedBy} ha pausado la partida`, { visual: true });
+    });
+
+    socket.on('gameResumed', (data) => {
+      setGameData(prev => ({
+        ...prev,
+        status: 'playing',
+        turnPlayer: data.turnPlayer
+      }));
+      announce(`${data.resumedBy} ha reanudado la partida`, { visual: true });
+    });
+
+    socket.on('gameEnded', (data) => {
+      announce(`La partida ha terminado: ${data.reason}`, { visual: true });
+      setTimeout(() => {
+        setScreen('home');
+        setGameData(null);
+      }, 3000);
+    });
+
+    socket.on('playerLeft', (data) => {
+      setGameData(prev => ({
+        ...prev,
+        players: data.players
+      }));
+      announce(`${data.playerName} ha abandonado la partida. Jugadores restantes: ${data.players.length}`, { visual: true });
+    });
+
     return () => {
       socket.off('playerJoined');
       socket.off('gameStarted');
@@ -193,6 +315,10 @@ function App() {
       socket.off('questionAsked');
       socket.off('diceRolled');
       socket.off('playerMoved');
+      socket.off('gamePaused');
+      socket.off('gameResumed');
+      socket.off('gameEnded');
+      socket.off('playerLeft');
     };
   }, []);
 
@@ -205,6 +331,11 @@ function App() {
 
       {/* Live region para anuncios */}
       <LiveRegion message={announcement} />
+      {visibleNotice && (
+        <div className="announcement-banner" role="status" aria-live="off">
+          {visibleNotice}
+        </div>
+      )}
 
       {/* Contenido principal */}
       <main id="main-content">
@@ -231,9 +362,15 @@ function App() {
             playerName={playerName}
             announce={announce}
             setGameData={setGameData}
+            onPauseGame={pauseGame}
+            onResumeGame={resumeGame}
+            onLeaveGame={leaveGame}
+            onEndGame={endGame}
+          />
           />
         )}
       </main>
+
     </div>
   );
 }
