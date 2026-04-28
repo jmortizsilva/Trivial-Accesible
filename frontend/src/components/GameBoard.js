@@ -93,6 +93,10 @@ function GameBoard({ gameData, playerName, announce, setGameData, onPauseGame, o
       })
     : [];
 
+  const wedgeOptionCount = Array.isArray(directionOptions)
+    ? directionOptions.filter((option) => option.isWedgeSpace).length
+    : 0;
+
   // Escuchar preguntas de otros jugadores
   useEffect(() => {
     const handleQuestionAsked = (event) => {
@@ -638,8 +642,10 @@ function GameBoard({ gameData, playerName, announce, setGameData, onPauseGame, o
                   ))}
                 </div>
                 <p style={{ marginTop: '12px', fontSize: '0.9rem', color: '#64748b', textAlign: 'center' }}>
-                  {directionOptions.some((option) => option.isWedgeSpace)
-                    ? (<><span aria-hidden="true">⭐ </span>Una dirección tiene quesito disponible (borde dorado)</>)
+                  {wedgeOptionCount === 2
+                    ? (<><span aria-hidden="true">⭐ </span>Ambas direcciones tienen quesito disponible (borde dorado)</>)
+                    : wedgeOptionCount === 1
+                      ? (<><span aria-hidden="true">⭐ </span>Una dirección tiene quesito disponible (borde dorado)</>)
                     : 'Elige la dirección hacia la que quieres moverte'}
                 </p>
               </div>
