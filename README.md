@@ -1,223 +1,155 @@
-# 🎯 Trivial Accesible
+# Trivial Accesible
 
-Juego de Trivial Pursuit completamente accesible para personas con ceguera y deficiencia visual grave. Implementa las reglas oficiales del Trivial Pursuit con soporte completo para lectores de pantalla.
+Prototipo híbrido físico-digital desarrollado como Trabajo Final de Máster (TFM) del:
 
-## 🌟 Características Principales
+Máster de Formación Permanente en Accesibilidad Digital para Educación, Comunicación y Diseño (EARED)  
+Universitat de Barcelona
 
-- 🦯 **100% Accesible**: Diseñado específicamente para usuarios de lectores de pantalla (NVDA, JAWS, Narrator, VoiceOver)
-- 🎲 **Dos modos de juego**:
-  - **Tablero Físico**: Usa tu tablero real y la app solo hace las preguntas
-  - **Tablero Digital**: Juega completamente en la aplicación con dado virtual y movimiento automático
-- 🌍 **1901 preguntas en español** con anécdotas educativas
-- 📱 **Multijugador en tiempo real** usando Socket.IO
-- ⌨️ **Control total por teclado** sin necesidad de ratón
-- 🎯 **Sistema de quesitos** según reglas oficiales de Trivial Pursuit
-- 🔊 **Anuncios automáticos** de todos los eventos importantes
-- 👁️ **Otros jugadores ven las preguntas** como en el Trivial real
-- 📊 **Marcador colapsable** para consultar cuando quieras
+https://eared.org/
 
-### ✨ Nuevas Características (v1.1 - 27/04/2026)
+## Información académica
 
-- ⏸️ **Pausar partidas** - El host puede pausar la partida en cualquier momento
-- ▶️ **Reanudar partidas** - Continúa donde lo dejaste
-- 🚪 **Abandonar partidas** - Cualquier jugador puede irse sin afectar a otros
-- 🛑 **Terminar partidas** - El host puede terminar para todos
-- 💾 **Persistencia de sesiones** - Las partidas pausadas se guardan 24h en el servidor
-- 📱 **Optimizado para apps móviles** - Manejo de desconexiones y reconexiones
+- Autor: José María Ortiz Silva
+- Tutora académica: Dra. Mireia Ribera Turro
 
-## 🛠️ Tecnologías
+## Descripción del proyecto
+
+Trivial Accesible es una propuesta de sistema de juego accesible orientado a personas ciegas o con deficiencia visual grave, basada en la integración de:
+
+- aplicación accesible;
+- tablero táctil;
+- interacción tangible;
+- y experiencia compartida entre personas con y sin discapacidad visual.
+
+La propuesta combina una arquitectura híbrida físico-digital que permite gestionar el contenido textual mediante una aplicación accesible mientras el tablero físico representa espacialmente la mecánica del juego mediante exploración táctil.
+
+El objetivo principal del proyecto consiste en analizar la viabilidad de modelos de diseño accesible aplicados a juegos de preguntas y respuestas.
+
+## Características principales
+
+- **accesible**: Diseñado para que sea compatible para usuarios de lectores de pantalla (NVDA, JAWS, Narrator, VoiceOver y TalkBack)
+- **Dos modos de juego**:
+  - **Tablero físico**: Uso de tablero real mientras la aplicación gestiona las preguntas
+  - **Tablero digital**: Juego completamente integrado en la aplicación
+- **Multijugador en tiempo real** mediante Socket.IO
+- **Control completo por teclado** sin necesidad de ratón
+- **Sistema de quesitos** inspirado en la dinámica clásica de juegos de preguntas y respuestas por categorías
+- **Anuncios automáticos** de eventos relevantes del juego
+- **Visualización compartida** de preguntas y progreso de partida
+- **Marcador accesible** consultable en cualquier momento
+
+## Características de accesibilidad
+
+### Compatibilidad con lectores de pantalla
+
+- NVDA
+- JAWS
+- Narrator
+- VoiceOver
+- TalkBack
+
+### Medidas de accesibilidad implementadas
+
+- Navegación completa mediante teclado
+- Etiquetado semántico accesible
+- Compatibilidad con tecnologías de apoyo
+- Anuncios dinámicos de eventos del juego
+- Navegación lineal y estructurada
+- Controles estándar accesibles
+- Ausencia de dependencias exclusivamente visuales
+- Información anticipada sobre movimientos y categorías
+
+## Tecnologías utilizadas
 
 ### Backend
-- Node.js + Express
-- Socket.IO para tiempo real
-- CORS configurado
+
+- Node.js
+- Express
+- Socket.IO
+- Persistencia en JSON
 
 ### Frontend
+
 - React 18
 - Socket.IO Client
 - Axios
 - CSS modular con enfoque en accesibilidad
 
-## 🎮 Categorías de Preguntas
+## Acceso al prototipo
 
-1. 🌍 **Geografía** (Azul)
-2. 📜 **Historia** (Amarillo)
-3. 🔬 **Ciencia** (Verde)
-4. 🎨 **Arte y Literatura** (Morado)
-5. ⚽ **Deportes** (Naranja)
-6. 🎬 **Entretenimiento** (Rosa)
+Versión web desplegada:
 
-## 🚀 Instalación y Uso Local
+https://trivial-frontend.render.com
 
-### Requisitos Previos
-- Node.js 14 o superior
-- npm (incluido con Node.js)
+La versión experimental para dispositivos iOS se distribuye mediante TestFlight con fines académicos y de evaluación funcional.
 
-### 1. Instalar Backend
+## Categorías de preguntas
 
-```bash
-cd backend
-npm install
-npm start
-```
+1. Geografía
+2. Historia
+3. Ciencia
+4. Arte y Literatura
+5. Deportes
+6. Entretenimiento
 
-El servidor arrancará en `http://localhost:3001`
+## Funcionamiento general
 
-### 2. Instalar Frontend
+### Modo tablero físico
 
-```bash
-cd frontend
-npm install
-npm start
-```
+1. Configurar tablero, dado y fichas reales
+2. Lanzar el dado físico y mover la ficha manualmente
+3. Seleccionar en la aplicación la categoría correspondiente
+4. Responder la pregunta mostrada por el sistema
+5. Gestionar los turnos según las reglas del juego
 
-La aplicación se abrirá automáticamente en `http://localhost:3000`
+### Modo digital
 
-## 🎯 Cómo Jugar
+1. Lanzar dado virtual
+2. Elegir dirección de movimiento
+3. Consultar categoría y disponibilidad de quesito
+4. Responder la pregunta
+5. Continuar turno o cambiar de jugador automáticamente
 
-### Modo Tablero Físico
+## 📁 Estructura general del proyecto
 
-1. Configura tu tablero, dado y fichas reales
-2. Tira el dado y mueve tu ficha físicamente
-3. En la aplicación, selecciona la categoría según tu casilla
-4. Responde la pregunta
-5. Si aciertas → continúa jugando
-6. Si fallas → pasa turno automáticamente
-
-### Modo Digital
-
-1. Click en **"🎲 Tirar Dado"**
-2. **Elige dirección** (horario/antihorario)
-   - El sistema indica dónde caerás con cada opción
-   - Te avisa si hay quesitos disponibles
-  - El tablero digital es circular y tiene **36 casillas** (0 a 35)
-3. Responde la pregunta
-4. Si aciertas en casilla de quesito → ¡ganas el quesito!
-5. Primer jugador en completar los 6 quesitos gana
-
-### Casillas de Quesito
-Posiciones: 0, 6, 12, 18, 24, 30
-
-## ♿ Características de Accesibilidad
-
-### Optimizado para Lectores de Pantalla
-
-- ✅ **Navegación completa por teclado**: Tab + Enter para todas las acciones
-- ✅ **Anuncios automáticos**: Notificaciones de todos los eventos del juego
-- ✅ **Información anticipada**: Conoce el destino y disponibilidad de quesitos antes de mover
-- ✅ **Etiquetas ARIA descriptivas**: Botones con descripciones completas
-- ✅ **Sin barreras visuales**: No requiere visión para jugar
-- ✅ **Modo espectador**: Otros jugadores ven las preguntas en pantalla
-
-### Lectores de Pantalla Compatibles
-
-- NVDA (Windows)
-- JAWS (Windows)
-- Narrator (Windows)
-- VoiceOver (macOS/iOS)
-- TalkBack (Android)
-
-## 📁 Estructura del Proyecto
-
-```
+```text
 trivial-accesible/
 ├── backend/
-│   ├── server.js           # Servidor Express + Socket.IO
-│   ├── data/
-│   │   └── questions.json  # Base de datos de preguntas
-│   └── utils/              # Utilidades internas del proyecto
-│
 ├── frontend/
-│   ├── public/
-│   │   └── index.html      # HTML base
-│   └── src/
-│       ├── App.js          # Componente principal
-│       ├── components/     # Componentes React
-│       └── index.css       # Estilos accesibles
-│
-├── README.md               # Este archivo
-└── DEPLOY.md              # Guía de despliegue
+├── README.md
+└── DEPLOY.md
 ```
 
-## 🌐 Despliegue en Producción
+## Documentación técnica adicional
 
-Para desplegar esta aplicación en la nube de forma gratuita, consulta la [Guía de Despliegue](DEPLOY.md).
+El repositorio incluye documentación técnica complementaria relacionada con:
 
-### Opciones Recomendadas:
+- arquitectura del sistema;
+- eventos Socket.IO;
+- persistencia de sesiones;
+- gestión de reconexiones;
+- e integración móvil.
 
-1. **Render.com** (Gratis) - Recomendado
-   - WebSockets incluidos
-   - Despliegue automático desde GitHub
-   - HTTPS gratis
+## Preguntas y contenido
 
-2. **Railway** ($5/mes)
-   - Muy fácil de configurar
-   - Despliegue rápido
+Las preguntas incluidas actualmente en el prototipo fueron generadas específicamente para la prueba de concepto desarrollada en el marco del TFM.
 
-3. **Fly.io** (Gratis)
-   - Muy rápido
-   - Mayor complejidad
+Debido a la dificultad de localizar bases de datos abiertas en español adecuadas para un sistema accesible de preguntas y respuestas, se generó un conjunto inicial de preguntas utilizando herramientas de inteligencia artificial generativa bajo supervisión y revisión manual del autor.
 
-Ver [DEPLOY.md](DEPLOY.md) para instrucciones detalladas paso a paso.
+Estas preguntas tienen exclusivamente fines demostrativos y de validación funcional del sistema, y no constituyen una base de datos definitiva para un producto final.
 
-## � Documentación para App Móvil
+## Licencia
 
-Si estás desarrollando la versión móvil, consulta estos documentos:
+MIT License.
 
-- **[API_UPDATES.md](API_UPDATES.md)** - Documentación completa de los nuevos endpoints
-  - Detalles de cada endpoint: `/pause`, `/resume`, `/leave`, `/end`
-  - Nuevos eventos Socket.IO
-  - Ejemplos de integración
-  - Manejo de desconexiones
+## Contribuciones
 
-- **[QUICK_REFERENCE.md](QUICK_REFERENCE.md)** - Referencia rápida
-  - Matriz de permisos
-  - Estados de partida
-  - Comandos curl para testing
-  - Integración mínima (3 pasos)
+Las contribuciones y sugerencias de mejora son bienvenidas mediante issues o pull requests.
 
-- **[CHANGELOG.md](CHANGELOG.md)** - Detalles técnicos de cambios
-  - Cambios en `backend/server.js`
-  - Cambios en `frontend/src/App.js`
-  - Cambios en `frontend/src/components/GameBoard.js`
-  - Checklist de integración
+## Contacto
 
-### Características principales para móvil
-
-✅ **Pausa/Reanuda** - Mantiene sesión pausada 24h  
-✅ **Abandonar** - Salir sin afectar otros jugadores  
-✅ **Terminar** - Host finaliza para todos  
-✅ **Persistencia** - Sesiones guardadas en JSON  
-✅ **Reconexión** - Detecta estado al reconectar  
-✅ **Eventos en tiempo real** - Socket.IO para actualizaciones  
-
-## 📝 Créditos y Licencia
-
-
-### Preguntas
-
-Las preguntas de este proyecto se gestionan desde el dataset local incluido en el repositorio.
-
-Se han adaptado al formato del juego para las 6 categorías del Trivial clásico.
-
-### Licencia del Proyecto
-
-MIT License - Libre para uso, modificación y distribución.
-
-## 🤝 Contribuciones
-
-Las contribuciones son bienvenidas. Por favor:
-
-1. Fork el proyecto
-2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
-3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
-4. Push a la rama (`git push origin feature/AmazingFeature`)
-5. Abre un Pull Request
-
-## 📧 Contacto
-
-Para reportar problemas o sugerir mejoras, abre un issue en el repositorio de GitHub.
+Para consultas relacionadas con el proyecto o el TFM, puede utilizarse el sistema de issues del repositorio.
 
 ---
 
-Desarrollado con ♿ pensando en la accesibilidad universal
+Desarrollado en el marco del Trabajo Final del Máster EARED
