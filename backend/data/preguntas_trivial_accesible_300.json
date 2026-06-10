@@ -5,9 +5,9 @@
     "dificultad": "media",
     "pregunta": "¿En qué año comenzó la Segunda Guerra Mundial?",
     "opciones": [
-      "1939",
       "1941",
       "1935",
+      "1939",
       "1945"
     ],
     "respuesta_correcta": "1939"
@@ -18,10 +18,10 @@
     "dificultad": "media",
     "pregunta": "¿Quién fue el primer emperador romano?",
     "opciones": [
-      "Augusto",
+      "Trajano",
       "Nerón",
-      "Julio César",
-      "Trajano"
+      "Augusto",
+      "Julio César"
     ],
     "respuesta_correcta": "Augusto"
   },
@@ -31,10 +31,10 @@
     "dificultad": "media",
     "pregunta": "¿En qué país se originó la Revolución Industrial?",
     "opciones": [
-      "Reino Unido",
-      "Francia",
       "Alemania",
-      "Estados Unidos"
+      "Reino Unido",
+      "Estados Unidos",
+      "Francia"
     ],
     "respuesta_correcta": "Reino Unido"
   },
@@ -44,10 +44,10 @@
     "dificultad": "media",
     "pregunta": "¿Quién encabezó el primer viaje europeo que llegó a América en 1492?",
     "opciones": [
-      "Cristóbal Colón",
+      "Hernán Cortés",
       "Fernando de Magallanes",
       "Vasco da Gama",
-      "Hernán Cortés"
+      "Cristóbal Colón"
     ],
     "respuesta_correcta": "Cristóbal Colón"
   },
@@ -57,10 +57,10 @@
     "dificultad": "media",
     "pregunta": "¿Qué muro cayó en 1989, símbolo del fin de la Guerra Fría en Europa?",
     "opciones": [
-      "Muro de Berlín",
-      "Muro de Adriano",
       "Muro de las Lamentaciones",
-      "Gran Muralla China"
+      "Muro de Adriano",
+      "Gran Muralla China",
+      "Muro de Berlín"
     ],
     "respuesta_correcta": "Muro de Berlín"
   },
@@ -83,10 +83,10 @@
     "dificultad": "media",
     "pregunta": "¿Quién fue Napoleón Bonaparte?",
     "opciones": [
-      "Emperador francés",
+      "Presidente estadounidense",
       "Rey inglés",
       "Zar ruso",
-      "Presidente estadounidense"
+      "Emperador francés"
     ],
     "respuesta_correcta": "Emperador francés"
   },
@@ -96,9 +96,9 @@
     "dificultad": "media",
     "pregunta": "¿En qué siglo tuvo lugar la Revolución Francesa?",
     "opciones": [
-      "Siglo XVIII",
-      "Siglo XVII",
       "Siglo XIX",
+      "Siglo XVII",
+      "Siglo XVIII",
       "Siglo XVI"
     ],
     "respuesta_correcta": "Siglo XVIII"
@@ -109,10 +109,10 @@
     "dificultad": "media",
     "pregunta": "¿Qué imperio dominaba gran parte de la región andina antes de la llegada española?",
     "opciones": [
-      "Imperio inca",
+      "Imperio romano",
       "Imperio azteca",
       "Imperio maya",
-      "Imperio romano"
+      "Imperio inca"
     ],
     "respuesta_correcta": "Imperio inca"
   },
@@ -122,10 +122,10 @@
     "dificultad": "media",
     "pregunta": "¿Quién fue el primer presidente de Estados Unidos?",
     "opciones": [
-      "George Washington",
-      "Thomas Jefferson",
       "Abraham Lincoln",
-      "John Adams"
+      "John Adams",
+      "George Washington",
+      "Thomas Jefferson"
     ],
     "respuesta_correcta": "George Washington"
   },
@@ -136,9 +136,9 @@
     "pregunta": "¿Entre qué años transcurrió la Guerra Civil Española?",
     "opciones": [
       "1936-1939",
-      "1931-1934",
       "1939-1942",
-      "1929-1932"
+      "1929-1932",
+      "1931-1934"
     ],
     "respuesta_correcta": "1936-1939"
   },
@@ -148,8 +148,8 @@
     "dificultad": "media",
     "pregunta": "¿Qué acontecimiento suele marcar el inicio de la Edad Media en Europa?",
     "opciones": [
-      "La caída del Imperio romano de Occidente",
       "La toma de Constantinopla",
+      "La caída del Imperio romano de Occidente",
       "El descubrimiento de América",
       "La Revolución francesa"
     ],
@@ -161,10 +161,10 @@
     "dificultad": "media",
     "pregunta": "¿Quién lideró una estrategia de resistencia no violenta frente al dominio británico en la India?",
     "opciones": [
-      "Mahatma Gandhi",
       "Jawaharlal Nehru",
-      "Winston Churchill",
-      "Nelson Mandela"
+      "Nelson Mandela",
+      "Mahatma Gandhi",
+      "Winston Churchill"
     ],
     "respuesta_correcta": "Mahatma Gandhi"
   },
@@ -174,10 +174,10 @@
     "dificultad": "media",
     "pregunta": "¿En qué año triunfó la Revolución Rusa que llevó a los bolcheviques al poder?",
     "opciones": [
-      "1917",
       "1905",
+      "1898",
       "1923",
-      "1898"
+      "1917"
     ],
     "respuesta_correcta": "1917"
   },
@@ -187,10 +187,10 @@
     "dificultad": "media",
     "pregunta": "¿Qué país gobernó Adolf Hitler?",
     "opciones": [
-      "Alemania",
+      "Hungría",
       "Austria",
-      "Italia",
-      "Hungría"
+      "Alemania",
+      "Italia"
     ],
     "respuesta_correcta": "Alemania"
   },
@@ -201,8 +201,8 @@
     "pregunta": "¿Cuál fue la capital del Imperio bizantino?",
     "opciones": [
       "Constantinopla",
-      "Atenas",
       "Roma",
+      "Atenas",
       "Alejandría"
     ],
     "respuesta_correcta": "Constantinopla"
@@ -213,10 +213,10 @@
     "dificultad": "media",
     "pregunta": "¿Qué tratado puso fin oficialmente a la Primera Guerra Mundial entre las potencias aliadas y Alemania?",
     "opciones": [
+      "Tratado de París de 1763",
       "Tratado de Versalles",
       "Tratado de Utrecht",
-      "Tratado de Tordesillas",
-      "Tratado de París de 1763"
+      "Tratado de Tordesillas"
     ],
     "respuesta_correcta": "Tratado de Versalles"
   },
@@ -226,10 +226,10 @@
     "dificultad": "media",
     "pregunta": "¿Qué explorador dirigió la primera expedición que completó la vuelta al mundo, aunque murió antes de terminarla?",
     "opciones": [
+      "Amerigo Vespucci",
       "Fernando de Magallanes",
-      "Cristóbal Colón",
       "Juan Sebastián Elcano",
-      "Amerigo Vespucci"
+      "Cristóbal Colón"
     ],
     "respuesta_correcta": "Fernando de Magallanes"
   },
@@ -239,10 +239,10 @@
     "dificultad": "media",
     "pregunta": "¿De qué reino era Alejandro Magno?",
     "opciones": [
-      "Macedonia",
       "Esparta",
+      "Egipto",
       "Persia",
-      "Egipto"
+      "Macedonia"
     ],
     "respuesta_correcta": "Macedonia"
   },
@@ -252,9 +252,9 @@
     "dificultad": "media",
     "pregunta": "¿En qué año cayó el Imperio romano de Occidente?",
     "opciones": [
-      "476",
       "395",
       "711",
+      "476",
       "1453"
     ],
     "respuesta_correcta": "476"
@@ -266,9 +266,9 @@
     "pregunta": "¿Qué hecho histórico marca tradicionalmente el inicio de la Edad Moderna?",
     "opciones": [
       "El descubrimiento de América en 1492",
-      "La caída de Roma en 476",
       "La Revolución francesa en 1789",
-      "La independencia de Estados Unidos"
+      "La independencia de Estados Unidos",
+      "La caída de Roma en 476"
     ],
     "respuesta_correcta": "El descubrimiento de América en 1492"
   },
@@ -278,10 +278,10 @@
     "dificultad": "media",
     "pregunta": "¿Qué dos coronas impulsaron principalmente la colonización europea de América en el siglo XVI?",
     "opciones": [
-      "España y Portugal",
-      "Francia y Alemania",
       "Inglaterra y Rusia",
-      "Italia y Países Bajos"
+      "Italia y Países Bajos",
+      "Francia y Alemania",
+      "España y Portugal"
     ],
     "respuesta_correcta": "España y Portugal"
   },
@@ -292,9 +292,9 @@
     "pregunta": "¿En qué año comenzó la Primera Guerra Mundial?",
     "opciones": [
       "1914",
+      "1939",
       "1918",
-      "1905",
-      "1939"
+      "1905"
     ],
     "respuesta_correcta": "1914"
   },
@@ -304,10 +304,10 @@
     "dificultad": "media",
     "pregunta": "¿Cuál era la capital política del Imperio romano?",
     "opciones": [
-      "Roma",
       "Venecia",
-      "Cartago",
-      "Milán"
+      "Roma",
+      "Milán",
+      "Cartago"
     ],
     "respuesta_correcta": "Roma"
   },
@@ -317,10 +317,10 @@
     "dificultad": "media",
     "pregunta": "¿Cómo se denomina a las campañas militares y religiosas impulsadas por la cristiandad latina hacia Tierra Santa en la Edad Media?",
     "opciones": [
-      "Cruzadas",
-      "Reconquistas",
       "Reformas",
-      "Colonizaciones"
+      "Cruzadas",
+      "Colonizaciones",
+      "Reconquistas"
     ],
     "respuesta_correcta": "Cruzadas"
   },
@@ -331,9 +331,9 @@
     "pregunta": "¿Quién fue primer ministro del Reino Unido durante buena parte de la Segunda Guerra Mundial?",
     "opciones": [
       "Winston Churchill",
-      "Neville Chamberlain",
+      "Clement Attlee",
       "Margaret Thatcher",
-      "Clement Attlee"
+      "Neville Chamberlain"
     ],
     "respuesta_correcta": "Winston Churchill"
   },
@@ -344,9 +344,9 @@
     "pregunta": "¿En qué territorio se desarrolló el Imperio azteca?",
     "opciones": [
       "Actual México",
-      "Actual Perú",
       "Actual Egipto",
-      "Actual Grecia"
+      "Actual Grecia",
+      "Actual Perú"
     ],
     "respuesta_correcta": "Actual México"
   },
@@ -356,10 +356,10 @@
     "dificultad": "media",
     "pregunta": "¿En qué año se proclamó la independencia de Estados Unidos?",
     "opciones": [
-      "1776",
       "1789",
       "1812",
-      "1750"
+      "1750",
+      "1776"
     ],
     "respuesta_correcta": "1776"
   },
@@ -369,10 +369,10 @@
     "dificultad": "media",
     "pregunta": "¿En qué año terminó la Segunda Guerra Mundial en Europa?",
     "opciones": [
+      "1950",
       "1945",
-      "1944",
       "1939",
-      "1950"
+      "1944"
     ],
     "respuesta_correcta": "1945"
   },
@@ -382,9 +382,9 @@
     "dificultad": "media",
     "pregunta": "¿Qué proceso histórico introdujo la mecanización masiva de la producción?",
     "opciones": [
+      "Renacimiento",
       "Revolución Industrial",
       "Revolución francesa",
-      "Renacimiento",
       "Ilustración"
     ],
     "respuesta_correcta": "Revolución Industrial"
@@ -395,10 +395,10 @@
     "dificultad": "media",
     "pregunta": "¿Cómo se llamaba el sistema político y social característico de buena parte de la Europa medieval?",
     "opciones": [
-      "Feudalismo",
-      "Capitalismo",
+      "Socialismo",
       "Mercantilismo",
-      "Socialismo"
+      "Capitalismo",
+      "Feudalismo"
     ],
     "respuesta_correcta": "Feudalismo"
   },
@@ -408,9 +408,9 @@
     "dificultad": "media",
     "pregunta": "¿Qué civilización desarrolló una democracia directa en Atenas?",
     "opciones": [
-      "Griega",
       "Romana",
       "Persa",
+      "Griega",
       "Egipcia"
     ],
     "respuesta_correcta": "Griega"
@@ -421,10 +421,10 @@
     "dificultad": "media",
     "pregunta": "¿Quién fue asesinado en 44 a. C. tras acumular un enorme poder en Roma?",
     "opciones": [
+      "Trajano",
       "Julio César",
-      "Augusto",
       "Cicerón",
-      "Trajano"
+      "Augusto"
     ],
     "respuesta_correcta": "Julio César"
   },
@@ -434,10 +434,10 @@
     "dificultad": "media",
     "pregunta": "¿Qué imperio se extendió desde Anatolia, los Balcanes y Oriente Próximo durante siglos?",
     "opciones": [
-      "Imperio otomano",
       "Imperio carolingio",
       "Imperio mongol",
-      "Imperio austrohúngaro"
+      "Imperio austrohúngaro",
+      "Imperio otomano"
     ],
     "respuesta_correcta": "Imperio otomano"
   },
@@ -447,10 +447,10 @@
     "dificultad": "media",
     "pregunta": "¿Qué líder mongol creó uno de los mayores imperios contiguos de la historia?",
     "opciones": [
-      "Gengis Kan",
       "Atila",
-      "Tamerlán",
-      "Kublai Kan"
+      "Kublai Kan",
+      "Gengis Kan",
+      "Tamerlán"
     ],
     "respuesta_correcta": "Gengis Kan"
   },
@@ -460,10 +460,10 @@
     "dificultad": "media",
     "pregunta": "¿Qué ciudad fue destruida por la erupción del Vesubio en el año 79?",
     "opciones": [
-      "Pompeya",
       "Atenas",
-      "Siracusa",
-      "Rávena"
+      "Rávena",
+      "Pompeya",
+      "Siracusa"
     ],
     "respuesta_correcta": "Pompeya"
   },
@@ -473,9 +473,9 @@
     "dificultad": "media",
     "pregunta": "¿Qué dinastía reinó en España durante gran parte del siglo XVIII y continúa hoy en el trono?",
     "opciones": [
-      "Borbón",
       "Habsburgo",
       "Tudor",
+      "Borbón",
       "Romanov"
     ],
     "respuesta_correcta": "Borbón"
@@ -487,9 +487,9 @@
     "pregunta": "¿Qué acontecimiento de 1453 puso fin al Imperio bizantino?",
     "opciones": [
       "La toma de Constantinopla por los otomanos",
+      "La coronación de Carlomagno",
       "La caída de Roma",
-      "La Reforma protestante",
-      "La coronación de Carlomagno"
+      "La Reforma protestante"
     ],
     "respuesta_correcta": "La toma de Constantinopla por los otomanos"
   },
@@ -499,10 +499,10 @@
     "dificultad": "media",
     "pregunta": "¿Cuál fue la principal organización internacional creada tras la Segunda Guerra Mundial para mantener la paz?",
     "opciones": [
+      "Liga Hanseática",
       "ONU",
-      "OTAN",
       "UE",
-      "Liga Hanseática"
+      "OTAN"
     ],
     "respuesta_correcta": "ONU"
   },
@@ -512,8 +512,8 @@
     "dificultad": "media",
     "pregunta": "¿Qué país lanzó la Revolución Cultural en la década de 1960?",
     "opciones": [
-      "China",
       "Japón",
+      "China",
       "Corea del Sur",
       "Vietnam"
     ],
@@ -525,9 +525,9 @@
     "dificultad": "media",
     "pregunta": "¿Cómo se llamó el enfrentamiento político, militar e ideológico entre Estados Unidos y la URSS tras 1945?",
     "opciones": [
-      "Guerra Fría",
-      "Belle Époque",
       "Guerra de Secesión",
+      "Belle Époque",
+      "Guerra Fría",
       "Paz Armada"
     ],
     "respuesta_correcta": "Guerra Fría"
@@ -538,10 +538,10 @@
     "dificultad": "media",
     "pregunta": "¿Qué gran civilización precolombina se desarrolló en Mesoamérica y es conocida por su calendario y escritura?",
     "opciones": [
-      "Maya",
       "Inca",
-      "Olmeca",
-      "Fenicia"
+      "Fenicia",
+      "Maya",
+      "Olmeca"
     ],
     "respuesta_correcta": "Maya"
   },
@@ -551,10 +551,10 @@
     "dificultad": "media",
     "pregunta": "¿Quién fue la reina de Egipto famosa por su relación con Julio César y Marco Antonio?",
     "opciones": [
-      "Cleopatra",
       "Nefertiti",
       "Hatshepsut",
-      "Isis"
+      "Isis",
+      "Cleopatra"
     ],
     "respuesta_correcta": "Cleopatra"
   },
@@ -564,9 +564,9 @@
     "dificultad": "media",
     "pregunta": "¿Qué documento inglés de 1215 limitó por primera vez parte del poder del rey?",
     "opciones": [
-      "Carta Magna",
-      "Bill of Rights",
       "Acta de Supremacía",
+      "Bill of Rights",
+      "Carta Magna",
       "Petición de Derechos"
     ],
     "respuesta_correcta": "Carta Magna"
@@ -578,9 +578,9 @@
     "pregunta": "¿Qué país protagonizó la llamada Restauración Meiji en el siglo XIX?",
     "opciones": [
       "Japón",
-      "China",
       "India",
-      "Corea"
+      "Corea",
+      "China"
     ],
     "respuesta_correcta": "Japón"
   },
@@ -590,10 +590,10 @@
     "dificultad": "media",
     "pregunta": "¿Cómo se llamó la ruta comercial que conectó Asia y Europa durante siglos?",
     "opciones": [
-      "Ruta de la Seda",
+      "Vía Augusta",
       "Camino Real",
-      "Ruta del Ámbar",
-      "Vía Augusta"
+      "Ruta de la Seda",
+      "Ruta del Ámbar"
     ],
     "respuesta_correcta": "Ruta de la Seda"
   },
@@ -603,10 +603,10 @@
     "dificultad": "media",
     "pregunta": "¿Qué monarcas financiaron el viaje de Colón en 1492?",
     "opciones": [
-      "Los Reyes Católicos",
-      "Los Austrias mayores",
+      "Los Trastámara portugueses",
       "Los Borbones",
-      "Los Trastámara portugueses"
+      "Los Reyes Católicos",
+      "Los Austrias mayores"
     ],
     "respuesta_correcta": "Los Reyes Católicos"
   },
@@ -616,10 +616,10 @@
     "dificultad": "media",
     "pregunta": "¿Qué imperio tenía su centro en Cuzco?",
     "opciones": [
-      "Imperio inca",
-      "Imperio azteca",
       "Imperio persa",
-      "Imperio romano"
+      "Imperio romano",
+      "Imperio azteca",
+      "Imperio inca"
     ],
     "respuesta_correcta": "Imperio inca"
   },
@@ -629,10 +629,10 @@
     "dificultad": "media",
     "pregunta": "¿En qué país tuvo lugar la revolución de los claveles en 1974?",
     "opciones": [
-      "Portugal",
-      "España",
+      "Grecia",
       "Italia",
-      "Grecia"
+      "España",
+      "Portugal"
     ],
     "respuesta_correcta": "Portugal"
   },
@@ -642,10 +642,10 @@
     "dificultad": "media",
     "pregunta": "¿Qué figura política lideró Sudáfrica en la transición contra el apartheid y llegó a ser presidente en 1994?",
     "opciones": [
-      "Nelson Mandela",
-      "Desmond Tutu",
+      "Patrice Lumumba",
       "F. W. de Klerk",
-      "Patrice Lumumba"
+      "Nelson Mandela",
+      "Desmond Tutu"
     ],
     "respuesta_correcta": "Nelson Mandela"
   },
@@ -655,10 +655,10 @@
     "dificultad": "media",
     "pregunta": "¿Cuál es el planeta más cercano al Sol?",
     "opciones": [
-      "Mercurio",
+      "Marte",
       "Venus",
       "Tierra",
-      "Marte"
+      "Mercurio"
     ],
     "respuesta_correcta": "Mercurio"
   },
@@ -668,10 +668,10 @@
     "dificultad": "media",
     "pregunta": "¿Qué gas constituye la mayor parte de la atmósfera terrestre?",
     "opciones": [
-      "Nitrógeno",
+      "Hidrógeno",
       "Oxígeno",
       "Dióxido de carbono",
-      "Hidrógeno"
+      "Nitrógeno"
     ],
     "respuesta_correcta": "Nitrógeno"
   },
@@ -681,10 +681,10 @@
     "dificultad": "media",
     "pregunta": "¿Qué órgano bombea la sangre por el cuerpo humano?",
     "opciones": [
-      "Corazón",
-      "Pulmón",
       "Hígado",
-      "Riñón"
+      "Riñón",
+      "Pulmón",
+      "Corazón"
     ],
     "respuesta_correcta": "Corazón"
   },
@@ -695,9 +695,9 @@
     "pregunta": "¿Cuál es la fórmula química del agua?",
     "opciones": [
       "H2O",
-      "CO2",
       "O2",
-      "NaCl"
+      "NaCl",
+      "CO2"
     ],
     "respuesta_correcta": "H2O"
   },
@@ -707,10 +707,10 @@
     "dificultad": "media",
     "pregunta": "¿Qué fuerza mantiene a los planetas en órbita alrededor del Sol?",
     "opciones": [
-      "Gravedad",
       "Magnetismo",
+      "Presión",
       "Fricción",
-      "Presión"
+      "Gravedad"
     ],
     "respuesta_correcta": "Gravedad"
   },
@@ -720,10 +720,10 @@
     "dificultad": "media",
     "pregunta": "¿Qué parte de la célula contiene la mayor parte del material genético?",
     "opciones": [
-      "Núcleo",
+      "Mitocondria",
       "Membrana",
       "Citoplasma",
-      "Mitocondria"
+      "Núcleo"
     ],
     "respuesta_correcta": "Núcleo"
   },
@@ -733,10 +733,10 @@
     "dificultad": "media",
     "pregunta": "¿Qué astro ilumina y calienta la Tierra?",
     "opciones": [
-      "Sol",
+      "Júpiter",
       "Luna",
       "Marte",
-      "Júpiter"
+      "Sol"
     ],
     "respuesta_correcta": "Sol"
   },
@@ -747,9 +747,9 @@
     "pregunta": "¿Qué tipo de animal es una ballena desde el punto de vista biológico?",
     "opciones": [
       "Mamífero",
-      "Pez",
+      "Reptil",
       "Anfibio",
-      "Reptil"
+      "Pez"
     ],
     "respuesta_correcta": "Mamífero"
   },
@@ -759,10 +759,10 @@
     "dificultad": "media",
     "pregunta": "¿Qué gas necesitan principalmente las plantas para realizar la fotosíntesis?",
     "opciones": [
-      "Dióxido de carbono",
-      "Oxígeno",
+      "Ozono",
       "Helio",
-      "Ozono"
+      "Dióxido de carbono",
+      "Oxígeno"
     ],
     "respuesta_correcta": "Dióxido de carbono"
   },
@@ -772,10 +772,10 @@
     "dificultad": "media",
     "pregunta": "¿Cómo se llama el cambio de estado de líquido a gas?",
     "opciones": [
-      "Evaporación",
-      "Condensación",
+      "Sublimación",
       "Solidificación",
-      "Sublimación"
+      "Evaporación",
+      "Condensación"
     ],
     "respuesta_correcta": "Evaporación"
   },
@@ -785,10 +785,10 @@
     "dificultad": "media",
     "pregunta": "¿Qué partícula tiene carga eléctrica negativa?",
     "opciones": [
-      "Electrón",
       "Protón",
-      "Neutrón",
-      "Fotón"
+      "Electrón",
+      "Fotón",
+      "Neutrón"
     ],
     "respuesta_correcta": "Electrón"
   },
@@ -798,10 +798,10 @@
     "dificultad": "media",
     "pregunta": "¿Qué vitamina se produce en la piel con ayuda de la luz solar?",
     "opciones": [
-      "Vitamina D",
+      "Vitamina K",
       "Vitamina C",
       "Vitamina A",
-      "Vitamina K"
+      "Vitamina D"
     ],
     "respuesta_correcta": "Vitamina D"
   },
@@ -811,9 +811,9 @@
     "dificultad": "media",
     "pregunta": "¿Qué hueso protege principalmente el cerebro?",
     "opciones": [
+      "Costilla",
       "Cráneo",
       "Fémur",
-      "Costilla",
       "Clavícula"
     ],
     "respuesta_correcta": "Cráneo"
@@ -824,9 +824,9 @@
     "dificultad": "media",
     "pregunta": "¿Qué planeta es conocido por sus anillos visibles?",
     "opciones": [
+      "Venus",
       "Saturno",
       "Marte",
-      "Venus",
       "Mercurio"
     ],
     "respuesta_correcta": "Saturno"
@@ -837,10 +837,10 @@
     "dificultad": "media",
     "pregunta": "¿Qué proceso convierte el azúcar en energía dentro de las células?",
     "opciones": [
+      "Digestión mecánica",
       "Respiración celular",
       "Fermentación láctica",
-      "Fotosíntesis",
-      "Digestión mecánica"
+      "Fotosíntesis"
     ],
     "respuesta_correcta": "Respiración celular"
   },
@@ -850,10 +850,10 @@
     "dificultad": "media",
     "pregunta": "¿Cuál es el metal líquido a temperatura ambiente más conocido?",
     "opciones": [
-      "Mercurio",
-      "Hierro",
       "Aluminio",
-      "Cobre"
+      "Cobre",
+      "Mercurio",
+      "Hierro"
     ],
     "respuesta_correcta": "Mercurio"
   },
@@ -863,10 +863,10 @@
     "dificultad": "media",
     "pregunta": "¿Qué instrumento se usa para observar objetos muy pequeños?",
     "opciones": [
-      "Microscopio",
       "Telescopio",
       "Barómetro",
-      "Calibrador"
+      "Calibrador",
+      "Microscopio"
     ],
     "respuesta_correcta": "Microscopio"
   },
@@ -876,9 +876,9 @@
     "dificultad": "media",
     "pregunta": "¿Qué planeta es conocido como el planeta rojo?",
     "opciones": [
-      "Marte",
-      "Júpiter",
       "Neptuno",
+      "Júpiter",
+      "Marte",
       "Urano"
     ],
     "respuesta_correcta": "Marte"
@@ -889,10 +889,10 @@
     "dificultad": "media",
     "pregunta": "¿Qué animal pasa por metamorfosis de oruga a adulto?",
     "opciones": [
-      "Mariposa",
-      "Araña",
+      "Gorrión",
       "Lagarto",
-      "Gorrión"
+      "Mariposa",
+      "Araña"
     ],
     "respuesta_correcta": "Mariposa"
   },
@@ -902,10 +902,10 @@
     "dificultad": "media",
     "pregunta": "¿Cómo se llama la unidad básica de la herencia biológica?",
     "opciones": [
-      "Gen",
-      "Átomo",
+      "Órgano",
       "Tejido",
-      "Órgano"
+      "Átomo",
+      "Gen"
     ],
     "respuesta_correcta": "Gen"
   },
@@ -915,10 +915,10 @@
     "dificultad": "media",
     "pregunta": "¿Qué sangre transporta principalmente oxígeno desde los pulmones al resto del cuerpo?",
     "opciones": [
-      "La sangre arterial",
       "La sangre venosa",
       "La linfa",
-      "El plasma"
+      "El plasma",
+      "La sangre arterial"
     ],
     "respuesta_correcta": "La sangre arterial"
   },
@@ -928,10 +928,10 @@
     "dificultad": "media",
     "pregunta": "¿Cuál es el satélite natural de la Tierra?",
     "opciones": [
-      "Luna",
       "Fobos",
-      "Europa",
-      "Titán"
+      "Luna",
+      "Titán",
+      "Europa"
     ],
     "respuesta_correcta": "Luna"
   },
@@ -954,10 +954,10 @@
     "dificultad": "media",
     "pregunta": "¿Cómo se llama el proceso por el que las plantas producen alimento usando luz?",
     "opciones": [
-      "Fotosíntesis",
-      "Respiración",
       "Fermentación",
-      "Germinación"
+      "Germinación",
+      "Respiración",
+      "Fotosíntesis"
     ],
     "respuesta_correcta": "Fotosíntesis"
   },
@@ -967,8 +967,8 @@
     "dificultad": "media",
     "pregunta": "¿Qué elemento químico tiene el símbolo O?",
     "opciones": [
-      "Oxígeno",
       "Oro",
+      "Oxígeno",
       "Osmio",
       "Oxalato"
     ],
@@ -980,10 +980,10 @@
     "dificultad": "media",
     "pregunta": "¿Qué planeta del sistema solar es el más grande?",
     "opciones": [
+      "Neptuno",
       "Júpiter",
-      "Saturno",
       "Tierra",
-      "Neptuno"
+      "Saturno"
     ],
     "respuesta_correcta": "Júpiter"
   },
@@ -994,9 +994,9 @@
     "pregunta": "¿Qué estado de la materia tiene forma y volumen variables?",
     "opciones": [
       "Gas",
-      "Sólido",
+      "Cristal",
       "Líquido",
-      "Cristal"
+      "Sólido"
     ],
     "respuesta_correcta": "Gas"
   },
@@ -1006,10 +1006,10 @@
     "dificultad": "media",
     "pregunta": "¿Qué órgano filtra la sangre para producir orina?",
     "opciones": [
-      "Riñón",
-      "Estómago",
+      "Bazo",
       "Páncreas",
-      "Bazo"
+      "Riñón",
+      "Estómago"
     ],
     "respuesta_correcta": "Riñón"
   },
@@ -1020,9 +1020,9 @@
     "pregunta": "¿Cómo se llama la temperatura a la que hierve el agua al nivel del mar?",
     "opciones": [
       "100 grados Celsius",
+      "212 grados Celsius bajo cero",
       "0 grados Celsius",
-      "50 grados Celsius",
-      "212 grados Celsius bajo cero"
+      "50 grados Celsius"
     ],
     "respuesta_correcta": "100 grados Celsius"
   },
@@ -1033,9 +1033,9 @@
     "pregunta": "¿Qué rama de la ciencia estudia los seres vivos?",
     "opciones": [
       "Biología",
-      "Geología",
       "Astronomía",
-      "Meteorología"
+      "Meteorología",
+      "Geología"
     ],
     "respuesta_correcta": "Biología"
   },
@@ -1045,9 +1045,9 @@
     "dificultad": "media",
     "pregunta": "¿Qué se mide con un termómetro?",
     "opciones": [
-      "La temperatura",
-      "La presión atmosférica",
       "La masa",
+      "La presión atmosférica",
+      "La temperatura",
       "La velocidad"
     ],
     "respuesta_correcta": "La temperatura"
@@ -1058,10 +1058,10 @@
     "dificultad": "media",
     "pregunta": "¿Qué componente del aire es esencial para la respiración humana?",
     "opciones": [
-      "Oxígeno",
+      "Neón",
       "Argón",
-      "Helio",
-      "Neón"
+      "Oxígeno",
+      "Helio"
     ],
     "respuesta_correcta": "Oxígeno"
   },
@@ -1071,10 +1071,10 @@
     "dificultad": "media",
     "pregunta": "¿Cómo se llama el proceso por el que un sólido pasa directamente a gas?",
     "opciones": [
-      "Sublimación",
-      "Fusión",
+      "Licuefacción",
       "Condensación",
-      "Licuefacción"
+      "Sublimación",
+      "Fusión"
     ],
     "respuesta_correcta": "Sublimación"
   },
@@ -1086,8 +1086,8 @@
     "opciones": [
       "Cerebro",
       "Pulmón",
-      "Hígado",
-      "Bíceps"
+      "Bíceps",
+      "Hígado"
     ],
     "respuesta_correcta": "Cerebro"
   },
@@ -1097,10 +1097,10 @@
     "dificultad": "media",
     "pregunta": "¿Qué tipo de energía obtiene un panel solar convencional?",
     "opciones": [
-      "Energía solar",
-      "Energía nuclear",
+      "Energía mareomotriz",
       "Energía eólica",
-      "Energía mareomotriz"
+      "Energía nuclear",
+      "Energía solar"
     ],
     "respuesta_correcta": "Energía solar"
   },
@@ -1110,10 +1110,10 @@
     "dificultad": "media",
     "pregunta": "¿Cuál es el pH aproximado de una sustancia neutra?",
     "opciones": [
-      "7",
-      "1",
       "14",
-      "0"
+      "0",
+      "1",
+      "7"
     ],
     "respuesta_correcta": "7"
   },
@@ -1123,10 +1123,10 @@
     "dificultad": "media",
     "pregunta": "¿Qué planeta tarda aproximadamente un año en dar una vuelta al Sol?",
     "opciones": [
-      "Tierra",
-      "Venus",
+      "Mercurio",
       "Marte",
-      "Mercurio"
+      "Venus",
+      "Tierra"
     ],
     "respuesta_correcta": "Tierra"
   },
@@ -1138,8 +1138,8 @@
     "opciones": [
       "Músculo",
       "Cartílago",
-      "Epidermis",
-      "Sangre"
+      "Sangre",
+      "Epidermis"
     ],
     "respuesta_correcta": "Músculo"
   },
@@ -1149,10 +1149,10 @@
     "dificultad": "media",
     "pregunta": "¿Qué ciencia estudia los terremotos y la estructura de la Tierra?",
     "opciones": [
-      "Geología",
-      "Botánica",
+      "Óptica",
       "Zoología",
-      "Óptica"
+      "Geología",
+      "Botánica"
     ],
     "respuesta_correcta": "Geología"
   },
@@ -1162,8 +1162,8 @@
     "dificultad": "media",
     "pregunta": "¿Cuál es la principal fuente de energía para el clima terrestre?",
     "opciones": [
-      "El Sol",
       "La Luna",
+      "El Sol",
       "El núcleo de Marte",
       "Las mareas"
     ],
@@ -1176,9 +1176,9 @@
     "pregunta": "¿Qué elemento químico tiene el símbolo Fe?",
     "opciones": [
       "Hierro",
+      "Fermio",
       "Flúor",
-      "Francio",
-      "Fermio"
+      "Francio"
     ],
     "respuesta_correcta": "Hierro"
   },
@@ -1188,10 +1188,10 @@
     "dificultad": "media",
     "pregunta": "¿Qué propiedad física relaciona la masa con el espacio que ocupa un cuerpo?",
     "opciones": [
-      "Densidad",
       "Aceleración",
-      "Potencia",
-      "Presión"
+      "Densidad",
+      "Presión",
+      "Potencia"
     ],
     "respuesta_correcta": "Densidad"
   },
@@ -1201,10 +1201,10 @@
     "dificultad": "media",
     "pregunta": "¿Cómo se llama el proceso por el que las nubes devuelven agua a la superficie?",
     "opciones": [
+      "Sublimación",
       "Precipitación",
       "Evaporación",
-      "Transpiración",
-      "Sublimación"
+      "Transpiración"
     ],
     "respuesta_correcta": "Precipitación"
   },
@@ -1214,10 +1214,10 @@
     "dificultad": "media",
     "pregunta": "¿Qué estructura de la flor contiene normalmente el polen?",
     "opciones": [
-      "Estambre",
-      "Pétalo",
+      "Ovario",
       "Sépalos",
-      "Ovario"
+      "Pétalo",
+      "Estambre"
     ],
     "respuesta_correcta": "Estambre"
   },
@@ -1227,10 +1227,10 @@
     "dificultad": "media",
     "pregunta": "¿Qué fenómeno óptico separa la luz blanca en varios colores?",
     "opciones": [
-      "Dispersión",
       "Difracción",
+      "Absorción",
       "Reflexión",
-      "Absorción"
+      "Dispersión"
     ],
     "respuesta_correcta": "Dispersión"
   },
@@ -1240,10 +1240,10 @@
     "dificultad": "media",
     "pregunta": "¿Cómo se llama el conjunto de huesos del cuerpo humano?",
     "opciones": [
-      "Esqueleto",
       "Musculatura",
-      "Sistema digestivo",
-      "Aparato circulatorio"
+      "Aparato circulatorio",
+      "Esqueleto",
+      "Sistema digestivo"
     ],
     "respuesta_correcta": "Esqueleto"
   },
@@ -1253,10 +1253,10 @@
     "dificultad": "media",
     "pregunta": "¿Qué animal es un anfibio?",
     "opciones": [
+      "Ballena",
       "Rana",
       "Lagarto",
-      "Paloma",
-      "Ballena"
+      "Paloma"
     ],
     "respuesta_correcta": "Rana"
   },
@@ -1266,10 +1266,10 @@
     "dificultad": "media",
     "pregunta": "¿Qué capa atmosférica contiene la mayor parte del ozono que nos protege de la radiación ultravioleta?",
     "opciones": [
-      "Estratosfera",
-      "Troposfera",
       "Mesosfera",
-      "Exosfera"
+      "Exosfera",
+      "Estratosfera",
+      "Troposfera"
     ],
     "respuesta_correcta": "Estratosfera"
   },
@@ -1280,9 +1280,9 @@
     "pregunta": "¿Qué unidad se usa para medir la fuerza en el Sistema Internacional?",
     "opciones": [
       "Newton",
+      "Pascal",
       "Julio",
-      "Vatio",
-      "Pascal"
+      "Vatio"
     ],
     "respuesta_correcta": "Newton"
   },
@@ -1293,8 +1293,8 @@
     "pregunta": "¿Qué molécula transporta la información genética en la mayoría de los seres vivos?",
     "opciones": [
       "ADN",
-      "ARNt",
       "ATP",
+      "ARNt",
       "Glucosa"
     ],
     "respuesta_correcta": "ADN"
@@ -1305,10 +1305,10 @@
     "dificultad": "media",
     "pregunta": "¿Cuál es la capital de España?",
     "opciones": [
+      "Valencia",
       "Madrid",
-      "Barcelona",
       "Sevilla",
-      "Valencia"
+      "Barcelona"
     ],
     "respuesta_correcta": "Madrid"
   },
@@ -1318,10 +1318,10 @@
     "dificultad": "media",
     "pregunta": "¿Cuál es el océano más grande del planeta?",
     "opciones": [
-      "Océano Pacífico",
+      "Océano Ártico",
       "Océano Atlántico",
       "Océano Índico",
-      "Océano Ártico"
+      "Océano Pacífico"
     ],
     "respuesta_correcta": "Océano Pacífico"
   },
@@ -1331,10 +1331,10 @@
     "dificultad": "media",
     "pregunta": "¿Cuál es la montaña más alta de la Tierra sobre el nivel del mar?",
     "opciones": [
-      "Everest",
-      "K2",
       "Annapurna",
-      "Mont Blanc"
+      "Everest",
+      "Mont Blanc",
+      "K2"
     ],
     "respuesta_correcta": "Everest"
   },
@@ -1344,10 +1344,10 @@
     "dificultad": "media",
     "pregunta": "¿En qué continente se encuentra Egipto?",
     "opciones": [
-      "África",
       "Asia",
+      "Oceanía",
       "Europa",
-      "Oceanía"
+      "África"
     ],
     "respuesta_correcta": "África"
   },
@@ -1357,10 +1357,10 @@
     "dificultad": "media",
     "pregunta": "¿Cuál es el río más largo de Sudamérica?",
     "opciones": [
-      "Amazonas",
       "Nilo",
+      "Yangtsé",
       "Danubio",
-      "Yangtsé"
+      "Amazonas"
     ],
     "respuesta_correcta": "Amazonas"
   },
@@ -1370,10 +1370,10 @@
     "dificultad": "media",
     "pregunta": "¿Cuál es la capital de Francia?",
     "opciones": [
-      "París",
       "Lyon",
       "Marsella",
-      "Burdeos"
+      "Burdeos",
+      "París"
     ],
     "respuesta_correcta": "París"
   },
@@ -1383,10 +1383,10 @@
     "dificultad": "media",
     "pregunta": "¿Qué país tiene forma de bota en el mapa de Europa?",
     "opciones": [
-      "Italia",
+      "Croacia",
       "Grecia",
       "Portugal",
-      "Croacia"
+      "Italia"
     ],
     "respuesta_correcta": "Italia"
   },
@@ -1396,10 +1396,10 @@
     "dificultad": "media",
     "pregunta": "¿Cuál es el desierto cálido más grande del mundo?",
     "opciones": [
-      "Sáhara",
+      "Gobi",
       "Atacama",
       "Kalahari",
-      "Gobi"
+      "Sáhara"
     ],
     "respuesta_correcta": "Sáhara"
   },
@@ -1409,10 +1409,10 @@
     "dificultad": "media",
     "pregunta": "¿Qué país tiene como capital Lisboa?",
     "opciones": [
+      "Chile",
       "Portugal",
       "Brasil",
-      "México",
-      "Chile"
+      "México"
     ],
     "respuesta_correcta": "Portugal"
   },
@@ -1422,8 +1422,8 @@
     "dificultad": "media",
     "pregunta": "¿En qué continente está Brasil?",
     "opciones": [
-      "América del Sur",
       "África",
+      "América del Sur",
       "Europa",
       "Oceanía"
     ],
@@ -1435,10 +1435,10 @@
     "dificultad": "media",
     "pregunta": "¿Cuál es la capital de Japón?",
     "opciones": [
-      "Tokio",
-      "Kioto",
       "Osaka",
-      "Sapporo"
+      "Sapporo",
+      "Tokio",
+      "Kioto"
     ],
     "respuesta_correcta": "Tokio"
   },
@@ -1448,9 +1448,9 @@
     "dificultad": "media",
     "pregunta": "¿Qué cadena montañosa separa en parte Europa de Asia?",
     "opciones": [
-      "Montes Urales",
-      "Alpes",
       "Pirineos",
+      "Alpes",
+      "Montes Urales",
       "Apeninos"
     ],
     "respuesta_correcta": "Montes Urales"
@@ -1461,8 +1461,8 @@
     "dificultad": "media",
     "pregunta": "¿Qué país comparte la frontera terrestre más larga con España?",
     "opciones": [
-      "Portugal",
       "Francia",
+      "Portugal",
       "Andorra",
       "Marruecos"
     ],
@@ -1474,9 +1474,9 @@
     "dificultad": "media",
     "pregunta": "¿Cuál es la capital de Argentina?",
     "opciones": [
-      "Buenos Aires",
       "Córdoba",
       "Rosario",
+      "Buenos Aires",
       "Mendoza"
     ],
     "respuesta_correcta": "Buenos Aires"
@@ -1488,8 +1488,8 @@
     "pregunta": "¿Qué mar baña la costa este de España peninsular?",
     "opciones": [
       "Mar Mediterráneo",
-      "Mar Cantábrico",
       "Mar del Norte",
+      "Mar Cantábrico",
       "Mar Negro"
     ],
     "respuesta_correcta": "Mar Mediterráneo"
@@ -1500,10 +1500,10 @@
     "dificultad": "media",
     "pregunta": "¿Qué país es conocido por sus fiordos?",
     "opciones": [
-      "Noruega",
       "Hungría",
-      "Suiza",
-      "Bélgica"
+      "Bélgica",
+      "Noruega",
+      "Suiza"
     ],
     "respuesta_correcta": "Noruega"
   },
@@ -1513,10 +1513,10 @@
     "dificultad": "media",
     "pregunta": "¿Cuál es la capital de Alemania?",
     "opciones": [
-      "Berlín",
-      "Múnich",
+      "Fráncfort",
       "Hamburgo",
-      "Fráncfort"
+      "Múnich",
+      "Berlín"
     ],
     "respuesta_correcta": "Berlín"
   },
@@ -1526,10 +1526,10 @@
     "dificultad": "media",
     "pregunta": "¿Qué continente es el más extenso?",
     "opciones": [
-      "Asia",
-      "África",
+      "Europa",
       "América",
-      "Europa"
+      "Asia",
+      "África"
     ],
     "respuesta_correcta": "Asia"
   },
@@ -1539,10 +1539,10 @@
     "dificultad": "media",
     "pregunta": "¿Cuál es la capital de Marruecos?",
     "opciones": [
+      "Tánger",
       "Rabat",
       "Casablanca",
-      "Marrakech",
-      "Tánger"
+      "Marrakech"
     ],
     "respuesta_correcta": "Rabat"
   },
@@ -1554,8 +1554,8 @@
     "opciones": [
       "Canadá",
       "Estados Unidos",
-      "Australia",
-      "Irlanda"
+      "Irlanda",
+      "Australia"
     ],
     "respuesta_correcta": "Canadá"
   },
@@ -1566,9 +1566,9 @@
     "pregunta": "¿Cuál es la isla más grande del mundo?",
     "opciones": [
       "Groenlandia",
-      "Islandia",
       "Madagascar",
-      "Borneo"
+      "Borneo",
+      "Islandia"
     ],
     "respuesta_correcta": "Groenlandia"
   },
@@ -1580,8 +1580,8 @@
     "opciones": [
       "Egipto",
       "Argelia",
-      "Sudán",
-      "Etiopía"
+      "Etiopía",
+      "Sudán"
     ],
     "respuesta_correcta": "Egipto"
   },
@@ -1591,9 +1591,9 @@
     "dificultad": "media",
     "pregunta": "¿Qué cordillera atraviesa gran parte de la costa occidental de Sudamérica?",
     "opciones": [
+      "Rocosas",
       "Andes",
       "Himalaya",
-      "Rocosas",
       "Atlas"
     ],
     "respuesta_correcta": "Andes"
@@ -1604,10 +1604,10 @@
     "dificultad": "media",
     "pregunta": "¿Cuál es la capital de México?",
     "opciones": [
+      "Puebla",
       "Ciudad de México",
       "Guadalajara",
-      "Monterrey",
-      "Puebla"
+      "Monterrey"
     ],
     "respuesta_correcta": "Ciudad de México"
   },
@@ -1617,10 +1617,10 @@
     "dificultad": "media",
     "pregunta": "¿Qué país europeo tiene forma de hexágono y limita con España por el norte?",
     "opciones": [
-      "Francia",
       "Italia",
       "Bélgica",
-      "Suiza"
+      "Suiza",
+      "Francia"
     ],
     "respuesta_correcta": "Francia"
   },
@@ -1630,9 +1630,9 @@
     "dificultad": "media",
     "pregunta": "¿Qué océano baña la costa oeste de América?",
     "opciones": [
-      "Océano Pacífico",
-      "Océano Atlántico",
       "Océano Índico",
+      "Océano Atlántico",
+      "Océano Pacífico",
       "Océano Antártico"
     ],
     "respuesta_correcta": "Océano Pacífico"
@@ -1643,10 +1643,10 @@
     "dificultad": "media",
     "pregunta": "¿Cuál es la capital de Italia?",
     "opciones": [
-      "Roma",
-      "Milán",
+      "Turín",
       "Nápoles",
-      "Turín"
+      "Milán",
+      "Roma"
     ],
     "respuesta_correcta": "Roma"
   },
@@ -1657,9 +1657,9 @@
     "pregunta": "¿Qué país está dividido entre Europa y Asia y tiene Estambul como ciudad más poblada?",
     "opciones": [
       "Turquía",
+      "Armenia",
       "Grecia",
-      "Georgia",
-      "Armenia"
+      "Georgia"
     ],
     "respuesta_correcta": "Turquía"
   },
@@ -1670,9 +1670,9 @@
     "pregunta": "¿Qué país tiene como capital Nairobi?",
     "opciones": [
       "Kenia",
-      "Tanzania",
       "Uganda",
-      "Etiopía"
+      "Etiopía",
+      "Tanzania"
     ],
     "respuesta_correcta": "Kenia"
   },
@@ -1683,9 +1683,9 @@
     "pregunta": "¿Cuál es el mar interior situado al este de Italia y oeste de los Balcanes?",
     "opciones": [
       "Mar Adriático",
-      "Mar Egeo",
       "Mar Rojo",
-      "Mar Báltico"
+      "Mar Báltico",
+      "Mar Egeo"
     ],
     "respuesta_correcta": "Mar Adriático"
   },
@@ -1695,10 +1695,10 @@
     "dificultad": "media",
     "pregunta": "¿En qué continente está Australia?",
     "opciones": [
-      "Oceanía",
-      "Asia",
+      "África",
       "Europa",
-      "África"
+      "Oceanía",
+      "Asia"
     ],
     "respuesta_correcta": "Oceanía"
   },
@@ -1708,8 +1708,8 @@
     "dificultad": "media",
     "pregunta": "¿Qué río pasa por ciudades como Viena, Budapest y Belgrado?",
     "opciones": [
-      "Danubio",
       "Tajo",
+      "Danubio",
       "Rin",
       "Volga"
     ],
@@ -1723,8 +1723,8 @@
     "opciones": [
       "Grecia",
       "Chipre",
-      "Malta",
-      "Albania"
+      "Albania",
+      "Malta"
     ],
     "respuesta_correcta": "Grecia"
   },
@@ -1734,10 +1734,10 @@
     "dificultad": "media",
     "pregunta": "¿Cuál es la capital de Chile?",
     "opciones": [
-      "Santiago",
-      "Valparaíso",
+      "La Serena",
       "Concepción",
-      "La Serena"
+      "Valparaíso",
+      "Santiago"
     ],
     "respuesta_correcta": "Santiago"
   },
@@ -1748,9 +1748,9 @@
     "pregunta": "¿Qué estrecho separa Europa de África entre España y Marruecos?",
     "opciones": [
       "Estrecho de Gibraltar",
-      "Estrecho de Bering",
       "Canal de Suez",
-      "Canal de la Mancha"
+      "Canal de la Mancha",
+      "Estrecho de Bering"
     ],
     "respuesta_correcta": "Estrecho de Gibraltar"
   },
@@ -1760,10 +1760,10 @@
     "dificultad": "media",
     "pregunta": "¿Qué país tiene como capital Pekín?",
     "opciones": [
-      "China",
-      "Corea del Sur",
       "Vietnam",
-      "Mongolia"
+      "China",
+      "Mongolia",
+      "Corea del Sur"
     ],
     "respuesta_correcta": "China"
   },
@@ -1773,9 +1773,9 @@
     "dificultad": "media",
     "pregunta": "¿Qué país sudamericano no tiene salida al mar?",
     "opciones": [
-      "Bolivia",
-      "Chile",
       "Uruguay",
+      "Chile",
+      "Bolivia",
       "Ecuador"
     ],
     "respuesta_correcta": "Bolivia"
@@ -1786,10 +1786,10 @@
     "dificultad": "media",
     "pregunta": "¿Cuál es la capital de Suecia?",
     "opciones": [
+      "Uppsala",
       "Estocolmo",
       "Gotemburgo",
-      "Malmö",
-      "Uppsala"
+      "Malmö"
     ],
     "respuesta_correcta": "Estocolmo"
   },
@@ -1799,9 +1799,9 @@
     "dificultad": "media",
     "pregunta": "¿En qué continente se encuentra la selva amazónica?",
     "opciones": [
-      "América del Sur",
       "África",
       "Asia",
+      "América del Sur",
       "Oceanía"
     ],
     "respuesta_correcta": "América del Sur"
@@ -1812,10 +1812,10 @@
     "dificultad": "media",
     "pregunta": "¿Cuál es la capital de Irlanda?",
     "opciones": [
-      "Dublín",
       "Cork",
-      "Galway",
-      "Limerick"
+      "Limerick",
+      "Dublín",
+      "Galway"
     ],
     "respuesta_correcta": "Dublín"
   },
@@ -1825,10 +1825,10 @@
     "dificultad": "media",
     "pregunta": "¿Qué país alberga la ciudad de Dubái?",
     "opciones": [
-      "Emiratos Árabes Unidos",
-      "Arabia Saudí",
+      "Omán",
       "Qatar",
-      "Omán"
+      "Arabia Saudí",
+      "Emiratos Árabes Unidos"
     ],
     "respuesta_correcta": "Emiratos Árabes Unidos"
   },
@@ -1838,10 +1838,10 @@
     "dificultad": "media",
     "pregunta": "¿Qué río atraviesa la ciudad de Londres?",
     "opciones": [
-      "Támesis",
-      "Sena",
       "Tíber",
-      "Elba"
+      "Elba",
+      "Támesis",
+      "Sena"
     ],
     "respuesta_correcta": "Támesis"
   },
@@ -1852,9 +1852,9 @@
     "pregunta": "¿Cuál es la capital de Perú?",
     "opciones": [
       "Lima",
-      "Cusco",
       "Arequipa",
-      "Trujillo"
+      "Trujillo",
+      "Cusco"
     ],
     "respuesta_correcta": "Lima"
   },
@@ -1864,10 +1864,10 @@
     "dificultad": "media",
     "pregunta": "¿Qué mar baña la costa norte de España?",
     "opciones": [
-      "Mar Cantábrico",
       "Mar Báltico",
       "Mar Mediterráneo",
-      "Mar Egeo"
+      "Mar Egeo",
+      "Mar Cantábrico"
     ],
     "respuesta_correcta": "Mar Cantábrico"
   },
@@ -1877,10 +1877,10 @@
     "dificultad": "media",
     "pregunta": "¿Qué país tiene como capital Helsinki?",
     "opciones": [
-      "Finlandia",
-      "Suecia",
       "Noruega",
-      "Dinamarca"
+      "Finlandia",
+      "Dinamarca",
+      "Suecia"
     ],
     "respuesta_correcta": "Finlandia"
   },
@@ -1904,9 +1904,9 @@
     "pregunta": "¿Qué país tiene como capital Bruselas?",
     "opciones": [
       "Bélgica",
+      "Dinamarca",
       "Países Bajos",
-      "Luxemburgo",
-      "Dinamarca"
+      "Luxemburgo"
     ],
     "respuesta_correcta": "Bélgica"
   },
@@ -1929,10 +1929,10 @@
     "dificultad": "media",
     "pregunta": "¿Qué país tiene como capital Nueva Delhi?",
     "opciones": [
+      "Nepal",
       "India",
       "Pakistán",
-      "Bangladés",
-      "Nepal"
+      "Bangladés"
     ],
     "respuesta_correcta": "India"
   },
@@ -1943,661 +1943,661 @@
     "pregunta": "¿Cuál es el país más grande del mundo por superficie?",
     "opciones": [
       "Rusia",
-      "Canadá",
       "China",
+      "Canadá",
       "Estados Unidos"
     ],
     "respuesta_correcta": "Rusia"
   },
   {
     "id": 151,
-    "categoria": "Cultura general",
+    "categoria": "Entretenimiento",
     "dificultad": "media",
-    "pregunta": "¿Quién escribió Don Quijote de la Mancha?",
+    "pregunta": "¿Qué saga cinematográfica incluye a Luke Skywalker y Darth Vader?",
     "opciones": [
-      "Miguel de Cervantes",
-      "Lope de Vega",
-      "Federico García Lorca",
-      "Benito Pérez Galdós"
-    ],
-    "respuesta_correcta": "Miguel de Cervantes"
-  },
-  {
-    "id": 152,
-    "categoria": "Cultura general",
-    "dificultad": "media",
-    "pregunta": "¿Quién pintó la Mona Lisa?",
-    "opciones": [
-      "Leonardo da Vinci",
-      "Pablo Picasso",
-      "Vincent van Gogh",
-      "Claude Monet"
-    ],
-    "respuesta_correcta": "Leonardo da Vinci"
-  },
-  {
-    "id": 153,
-    "categoria": "Cultura general",
-    "dificultad": "media",
-    "pregunta": "¿Qué compositor creó la Novena Sinfonía?",
-    "opciones": [
-      "Ludwig van Beethoven",
-      "Wolfgang Amadeus Mozart",
-      "Johann Sebastian Bach",
-      "Frédéric Chopin"
-    ],
-    "respuesta_correcta": "Ludwig van Beethoven"
-  },
-  {
-    "id": 154,
-    "categoria": "Cultura general",
-    "dificultad": "media",
-    "pregunta": "¿Cómo se llama el muñeco de madera creado por Carlo Collodi?",
-    "opciones": [
-      "Pinocho",
-      "Heidi",
-      "Peter Pan",
-      "Mowgli"
-    ],
-    "respuesta_correcta": "Pinocho"
-  },
-  {
-    "id": 155,
-    "categoria": "Cultura general",
-    "dificultad": "media",
-    "pregunta": "¿Qué escritor inglés creó a Hamlet?",
-    "opciones": [
-      "William Shakespeare",
-      "Charles Dickens",
-      "Oscar Wilde",
-      "Jane Austen"
-    ],
-    "respuesta_correcta": "William Shakespeare"
-  },
-  {
-    "id": 156,
-    "categoria": "Cultura general",
-    "dificultad": "media",
-    "pregunta": "¿Qué pintor español es autor de Guernica?",
-    "opciones": [
-      "Pablo Picasso",
-      "Salvador Dalí",
-      "Joan Miró",
-      "Diego Velázquez"
-    ],
-    "respuesta_correcta": "Pablo Picasso"
-  },
-  {
-    "id": 157,
-    "categoria": "Cultura general",
-    "dificultad": "media",
-    "pregunta": "¿Cuál es el nombre de la escuela de magia a la que asiste Harry Potter?",
-    "opciones": [
-      "Hogwarts",
-      "Narnia",
-      "Nevermore",
-      "Camelot"
-    ],
-    "respuesta_correcta": "Hogwarts"
-  },
-  {
-    "id": 158,
-    "categoria": "Cultura general",
-    "dificultad": "media",
-    "pregunta": "¿Qué instrumento musical tiene seis cuerdas en su versión más habitual?",
-    "opciones": [
-      "Guitarra",
-      "Violín",
-      "Arpa",
-      "Trompeta"
-    ],
-    "respuesta_correcta": "Guitarra"
-  },
-  {
-    "id": 159,
-    "categoria": "Cultura general",
-    "dificultad": "media",
-    "pregunta": "¿Quién compuso la ópera La flauta mágica?",
-    "opciones": [
-      "Wolfgang Amadeus Mozart",
-      "Giuseppe Verdi",
-      "Richard Wagner",
-      "Gioachino Rossini"
-    ],
-    "respuesta_correcta": "Wolfgang Amadeus Mozart"
-  },
-  {
-    "id": 160,
-    "categoria": "Cultura general",
-    "dificultad": "media",
-    "pregunta": "¿Qué famoso museo alberga la Mona Lisa?",
-    "opciones": [
-      "Museo del Louvre",
-      "Museo del Prado",
-      "Tate Modern",
-      "Museo Reina Sofía"
-    ],
-    "respuesta_correcta": "Museo del Louvre"
-  },
-  {
-    "id": 161,
-    "categoria": "Cultura general",
-    "dificultad": "media",
-    "pregunta": "¿Cómo se llama el protagonista de la Odisea de Homero?",
-    "opciones": [
-      "Odiseo",
-      "Aquiles",
-      "Héctor",
-      "Perseo"
-    ],
-    "respuesta_correcta": "Odiseo"
-  },
-  {
-    "id": 162,
-    "categoria": "Cultura general",
-    "dificultad": "media",
-    "pregunta": "¿Qué artista surrealista español es famoso por sus relojes blandos?",
-    "opciones": [
-      "Salvador Dalí",
-      "Pablo Picasso",
-      "Antoni Tàpies",
-      "Francisco de Goya"
-    ],
-    "respuesta_correcta": "Salvador Dalí"
-  },
-  {
-    "id": 163,
-    "categoria": "Cultura general",
-    "dificultad": "media",
-    "pregunta": "¿Qué saga cinematográfica incluye personajes como Luke Skywalker y Darth Vader?",
-    "opciones": [
-      "Star Wars",
-      "Star Trek",
       "Matrix",
-      "El señor de los anillos"
+      "Star Wars",
+      "Avatar",
+      "Star Trek"
     ],
     "respuesta_correcta": "Star Wars"
   },
   {
-    "id": 164,
-    "categoria": "Cultura general",
+    "id": 152,
+    "categoria": "Entretenimiento",
     "dificultad": "media",
-    "pregunta": "¿Quién escribió Cien años de soledad?",
+    "pregunta": "¿Qué película de animación de Disney tiene como protagonista a Simba?",
     "opciones": [
-      "Gabriel García Márquez",
-      "Mario Vargas Llosa",
-      "Julio Cortázar",
-      "Pablo Neruda"
+      "El rey león",
+      "Tarzán",
+      "Aladdín",
+      "Hércules"
     ],
-    "respuesta_correcta": "Gabriel García Márquez"
+    "respuesta_correcta": "El rey león"
   },
   {
-    "id": 165,
-    "categoria": "Cultura general",
+    "id": 153,
+    "categoria": "Entretenimiento",
     "dificultad": "media",
-    "pregunta": "¿Qué arquitecto diseñó gran parte de la Sagrada Familia en Barcelona?",
+    "pregunta": "¿Qué actor interpretó a Jack Sparrow en la saga Piratas del Caribe?",
     "opciones": [
-      "Antoni Gaudí",
-      "Santiago Calatrava",
-      "Le Corbusier",
-      "Norman Foster"
+      "Brad Pitt",
+      "Orlando Bloom",
+      "Hugh Jackman",
+      "Johnny Depp"
     ],
-    "respuesta_correcta": "Antoni Gaudí"
+    "respuesta_correcta": "Johnny Depp"
   },
   {
-    "id": 166,
-    "categoria": "Cultura general",
+    "id": 154,
+    "categoria": "Entretenimiento",
     "dificultad": "media",
-    "pregunta": "¿Qué novela comienza con la frase sobre un lugar de La Mancha cuyo nombre no quiere recordarse?",
+    "pregunta": "¿Cómo se llama la escuela de magia de Harry Potter?",
     "opciones": [
-      "Don Quijote de la Mancha",
-      "La Regenta",
-      "Fortunata y Jacinta",
-      "La Celestina"
+      "Camelot",
+      "Hogwarts",
+      "Nevermore",
+      "Narnia"
     ],
-    "respuesta_correcta": "Don Quijote de la Mancha"
+    "respuesta_correcta": "Hogwarts"
   },
   {
-    "id": 167,
-    "categoria": "Cultura general",
+    "id": 155,
+    "categoria": "Entretenimiento",
     "dificultad": "media",
-    "pregunta": "¿Qué género musical nació en Jamaica y se asocia a Bob Marley?",
+    "pregunta": "¿Qué serie de televisión transcurre en gran parte en la ciudad ficticia de Springfield?",
     "opciones": [
-      "Reggae",
-      "Jazz",
-      "Tango",
-      "Fado"
+      "Padre de familia",
+      "Los Simpson",
+      "South Park",
+      "Futurama"
     ],
-    "respuesta_correcta": "Reggae"
+    "respuesta_correcta": "Los Simpson"
   },
   {
-    "id": 168,
-    "categoria": "Cultura general",
+    "id": 156,
+    "categoria": "Entretenimiento",
     "dificultad": "media",
-    "pregunta": "¿Qué pintor neerlandés se cortó parte de una oreja, según la conocida anécdota?",
+    "pregunta": "¿Qué película ganó fama por la frase «Que la fuerza te acompañe»?",
     "opciones": [
-      "Vincent van Gogh",
-      "Rembrandt",
-      "Vermeer",
-      "Mondrian"
+      "Gladiator",
+      "Titanic",
+      "Star Wars",
+      "Jurassic Park"
     ],
-    "respuesta_correcta": "Vincent van Gogh"
+    "respuesta_correcta": "Star Wars"
   },
   {
-    "id": 169,
-    "categoria": "Cultura general",
+    "id": 157,
+    "categoria": "Entretenimiento",
     "dificultad": "media",
-    "pregunta": "¿Qué cineasta dirigió la película Tiburón?",
+    "pregunta": "¿Qué superhéroe de Marvel utiliza un traje de alta tecnología creado por Tony Stark?",
     "opciones": [
-      "Steven Spielberg",
-      "Martin Scorsese",
-      "Francis Ford Coppola",
-      "Ridley Scott"
-    ],
-    "respuesta_correcta": "Steven Spielberg"
-  },
-  {
-    "id": 170,
-    "categoria": "Cultura general",
-    "dificultad": "media",
-    "pregunta": "¿Qué escultor italiano realizó el David renacentista más famoso?",
-    "opciones": [
-      "Miguel Ángel",
-      "Bernini",
-      "Donatello",
-      "Canova"
-    ],
-    "respuesta_correcta": "Miguel Ángel"
-  },
-  {
-    "id": 171,
-    "categoria": "Cultura general",
-    "dificultad": "media",
-    "pregunta": "¿Cómo se llama la fiesta brasileña famosa por sus desfiles antes de la Cuaresma?",
-    "opciones": [
-      "Carnaval",
-      "Oktoberfest",
-      "Diwali",
-      "Hanami"
-    ],
-    "respuesta_correcta": "Carnaval"
-  },
-  {
-    "id": 172,
-    "categoria": "Cultura general",
-    "dificultad": "media",
-    "pregunta": "¿Qué obra musical de Ravel se hizo célebre por su crescendo repetitivo?",
-    "opciones": [
-      "Bolero",
-      "Réquiem",
-      "Carmen",
-      "Parsifal"
-    ],
-    "respuesta_correcta": "Bolero"
-  },
-  {
-    "id": 173,
-    "categoria": "Cultura general",
-    "dificultad": "media",
-    "pregunta": "¿Qué escritor creó al detective Sherlock Holmes?",
-    "opciones": [
-      "Arthur Conan Doyle",
-      "Agatha Christie",
-      "Edgar Allan Poe",
-      "Raymond Chandler"
-    ],
-    "respuesta_correcta": "Arthur Conan Doyle"
-  },
-  {
-    "id": 174,
-    "categoria": "Cultura general",
-    "dificultad": "media",
-    "pregunta": "¿Qué película de animación presenta a una princesa llamada Elsa?",
-    "opciones": [
-      "Frozen",
-      "Moana",
-      "Brave",
-      "Enredados"
-    ],
-    "respuesta_correcta": "Frozen"
-  },
-  {
-    "id": 175,
-    "categoria": "Cultura general",
-    "dificultad": "media",
-    "pregunta": "¿Qué autor escribió La metamorfosis?",
-    "opciones": [
-      "Franz Kafka",
-      "Thomas Mann",
-      "Hermann Hesse",
-      "Bertolt Brecht"
-    ],
-    "respuesta_correcta": "Franz Kafka"
-  },
-  {
-    "id": 176,
-    "categoria": "Cultura general",
-    "dificultad": "media",
-    "pregunta": "¿Qué movimiento artístico está asociado a Monet, Renoir y Degas?",
-    "opciones": [
-      "Impresionismo",
-      "Cubismo",
-      "Barroco",
-      "Romanticismo"
-    ],
-    "respuesta_correcta": "Impresionismo"
-  },
-  {
-    "id": 177,
-    "categoria": "Cultura general",
-    "dificultad": "media",
-    "pregunta": "¿Cómo se llama el himno oficial de la Unión Europea, basado en una obra de Beethoven?",
-    "opciones": [
-      "Oda a la alegría",
-      "Claro de luna",
-      "Marcha Radetzky",
-      "Canon en re"
-    ],
-    "respuesta_correcta": "Oda a la alegría"
-  },
-  {
-    "id": 178,
-    "categoria": "Cultura general",
-    "dificultad": "media",
-    "pregunta": "¿Qué escritor español perteneció a la Generación del 27 y escribió Bodas de sangre?",
-    "opciones": [
-      "Federico García Lorca",
-      "Antonio Machado",
-      "Camilo José Cela",
-      "José Zorrilla"
-    ],
-    "respuesta_correcta": "Federico García Lorca"
-  },
-  {
-    "id": 179,
-    "categoria": "Cultura general",
-    "dificultad": "media",
-    "pregunta": "¿Qué saga literaria creó J. R. R. Tolkien?",
-    "opciones": [
-      "El señor de los anillos",
-      "Juego de tronos",
-      "Dune",
-      "Las crónicas de Narnia"
-    ],
-    "respuesta_correcta": "El señor de los anillos"
-  },
-  {
-    "id": 180,
-    "categoria": "Cultura general",
-    "dificultad": "media",
-    "pregunta": "¿Qué cantante es conocido como el Rey del Rock?",
-    "opciones": [
-      "Elvis Presley",
-      "Michael Jackson",
-      "Prince",
-      "Freddie Mercury"
-    ],
-    "respuesta_correcta": "Elvis Presley"
-  },
-  {
-    "id": 181,
-    "categoria": "Cultura general",
-    "dificultad": "media",
-    "pregunta": "¿Qué personaje literario vivía en Baker Street, Londres?",
-    "opciones": [
-      "Sherlock Holmes",
-      "Drácula",
-      "Oliver Twist",
-      "Tom Sawyer"
-    ],
-    "respuesta_correcta": "Sherlock Holmes"
-  },
-  {
-    "id": 182,
-    "categoria": "Cultura general",
-    "dificultad": "media",
-    "pregunta": "¿Qué director rodó la trilogía de El señor de los anillos?",
-    "opciones": [
-      "Peter Jackson",
-      "James Cameron",
-      "Tim Burton",
-      "Christopher Nolan"
-    ],
-    "respuesta_correcta": "Peter Jackson"
-  },
-  {
-    "id": 183,
-    "categoria": "Cultura general",
-    "dificultad": "media",
-    "pregunta": "¿Qué danza tradicional se asocia especialmente a Argentina y Uruguay?",
-    "opciones": [
-      "Tango",
-      "Samba",
-      "Flamenco",
-      "Vals"
-    ],
-    "respuesta_correcta": "Tango"
-  },
-  {
-    "id": 184,
-    "categoria": "Cultura general",
-    "dificultad": "media",
-    "pregunta": "¿Quién escribió La Regenta?",
-    "opciones": [
-      "Leopoldo Alas Clarín",
-      "Benito Pérez Galdós",
-      "Miguel de Unamuno",
-      "Pío Baroja"
-    ],
-    "respuesta_correcta": "Leopoldo Alas Clarín"
-  },
-  {
-    "id": 185,
-    "categoria": "Cultura general",
-    "dificultad": "media",
-    "pregunta": "¿Qué pintor realizó Las meninas?",
-    "opciones": [
-      "Diego Velázquez",
-      "Francisco de Goya",
-      "El Greco",
-      "Murillo"
-    ],
-    "respuesta_correcta": "Diego Velázquez"
-  },
-  {
-    "id": 186,
-    "categoria": "Cultura general",
-    "dificultad": "media",
-    "pregunta": "¿Qué cantante colombiana interpreta Hips Don't Lie?",
-    "opciones": [
-      "Shakira",
-      "Karol G",
-      "Paulina Rubio",
-      "Rosalía"
-    ],
-    "respuesta_correcta": "Shakira"
-  },
-  {
-    "id": 187,
-    "categoria": "Cultura general",
-    "dificultad": "media",
-    "pregunta": "¿Qué película española dirigida por Alejandro Amenábar ganó el Óscar a mejor película internacional en 2005?",
-    "opciones": [
-      "Mar adentro",
-      "Tesis",
-      "Abre los ojos",
-      "Los otros"
-    ],
-    "respuesta_correcta": "Mar adentro"
-  },
-  {
-    "id": 188,
-    "categoria": "Cultura general",
-    "dificultad": "media",
-    "pregunta": "¿Qué escritor portugués recibió el Nobel y escribió Ensayo sobre la ceguera?",
-    "opciones": [
-      "José Saramago",
-      "Fernando Pessoa",
-      "António Lobo Antunes",
-      "Eça de Queirós"
-    ],
-    "respuesta_correcta": "José Saramago"
-  },
-  {
-    "id": 189,
-    "categoria": "Cultura general",
-    "dificultad": "media",
-    "pregunta": "¿Qué instrumento se toca con un teclado y cuerdas golpeadas por macillos?",
-    "opciones": [
-      "Piano",
-      "Órgano",
-      "Acordeón",
-      "Clavecín"
-    ],
-    "respuesta_correcta": "Piano"
-  },
-  {
-    "id": 190,
-    "categoria": "Cultura general",
-    "dificultad": "media",
-    "pregunta": "¿Qué obra de arte está en el techo de la Capilla Sixtina?",
-    "opciones": [
-      "Un fresco de Miguel Ángel",
-      "Un mural de Rafael",
-      "Un mosaico romano",
-      "Una obra de Leonardo"
-    ],
-    "respuesta_correcta": "Un fresco de Miguel Ángel"
-  },
-  {
-    "id": 191,
-    "categoria": "Cultura general",
-    "dificultad": "media",
-    "pregunta": "¿Qué superhéroe de Marvel se llama Peter Parker?",
-    "opciones": [
-      "Spider-Man",
-      "Iron Man",
       "Doctor Strange",
-      "Thor"
+      "Thor",
+      "Iron Man",
+      "Hulk"
     ],
-    "respuesta_correcta": "Spider-Man"
+    "respuesta_correcta": "Iron Man"
   },
   {
-    "id": 192,
-    "categoria": "Cultura general",
+    "id": 158,
+    "categoria": "Entretenimiento",
     "dificultad": "media",
-    "pregunta": "¿Qué novela de Antoine de Saint-Exupéry habla de un pequeño príncipe que viaja por planetas?",
+    "pregunta": "¿Qué personaje de Nintendo es un fontanero con gorra roja?",
     "opciones": [
-      "El principito",
-      "Momo",
-      "Alicia en el País de las Maravillas",
-      "Peter Pan"
+      "Link",
+      "Mario",
+      "Sonic",
+      "Kirby"
     ],
-    "respuesta_correcta": "El principito"
+    "respuesta_correcta": "Mario"
   },
   {
-    "id": 193,
-    "categoria": "Cultura general",
+    "id": 159,
+    "categoria": "Entretenimiento",
     "dificultad": "media",
-    "pregunta": "¿Qué grupo británico grabó Hey Jude?",
+    "pregunta": "¿Qué videojuego consiste en colocar bloques y explorar mundos generados por cubos?",
     "opciones": [
-      "The Beatles",
-      "The Rolling Stones",
+      "Tetris",
+      "Pac-Man",
+      "Fortnite",
+      "Minecraft"
+    ],
+    "respuesta_correcta": "Minecraft"
+  },
+  {
+    "id": 160,
+    "categoria": "Entretenimiento",
+    "dificultad": "media",
+    "pregunta": "¿Qué cantante es conocida como la Reina del Pop?",
+    "opciones": [
+      "Adele",
+      "Shakira",
+      "Rosalía",
+      "Madonna"
+    ],
+    "respuesta_correcta": "Madonna"
+  },
+  {
+    "id": 161,
+    "categoria": "Entretenimiento",
+    "dificultad": "media",
+    "pregunta": "¿Qué grupo británico popularizó canciones como «Hey Jude» y «Let It Be»?",
+    "opciones": [
       "Queen",
-      "Pink Floyd"
+      "Oasis",
+      "The Rolling Stones",
+      "The Beatles"
     ],
     "respuesta_correcta": "The Beatles"
   },
   {
-    "id": 194,
-    "categoria": "Cultura general",
+    "id": 162,
+    "categoria": "Entretenimiento",
     "dificultad": "media",
-    "pregunta": "¿Qué director español ganó el Óscar por Todo sobre mi madre?",
+    "pregunta": "¿Qué película cuenta el hundimiento de un famoso transatlántico en 1912?",
     "opciones": [
-      "Pedro Almodóvar",
-      "Alejandro Amenábar",
-      "Luis Buñuel",
-      "J. A. Bayona"
+      "Náufrago",
+      "Pearl Harbor",
+      "Titanic",
+      "Poseidón"
     ],
-    "respuesta_correcta": "Pedro Almodóvar"
+    "respuesta_correcta": "Titanic"
   },
   {
-    "id": 195,
-    "categoria": "Cultura general",
+    "id": 163,
+    "categoria": "Entretenimiento",
     "dificultad": "media",
-    "pregunta": "¿Qué pintora mexicana es conocida por sus autorretratos y su fuerte componente autobiográfico?",
+    "pregunta": "¿Qué director dirigió Parque Jurásico?",
     "opciones": [
-      "Frida Kahlo",
-      "Remedios Varo",
-      "Georgia O'Keeffe",
-      "Tamara de Lempicka"
+      "Steven Spielberg",
+      "George Lucas",
+      "James Cameron",
+      "Christopher Nolan"
     ],
-    "respuesta_correcta": "Frida Kahlo"
+    "respuesta_correcta": "Steven Spielberg"
   },
   {
-    "id": 196,
-    "categoria": "Cultura general",
+    "id": 164,
+    "categoria": "Entretenimiento",
     "dificultad": "media",
-    "pregunta": "¿Cómo se llama el personaje creado por Mary Shelley?",
+    "pregunta": "¿Qué serie española gira en torno a un atraco a la Fábrica Nacional de Moneda y Timbre?",
     "opciones": [
-      "Frankenstein",
-      "Drácula",
-      "Dorian Gray",
-      "Fausto"
+      "La casa de papel",
+      "Los Serrano",
+      "Élite",
+      "Vis a vis"
     ],
-    "respuesta_correcta": "Frankenstein"
+    "respuesta_correcta": "La casa de papel"
   },
   {
-    "id": 197,
-    "categoria": "Cultura general",
+    "id": 165,
+    "categoria": "Entretenimiento",
     "dificultad": "media",
-    "pregunta": "¿Qué compositor escribió Las cuatro estaciones?",
+    "pregunta": "¿Qué personaje de Disney pierde un zapato de cristal?",
     "opciones": [
-      "Antonio Vivaldi",
-      "Johann Strauss",
-      "Haydn",
-      "Mahler"
-    ],
-    "respuesta_correcta": "Antonio Vivaldi"
-  },
-  {
-    "id": 198,
-    "categoria": "Cultura general",
-    "dificultad": "media",
-    "pregunta": "¿Qué poeta chileno escribió Veinte poemas de amor y una canción desesperada?",
-    "opciones": [
-      "Pablo Neruda",
-      "Nicanor Parra",
-      "Gabriela Mistral",
-      "Vicente Huidobro"
-    ],
-    "respuesta_correcta": "Pablo Neruda"
-  },
-  {
-    "id": 199,
-    "categoria": "Cultura general",
-    "dificultad": "media",
-    "pregunta": "¿Qué personaje de Disney pierde un zapato de cristal en un baile?",
-    "opciones": [
+      "Bella",
       "Cenicienta",
       "Blancanieves",
-      "Bella",
       "Ariel"
     ],
     "respuesta_correcta": "Cenicienta"
   },
   {
-    "id": 200,
-    "categoria": "Cultura general",
+    "id": 166,
+    "categoria": "Entretenimiento",
     "dificultad": "media",
-    "pregunta": "¿Qué autora británica escribió Orgullo y prejuicio?",
+    "pregunta": "¿Qué película de Pixar presenta juguetes que cobran vida cuando nadie los ve?",
     "opciones": [
-      "Jane Austen",
-      "Emily Brontë",
-      "Virginia Woolf",
-      "Mary Shelley"
+      "Monstruos, S. A.",
+      "Cars",
+      "Ratatouille",
+      "Toy Story"
     ],
-    "respuesta_correcta": "Jane Austen"
+    "respuesta_correcta": "Toy Story"
+  },
+  {
+    "id": 167,
+    "categoria": "Entretenimiento",
+    "dificultad": "media",
+    "pregunta": "¿Qué saga tiene personajes llamados Frodo, Gandalf y Aragorn?",
+    "opciones": [
+      "Harry Potter",
+      "Los juegos del hambre",
+      "El señor de los anillos",
+      "Crepúsculo"
+    ],
+    "respuesta_correcta": "El señor de los anillos"
+  },
+  {
+    "id": 168,
+    "categoria": "Entretenimiento",
+    "dificultad": "media",
+    "pregunta": "¿Qué concurso televisivo español popularizó la frase «¿Quién quiere ser millonario?»?",
+    "opciones": [
+      "Saber y ganar",
+      "Operación Triunfo",
+      "¿Quién quiere ser millonario?",
+      "Pasapalabra"
+    ],
+    "respuesta_correcta": "¿Quién quiere ser millonario?"
+  },
+  {
+    "id": 169,
+    "categoria": "Entretenimiento",
+    "dificultad": "media",
+    "pregunta": "¿Qué cantante británica interpreta «Rolling in the Deep»?",
+    "opciones": [
+      "Adele",
+      "Amy Winehouse",
+      "Dua Lipa",
+      "Sia"
+    ],
+    "respuesta_correcta": "Adele"
+  },
+  {
+    "id": 170,
+    "categoria": "Entretenimiento",
+    "dificultad": "media",
+    "pregunta": "¿Qué película de animación tiene una princesa llamada Elsa?",
+    "opciones": [
+      "Enredados",
+      "Brave",
+      "Frozen",
+      "Moana"
+    ],
+    "respuesta_correcta": "Frozen"
+  },
+  {
+    "id": 171,
+    "categoria": "Entretenimiento",
+    "dificultad": "media",
+    "pregunta": "¿Qué universo de superhéroes incluye a Batman, Superman y Wonder Woman?",
+    "opciones": [
+      "Manga Plus",
+      "Pixar",
+      "DC Comics",
+      "Marvel"
+    ],
+    "respuesta_correcta": "DC Comics"
+  },
+  {
+    "id": 172,
+    "categoria": "Entretenimiento",
+    "dificultad": "media",
+    "pregunta": "¿Qué famosa serie comienza con un grupo de amigos viviendo en Nueva York y reuniéndose en una cafetería?",
+    "opciones": [
+      "The Office",
+      "Modern Family",
+      "Friends",
+      "Cómo conocí a vuestra madre"
+    ],
+    "respuesta_correcta": "Friends"
+  },
+  {
+    "id": 173,
+    "categoria": "Entretenimiento",
+    "dificultad": "media",
+    "pregunta": "¿Qué película musical protagoniza una niñera mágica llamada Mary?",
+    "opciones": [
+      "Mary Poppins",
+      "Grease",
+      "Sonrisas y lágrimas",
+      "Mamma Mia!"
+    ],
+    "respuesta_correcta": "Mary Poppins"
+  },
+  {
+    "id": 174,
+    "categoria": "Entretenimiento",
+    "dificultad": "media",
+    "pregunta": "¿Qué actor interpretó a Forrest Gump en la película del mismo nombre?",
+    "opciones": [
+      "Tom Cruise",
+      "Robin Williams",
+      "Tom Hanks",
+      "Kevin Costner"
+    ],
+    "respuesta_correcta": "Tom Hanks"
+  },
+  {
+    "id": 175,
+    "categoria": "Entretenimiento",
+    "dificultad": "media",
+    "pregunta": "¿Qué videojuego clásico consiste en comer puntos dentro de un laberinto evitando fantasmas?",
+    "opciones": [
+      "Pac-Man",
+      "Donkey Kong",
+      "Tetris",
+      "Space Invaders"
+    ],
+    "respuesta_correcta": "Pac-Man"
+  },
+  {
+    "id": 176,
+    "categoria": "Entretenimiento",
+    "dificultad": "media",
+    "pregunta": "¿Qué festival europeo es conocido por elegir una canción ganadora entre países participantes?",
+    "opciones": [
+      "Eurovisión",
+      "Sanremo",
+      "Festival de Cannes",
+      "Festival de Venecia"
+    ],
+    "respuesta_correcta": "Eurovisión"
+  },
+  {
+    "id": 177,
+    "categoria": "Entretenimiento",
+    "dificultad": "media",
+    "pregunta": "¿Qué saga de películas tiene dinosaurios recreados genéticamente en un parque temático?",
+    "opciones": [
+      "Avatar",
+      "King Kong",
+      "Jurassic Park",
+      "Godzilla"
+    ],
+    "respuesta_correcta": "Jurassic Park"
+  },
+  {
+    "id": 178,
+    "categoria": "Entretenimiento",
+    "dificultad": "media",
+    "pregunta": "¿Qué personaje animado vive en una piña debajo del mar?",
+    "opciones": [
+      "Bob Esponja",
+      "Patricio Estrella",
+      "Popeye",
+      "Doraemon"
+    ],
+    "respuesta_correcta": "Bob Esponja"
+  },
+  {
+    "id": 179,
+    "categoria": "Entretenimiento",
+    "dificultad": "media",
+    "pregunta": "¿Qué cantante colombiano popularizó «Waka Waka»?",
+    "opciones": [
+      "Carlos Vives",
+      "Shakira",
+      "Maluma",
+      "Juanes"
+    ],
+    "respuesta_correcta": "Shakira"
+  },
+  {
+    "id": 180,
+    "categoria": "Entretenimiento",
+    "dificultad": "media",
+    "pregunta": "¿Qué película de 1994 tiene como protagonista a un león llamado Simba?",
+    "opciones": [
+      "Pocahontas",
+      "Mulán",
+      "El rey león",
+      "Aladdín"
+    ],
+    "respuesta_correcta": "El rey león"
+  },
+  {
+    "id": 181,
+    "categoria": "Entretenimiento",
+    "dificultad": "media",
+    "pregunta": "¿Qué serie de fantasía está basada en las novelas Canción de hielo y fuego?",
+    "opciones": [
+      "The Witcher",
+      "Juego de tronos",
+      "Merlín",
+      "Vikingos"
+    ],
+    "respuesta_correcta": "Juego de tronos"
+  },
+  {
+    "id": 182,
+    "categoria": "Entretenimiento",
+    "dificultad": "media",
+    "pregunta": "¿Qué actriz interpretó a Hermione Granger en las películas de Harry Potter?",
+    "opciones": [
+      "Natalie Portman",
+      "Keira Knightley",
+      "Emma Watson",
+      "Emma Stone"
+    ],
+    "respuesta_correcta": "Emma Watson"
+  },
+  {
+    "id": 183,
+    "categoria": "Entretenimiento",
+    "dificultad": "media",
+    "pregunta": "¿Qué programa de talentos español nació como academia musical televisada?",
+    "opciones": [
+      "Operación Triunfo",
+      "MasterChef",
+      "Got Talent",
+      "La Voz"
+    ],
+    "respuesta_correcta": "Operación Triunfo"
+  },
+  {
+    "id": 184,
+    "categoria": "Entretenimiento",
+    "dificultad": "media",
+    "pregunta": "¿Qué película de ciencia ficción incluye el mundo virtual llamado Matrix?",
+    "opciones": [
+      "Blade Runner",
+      "Minority Report",
+      "Origen",
+      "Matrix"
+    ],
+    "respuesta_correcta": "Matrix"
+  },
+  {
+    "id": 185,
+    "categoria": "Entretenimiento",
+    "dificultad": "media",
+    "pregunta": "¿Qué personaje de videojuegos viste de verde y suele rescatar a la princesa Zelda?",
+    "opciones": [
+      "Luigi",
+      "Mario",
+      "Link",
+      "Sonic"
+    ],
+    "respuesta_correcta": "Link"
+  },
+  {
+    "id": 186,
+    "categoria": "Entretenimiento",
+    "dificultad": "media",
+    "pregunta": "¿Qué serie de animación japonesa tiene como protagonista a Son Goku?",
+    "opciones": [
+      "Naruto",
+      "One Piece",
+      "Dragon Ball",
+      "Pokémon"
+    ],
+    "respuesta_correcta": "Dragon Ball"
+  },
+  {
+    "id": 187,
+    "categoria": "Entretenimiento",
+    "dificultad": "media",
+    "pregunta": "¿Qué criatura amarilla de videojuegos dice a menudo «pika pika»?",
+    "opciones": [
+      "Kirby",
+      "Pikachu",
+      "Charmander",
+      "Yoshi"
+    ],
+    "respuesta_correcta": "Pikachu"
+  },
+  {
+    "id": 188,
+    "categoria": "Entretenimiento",
+    "dificultad": "media",
+    "pregunta": "¿Qué película de Pixar está protagonizada por un pez payaso llamado Nemo?",
+    "opciones": [
+      "Buscando a Nemo",
+      "Del revés",
+      "WALL·E",
+      "Up"
+    ],
+    "respuesta_correcta": "Buscando a Nemo"
+  },
+  {
+    "id": 189,
+    "categoria": "Entretenimiento",
+    "dificultad": "media",
+    "pregunta": "¿Qué grupo interpretó la canción «Bohemian Rhapsody»?",
+    "opciones": [
+      "Queen",
+      "Coldplay",
+      "U2",
+      "ABBA"
+    ],
+    "respuesta_correcta": "Queen"
+  },
+  {
+    "id": 190,
+    "categoria": "Entretenimiento",
+    "dificultad": "media",
+    "pregunta": "¿Qué saga de películas incluye al personaje Katniss Everdeen?",
+    "opciones": [
+      "Los juegos del hambre",
+      "Crepúsculo",
+      "Maze Runner",
+      "Divergente"
+    ],
+    "respuesta_correcta": "Los juegos del hambre"
+  },
+  {
+    "id": 191,
+    "categoria": "Entretenimiento",
+    "dificultad": "media",
+    "pregunta": "¿Qué plataforma popularizó series como Stranger Things?",
+    "opciones": [
+      "Spotify",
+      "Netflix",
+      "YouTube",
+      "Twitch"
+    ],
+    "respuesta_correcta": "Netflix"
+  },
+  {
+    "id": 192,
+    "categoria": "Entretenimiento",
+    "dificultad": "media",
+    "pregunta": "¿Qué película de animación presenta a un ogro verde que vive en una ciénaga?",
+    "opciones": [
+      "Madagascar",
+      "Shrek",
+      "Monstruos, S. A.",
+      "Hotel Transilvania"
+    ],
+    "respuesta_correcta": "Shrek"
+  },
+  {
+    "id": 193,
+    "categoria": "Entretenimiento",
+    "dificultad": "media",
+    "pregunta": "¿Qué cantante fue conocido como el Rey del Pop?",
+    "opciones": [
+      "Prince",
+      "Elvis Presley",
+      "Michael Jackson",
+      "Bruno Mars"
+    ],
+    "respuesta_correcta": "Michael Jackson"
+  },
+  {
+    "id": 194,
+    "categoria": "Entretenimiento",
+    "dificultad": "media",
+    "pregunta": "¿Qué película protagoniza un arqueólogo llamado Indiana Jones?",
+    "opciones": [
+      "Ben-Hur",
+      "En busca del arca perdida",
+      "La momia",
+      "Gladiator"
+    ],
+    "respuesta_correcta": "En busca del arca perdida"
+  },
+  {
+    "id": 195,
+    "categoria": "Entretenimiento",
+    "dificultad": "media",
+    "pregunta": "¿Qué serie médica tiene como personaje principal al doctor Gregory House?",
+    "opciones": [
+      "The Good Doctor",
+      "Anatomía de Grey",
+      "House",
+      "Urgencias"
+    ],
+    "respuesta_correcta": "House"
+  },
+  {
+    "id": 196,
+    "categoria": "Entretenimiento",
+    "dificultad": "media",
+    "pregunta": "¿Qué película de Disney está protagonizada por una joven llamada Moana o Vaiana según el país?",
+    "opciones": [
+      "Raya y el último dragón",
+      "Encanto",
+      "Frozen",
+      "Vaiana"
+    ],
+    "respuesta_correcta": "Vaiana"
+  },
+  {
+    "id": 197,
+    "categoria": "Entretenimiento",
+    "dificultad": "media",
+    "pregunta": "¿Qué videojuego de fútbol publica anualmente Electronic Arts bajo la marca EA Sports FC?",
+    "opciones": [
+      "NBA 2K",
+      "EA Sports FC",
+      "Rocket League",
+      "Gran Turismo"
+    ],
+    "respuesta_correcta": "EA Sports FC"
+  },
+  {
+    "id": 198,
+    "categoria": "Entretenimiento",
+    "dificultad": "media",
+    "pregunta": "¿Qué saga cinematográfica incluye a un robot llamado R2-D2?",
+    "opciones": [
+      "Terminator",
+      "Transformers",
+      "Star Wars",
+      "Alien"
+    ],
+    "respuesta_correcta": "Star Wars"
+  },
+  {
+    "id": 199,
+    "categoria": "Entretenimiento",
+    "dificultad": "media",
+    "pregunta": "¿Qué película de animación tiene como protagonistas a una familia de superhéroes?",
+    "opciones": [
+      "Big Hero 6",
+      "Los Increíbles",
+      "Bolt",
+      "Megamind"
+    ],
+    "respuesta_correcta": "Los Increíbles"
+  },
+  {
+    "id": 200,
+    "categoria": "Entretenimiento",
+    "dificultad": "media",
+    "pregunta": "¿Qué serie española de humor tiene como escenario principal una comunidad de vecinos en la calle Desengaño 21?",
+    "opciones": [
+      "La que se avecina",
+      "Aquí no hay quien viva",
+      "Camera Café",
+      "Aída"
+    ],
+    "respuesta_correcta": "Aquí no hay quien viva"
   },
   {
     "id": 201,
@@ -2605,10 +2605,10 @@
     "dificultad": "media",
     "pregunta": "¿Cuántos jugadores tiene un equipo de fútbol sobre el campo al comenzar un partido?",
     "opciones": [
-      "11",
-      "10",
+      "12",
       "9",
-      "12"
+      "10",
+      "11"
     ],
     "respuesta_correcta": "11"
   },
@@ -2618,10 +2618,10 @@
     "dificultad": "media",
     "pregunta": "¿Cada cuántos años se celebran habitualmente los Juegos Olímpicos de verano?",
     "opciones": [
-      "4",
-      "2",
       "3",
-      "5"
+      "5",
+      "4",
+      "2"
     ],
     "respuesta_correcta": "4"
   },
@@ -2631,10 +2631,10 @@
     "dificultad": "media",
     "pregunta": "¿En qué deporte destacó Rafael Nadal?",
     "opciones": [
-      "Tenis",
       "Golf",
+      "Natación",
       "Baloncesto",
-      "Natación"
+      "Tenis"
     ],
     "respuesta_correcta": "Tenis"
   },
@@ -2645,9 +2645,9 @@
     "pregunta": "¿Qué selección ganó el Mundial de fútbol masculino de 2010?",
     "opciones": [
       "España",
+      "Argentina",
       "Alemania",
-      "Brasil",
-      "Argentina"
+      "Brasil"
     ],
     "respuesta_correcta": "España"
   },
@@ -2657,10 +2657,10 @@
     "dificultad": "media",
     "pregunta": "¿En qué deporte se utiliza una raqueta y un volante o pluma?",
     "opciones": [
-      "Bádminton",
       "Tenis",
       "Squash",
-      "Pádel"
+      "Pádel",
+      "Bádminton"
     ],
     "respuesta_correcta": "Bádminton"
   },
@@ -2670,10 +2670,10 @@
     "dificultad": "media",
     "pregunta": "¿Cuántos puntos vale un triple en baloncesto?",
     "opciones": [
-      "3",
       "2",
       "1",
-      "4"
+      "4",
+      "3"
     ],
     "respuesta_correcta": "3"
   },
@@ -2683,10 +2683,10 @@
     "dificultad": "media",
     "pregunta": "¿Qué país es famoso por el arte marcial del judo?",
     "opciones": [
-      "Japón",
       "China",
-      "Corea del Sur",
-      "Tailandia"
+      "Japón",
+      "Tailandia",
+      "Corea del Sur"
     ],
     "respuesta_correcta": "Japón"
   },
@@ -2696,9 +2696,9 @@
     "dificultad": "media",
     "pregunta": "¿Cómo se llama la competición más importante de selecciones nacionales de fútbol en Europa?",
     "opciones": [
-      "Eurocopa",
       "Champions League",
       "Copa Libertadores",
+      "Eurocopa",
       "Premier League"
     ],
     "respuesta_correcta": "Eurocopa"
@@ -2709,10 +2709,10 @@
     "dificultad": "media",
     "pregunta": "¿En qué deporte se usa un tablero, una ola y una tabla?",
     "opciones": [
-      "Surf",
-      "Esquí",
+      "Patinaje",
       "Remo",
-      "Patinaje"
+      "Esquí",
+      "Surf"
     ],
     "respuesta_correcta": "Surf"
   },
@@ -2722,10 +2722,10 @@
     "dificultad": "media",
     "pregunta": "¿Qué color suele llevar el maillot del líder del Tour de Francia?",
     "opciones": [
-      "Amarillo",
-      "Rojo",
       "Verde",
-      "Blanco"
+      "Blanco",
+      "Amarillo",
+      "Rojo"
     ],
     "respuesta_correcta": "Amarillo"
   },
@@ -2735,10 +2735,10 @@
     "dificultad": "media",
     "pregunta": "¿En qué deporte se usa un guante, un bate y bases?",
     "opciones": [
-      "Béisbol",
+      "Hockey",
       "Críquet",
-      "Rugby",
-      "Hockey"
+      "Béisbol",
+      "Rugby"
     ],
     "respuesta_correcta": "Béisbol"
   },
@@ -2748,10 +2748,10 @@
     "dificultad": "media",
     "pregunta": "¿Qué deportista jamaicano fue campeón olímpico en velocidad y récord mundial de 100 metros?",
     "opciones": [
+      "Noah Lyles",
       "Usain Bolt",
-      "Yohan Blake",
       "Asafa Powell",
-      "Noah Lyles"
+      "Yohan Blake"
     ],
     "respuesta_correcta": "Usain Bolt"
   },
@@ -2762,9 +2762,9 @@
     "pregunta": "¿Cuántos jugadores tiene un equipo de balonmano en pista?",
     "opciones": [
       "7",
-      "5",
+      "8",
       "6",
-      "8"
+      "5"
     ],
     "respuesta_correcta": "7"
   },
@@ -2774,10 +2774,10 @@
     "dificultad": "media",
     "pregunta": "¿En qué superficie se disputa tradicionalmente Wimbledon?",
     "opciones": [
-      "Hierba",
-      "Tierra batida",
+      "Moqueta",
       "Pista dura",
-      "Moqueta"
+      "Hierba",
+      "Tierra batida"
     ],
     "respuesta_correcta": "Hierba"
   },
@@ -2787,9 +2787,9 @@
     "dificultad": "media",
     "pregunta": "¿Qué deporte practica Carlos Alcaraz?",
     "opciones": [
+      "Fórmula 1",
       "Tenis",
       "Golf",
-      "Fórmula 1",
       "Atletismo"
     ],
     "respuesta_correcta": "Tenis"
@@ -2801,9 +2801,9 @@
     "pregunta": "¿Cómo se llama la máxima categoría del fútbol español masculino?",
     "opciones": [
       "Primera División",
-      "Segunda Federación",
+      "Liga Nacional",
       "Copa del Rey",
-      "Liga Nacional"
+      "Segunda Federación"
     ],
     "respuesta_correcta": "Primera División"
   },
@@ -2815,8 +2815,8 @@
     "opciones": [
       "Fernando Alonso",
       "Carlos Sainz",
-      "Marc Gené",
-      "Pedro de la Rosa"
+      "Pedro de la Rosa",
+      "Marc Gené"
     ],
     "respuesta_correcta": "Fernando Alonso"
   },
@@ -2827,9 +2827,9 @@
     "pregunta": "¿En qué deporte se compite por meter la pelota en un hoyo con el menor número de golpes?",
     "opciones": [
       "Golf",
+      "Bolos",
       "Polo",
-      "Críquet",
-      "Bolos"
+      "Críquet"
     ],
     "respuesta_correcta": "Golf"
   },
@@ -2839,10 +2839,10 @@
     "dificultad": "media",
     "pregunta": "¿Qué nadador estadounidense ganó numerosas medallas olímpicas y es uno de los más laureados de la historia?",
     "opciones": [
-      "Michael Phelps",
       "Ryan Lochte",
-      "Mark Spitz",
-      "Ian Thorpe"
+      "Michael Phelps",
+      "Ian Thorpe",
+      "Mark Spitz"
     ],
     "respuesta_correcta": "Michael Phelps"
   },
@@ -2852,10 +2852,10 @@
     "dificultad": "media",
     "pregunta": "¿Cuántos sets suele ganar un partido masculino de Grand Slam al mejor de cinco?",
     "opciones": [
-      "3 sets",
       "2 sets",
-      "4 sets",
-      "5 sets"
+      "5 sets",
+      "3 sets",
+      "4 sets"
     ],
     "respuesta_correcta": "3 sets"
   },
@@ -2865,9 +2865,9 @@
     "dificultad": "media",
     "pregunta": "¿Qué deporte combina natación, ciclismo y carrera a pie?",
     "opciones": [
-      "Triatlón",
-      "Pentatlón moderno",
       "Biatlón",
+      "Pentatlón moderno",
+      "Triatlón",
       "Decatlón"
     ],
     "respuesta_correcta": "Triatlón"
@@ -2879,9 +2879,9 @@
     "pregunta": "¿En qué deporte se anota un ensayo?",
     "opciones": [
       "Rugby",
-      "Baloncesto",
       "Balonmano",
-      "Hockey hielo"
+      "Hockey hielo",
+      "Baloncesto"
     ],
     "respuesta_correcta": "Rugby"
   },
@@ -2891,10 +2891,10 @@
     "dificultad": "media",
     "pregunta": "¿Qué selección ha ganado más Copas del Mundo masculinas de fútbol hasta la fecha?",
     "opciones": [
-      "Brasil",
-      "Alemania",
       "Italia",
-      "Argentina"
+      "Argentina",
+      "Alemania",
+      "Brasil"
     ],
     "respuesta_correcta": "Brasil"
   },
@@ -2904,10 +2904,10 @@
     "dificultad": "media",
     "pregunta": "¿Qué aparato se usa para desplazarse sobre hielo en el curling?",
     "opciones": [
-      "Piedra de granito",
-      "Disco metálico",
       "Balón",
-      "Palo de madera"
+      "Disco metálico",
+      "Palo de madera",
+      "Piedra de granito"
     ],
     "respuesta_correcta": "Piedra de granito"
   },
@@ -2917,9 +2917,9 @@
     "dificultad": "media",
     "pregunta": "¿En qué deporte se usa una bicicleta en carretera, pista o montaña?",
     "opciones": [
-      "Ciclismo",
-      "Motociclismo",
       "Triatlón",
+      "Motociclismo",
+      "Ciclismo",
       "Patinaje"
     ],
     "respuesta_correcta": "Ciclismo"
@@ -2930,10 +2930,10 @@
     "dificultad": "media",
     "pregunta": "¿Cómo se llama la competición anual de clubes más prestigiosa del fútbol europeo?",
     "opciones": [
+      "Supercopa",
       "Liga de Campeones",
       "Europa League",
-      "Nations League",
-      "Supercopa"
+      "Nations League"
     ],
     "respuesta_correcta": "Liga de Campeones"
   },
@@ -2943,10 +2943,10 @@
     "dificultad": "media",
     "pregunta": "¿En qué deporte se enfrentan dos personas o parejas separadas por una red y con palas macizas?",
     "opciones": [
-      "Pádel",
-      "Tenis",
       "Squash",
-      "Bádminton"
+      "Pádel",
+      "Bádminton",
+      "Tenis"
     ],
     "respuesta_correcta": "Pádel"
   },
@@ -2956,10 +2956,10 @@
     "dificultad": "media",
     "pregunta": "¿Qué país organiza la NBA?",
     "opciones": [
-      "Estados Unidos",
-      "Canadá",
       "Australia",
-      "España"
+      "España",
+      "Canadá",
+      "Estados Unidos"
     ],
     "respuesta_correcta": "Estados Unidos"
   },
@@ -2969,10 +2969,10 @@
     "dificultad": "media",
     "pregunta": "¿Qué deporte practica Carolina Marín?",
     "opciones": [
-      "Bádminton",
-      "Tenis de mesa",
+      "Gimnasia",
       "Esgrima",
-      "Gimnasia"
+      "Bádminton",
+      "Tenis de mesa"
     ],
     "respuesta_correcta": "Bádminton"
   },
@@ -2982,10 +2982,10 @@
     "dificultad": "media",
     "pregunta": "¿Cuántas medallas de oro se otorgan por cada prueba olímpica individual?",
     "opciones": [
+      "Cuatro",
       "Una",
       "Dos",
-      "Tres",
-      "Cuatro"
+      "Tres"
     ],
     "respuesta_correcta": "Una"
   },
@@ -2995,10 +2995,10 @@
     "dificultad": "media",
     "pregunta": "¿En qué deporte se usa una tabla y una vela unida a ella?",
     "opciones": [
-      "Windsurf",
-      "Surf",
       "Piragüismo",
-      "Vela ligera"
+      "Surf",
+      "Vela ligera",
+      "Windsurf"
     ],
     "respuesta_correcta": "Windsurf"
   },
@@ -3009,9 +3009,9 @@
     "pregunta": "¿Qué equipo de fútbol juega tradicionalmente en el estadio Santiago Bernabéu?",
     "opciones": [
       "Real Madrid",
+      "Valencia CF",
       "Atlético de Madrid",
-      "Sevilla FC",
-      "Valencia CF"
+      "Sevilla FC"
     ],
     "respuesta_correcta": "Real Madrid"
   },
@@ -3021,9 +3021,9 @@
     "dificultad": "media",
     "pregunta": "¿En qué deporte compiten gimnastas en aparatos como barra, anillas o suelo?",
     "opciones": [
-      "Gimnasia artística",
       "Patinaje artístico",
       "Esgrima",
+      "Gimnasia artística",
       "Judo"
     ],
     "respuesta_correcta": "Gimnasia artística"
@@ -3034,10 +3034,10 @@
     "dificultad": "media",
     "pregunta": "¿Qué distancia tiene oficialmente la prueba reina del atletismo, el maratón?",
     "opciones": [
-      "42,195 km",
-      "40 km",
       "26 km",
-      "50 km"
+      "42,195 km",
+      "50 km",
+      "40 km"
     ],
     "respuesta_correcta": "42,195 km"
   },
@@ -3061,9 +3061,9 @@
     "pregunta": "¿Qué selección femenina ganó el Mundial de fútbol de 2023?",
     "opciones": [
       "España",
-      "Inglaterra",
+      "Suecia",
       "Estados Unidos",
-      "Suecia"
+      "Inglaterra"
     ],
     "respuesta_correcta": "España"
   },
@@ -3073,10 +3073,10 @@
     "dificultad": "media",
     "pregunta": "¿En qué deporte destaca Simone Biles?",
     "opciones": [
-      "Gimnasia artística",
-      "Natación",
       "Atletismo",
-      "Patinaje"
+      "Patinaje",
+      "Gimnasia artística",
+      "Natación"
     ],
     "respuesta_correcta": "Gimnasia artística"
   },
@@ -3087,8 +3087,8 @@
     "pregunta": "¿Qué color de cinturón suele representar un nivel inicial en muchas artes marciales?",
     "opciones": [
       "Blanco",
-      "Negro",
       "Rojo",
+      "Negro",
       "Azul oscuro"
     ],
     "respuesta_correcta": "Blanco"
@@ -3099,10 +3099,10 @@
     "dificultad": "media",
     "pregunta": "¿En qué deporte se compite sobre nieve descendiendo por una ladera con tablas estrechas?",
     "opciones": [
-      "Esquí",
       "Snowboard",
       "Patinaje",
-      "Bobsleigh"
+      "Bobsleigh",
+      "Esquí"
     ],
     "respuesta_correcta": "Esquí"
   },
@@ -3112,10 +3112,10 @@
     "dificultad": "media",
     "pregunta": "¿Cuál es la prueba de motor más famosa de Mónaco?",
     "opciones": [
-      "Gran Premio de Fórmula 1",
       "24 Horas de Le Mans",
-      "Rally Dakar",
-      "MotoGP de Italia"
+      "Gran Premio de Fórmula 1",
+      "MotoGP de Italia",
+      "Rally Dakar"
     ],
     "respuesta_correcta": "Gran Premio de Fórmula 1"
   },
@@ -3125,10 +3125,10 @@
     "dificultad": "media",
     "pregunta": "¿Cuántos jugadores componen un equipo de voleibol en pista?",
     "opciones": [
-      "6",
       "5",
-      "7",
-      "8"
+      "8",
+      "6",
+      "7"
     ],
     "respuesta_correcta": "6"
   },
@@ -3138,10 +3138,10 @@
     "dificultad": "media",
     "pregunta": "¿Qué deportista argentino fue campeón del mundo de fútbol en 1986 y es conocido por la Mano de Dios?",
     "opciones": [
-      "Diego Maradona",
-      "Lionel Messi",
       "Gabriel Batistuta",
-      "Juan Román Riquelme"
+      "Juan Román Riquelme",
+      "Lionel Messi",
+      "Diego Maradona"
     ],
     "respuesta_correcta": "Diego Maradona"
   },
@@ -3152,9 +3152,9 @@
     "pregunta": "¿En qué deporte se marcan goles con sticks y una bola o disco?",
     "opciones": [
       "Hockey",
-      "Béisbol",
       "Críquet",
-      "Lacrosse"
+      "Lacrosse",
+      "Béisbol"
     ],
     "respuesta_correcta": "Hockey"
   },
@@ -3164,10 +3164,10 @@
     "dificultad": "media",
     "pregunta": "¿Qué torneo reúne a selecciones nacionales europeas de baloncesto?",
     "opciones": [
-      "EuroBasket",
+      "Copa Intercontinental",
       "Euroliga",
-      "NBA Cup",
-      "Copa Intercontinental"
+      "EuroBasket",
+      "NBA Cup"
     ],
     "respuesta_correcta": "EuroBasket"
   },
@@ -3177,10 +3177,10 @@
     "dificultad": "media",
     "pregunta": "¿Qué persona dirige tácticamente un equipo desde el banquillo?",
     "opciones": [
-      "Entrenador",
+      "Masajista",
       "Árbitro",
-      "Capitán",
-      "Masajista"
+      "Entrenador",
+      "Capitán"
     ],
     "respuesta_correcta": "Entrenador"
   },
@@ -3190,10 +3190,10 @@
     "dificultad": "media",
     "pregunta": "¿En qué deporte se realizan llaves, inmovilizaciones y proyecciones sobre un tatami?",
     "opciones": [
-      "Judo",
-      "Boxeo",
       "Esgrima",
-      "Karate de exhibición"
+      "Karate de exhibición",
+      "Boxeo",
+      "Judo"
     ],
     "respuesta_correcta": "Judo"
   },
@@ -3203,10 +3203,10 @@
     "dificultad": "media",
     "pregunta": "¿Qué club juega tradicionalmente en el Camp Nou?",
     "opciones": [
-      "FC Barcelona",
-      "RCD Espanyol",
+      "Real Betis",
       "Villarreal CF",
-      "Real Betis"
+      "RCD Espanyol",
+      "FC Barcelona"
     ],
     "respuesta_correcta": "FC Barcelona"
   },
@@ -3216,8 +3216,8 @@
     "dificultad": "media",
     "pregunta": "¿Cómo se llama el organismo internacional que organiza los Juegos Olímpicos?",
     "opciones": [
-      "Comité Olímpico Internacional",
       "Federación Mundial del Deporte",
+      "Comité Olímpico Internacional",
       "Consejo Olímpico Europeo",
       "Agencia Mundial Antidopaje"
     ],
@@ -3229,10 +3229,10 @@
     "dificultad": "media",
     "pregunta": "¿En qué deporte se usa una canasta a 3,05 metros de altura?",
     "opciones": [
-      "Baloncesto",
-      "Balonmano",
       "Voleibol",
-      "Rugby"
+      "Rugby",
+      "Balonmano",
+      "Baloncesto"
     ],
     "respuesta_correcta": "Baloncesto"
   },
@@ -3242,661 +3242,661 @@
     "dificultad": "media",
     "pregunta": "¿Qué tenista suizo ganó numerosos Grand Slam y es famoso por su elegancia en pista?",
     "opciones": [
+      "Novak Djokovic",
       "Roger Federer",
       "Stan Wawrinka",
-      "Andy Murray",
-      "Novak Djokovic"
+      "Andy Murray"
     ],
     "respuesta_correcta": "Roger Federer"
   },
   {
     "id": 251,
-    "categoria": "Tecnología",
+    "categoria": "Arte y literatura",
     "dificultad": "media",
-    "pregunta": "¿Qué significan las siglas CPU en informática?",
+    "pregunta": "¿Quién escribió Don Quijote de la Mancha?",
     "opciones": [
-      "Unidad central de procesamiento",
-      "Control principal universal",
-      "Código de programa único",
-      "Centro de potencia unificada"
+      "Calderón de la Barca",
+      "Benito Pérez Galdós",
+      "Lope de Vega",
+      "Miguel de Cervantes"
     ],
-    "respuesta_correcta": "Unidad central de procesamiento"
+    "respuesta_correcta": "Miguel de Cervantes"
   },
   {
     "id": 252,
-    "categoria": "Tecnología",
+    "categoria": "Arte y literatura",
     "dificultad": "media",
-    "pregunta": "¿Qué lenguaje se usa habitualmente para estructurar páginas web?",
+    "pregunta": "¿Quién pintó la Mona Lisa?",
     "opciones": [
-      "HTML",
-      "MP3",
-      "JPEG",
-      "SQL"
+      "Claude Monet",
+      "Pablo Picasso",
+      "Vincent van Gogh",
+      "Leonardo da Vinci"
     ],
-    "respuesta_correcta": "HTML"
+    "respuesta_correcta": "Leonardo da Vinci"
   },
   {
     "id": 253,
-    "categoria": "Tecnología",
+    "categoria": "Arte y literatura",
     "dificultad": "media",
-    "pregunta": "¿Qué dispositivo apunta y selecciona elementos en la pantalla del ordenador?",
+    "pregunta": "¿Qué pintor español es autor de Guernica?",
     "opciones": [
-      "Ratón",
-      "Escáner",
-      "Módem",
-      "Altavoz"
+      "Salvador Dalí",
+      "Diego Velázquez",
+      "Joan Miró",
+      "Pablo Picasso"
     ],
-    "respuesta_correcta": "Ratón"
+    "respuesta_correcta": "Pablo Picasso"
   },
   {
     "id": 254,
-    "categoria": "Tecnología",
+    "categoria": "Arte y literatura",
     "dificultad": "media",
-    "pregunta": "¿Qué red conecta millones de dispositivos a nivel mundial?",
+    "pregunta": "¿Qué escritor inglés creó a Hamlet?",
     "opciones": [
-      "Internet",
-      "Bluetooth",
-      "Intranet",
-      "USB"
+      "Oscar Wilde",
+      "Charles Dickens",
+      "William Shakespeare",
+      "George Orwell"
     ],
-    "respuesta_correcta": "Internet"
+    "respuesta_correcta": "William Shakespeare"
   },
   {
     "id": 255,
-    "categoria": "Tecnología",
+    "categoria": "Arte y literatura",
     "dificultad": "media",
-    "pregunta": "¿Qué significa Wi-Fi en el uso común?",
+    "pregunta": "¿Quién escribió Cien años de soledad?",
     "opciones": [
-      "Conexión inalámbrica a red",
-      "Cable de fibra óptica",
-      "Sistema de impresión",
-      "Puerto de vídeo"
+      "Gabriel García Márquez",
+      "Pablo Neruda",
+      "Mario Vargas Llosa",
+      "Julio Cortázar"
     ],
-    "respuesta_correcta": "Conexión inalámbrica a red"
+    "respuesta_correcta": "Gabriel García Márquez"
   },
   {
     "id": 256,
-    "categoria": "Tecnología",
+    "categoria": "Arte y literatura",
     "dificultad": "media",
-    "pregunta": "¿Qué sistema operativo desarrolló Microsoft para ordenadores personales?",
+    "pregunta": "¿Qué artista surrealista español es famoso por sus relojes blandos?",
     "opciones": [
-      "Windows",
-      "Android",
-      "Linux Mint",
-      "macOS"
+      "Pablo Picasso",
+      "Antoni Tàpies",
+      "Francisco de Goya",
+      "Salvador Dalí"
     ],
-    "respuesta_correcta": "Windows"
+    "respuesta_correcta": "Salvador Dalí"
   },
   {
     "id": 257,
-    "categoria": "Tecnología",
+    "categoria": "Arte y literatura",
     "dificultad": "media",
-    "pregunta": "¿Qué empresa desarrolla el sistema operativo Android?",
+    "pregunta": "¿Qué movimiento artístico está asociado a Monet, Renoir y Degas?",
     "opciones": [
-      "Google",
-      "Apple",
-      "Microsoft",
-      "Adobe"
+      "Barroco",
+      "Romanticismo",
+      "Cubismo",
+      "Impresionismo"
     ],
-    "respuesta_correcta": "Google"
+    "respuesta_correcta": "Impresionismo"
   },
   {
     "id": 258,
-    "categoria": "Tecnología",
+    "categoria": "Arte y literatura",
     "dificultad": "media",
-    "pregunta": "¿Qué programa se usa habitualmente para navegar por páginas web?",
+    "pregunta": "¿Qué escultor italiano realizó el David renacentista más famoso?",
     "opciones": [
-      "Navegador",
-      "Compilador",
-      "Procesador de textos",
-      "Reproductor multimedia"
+      "Bernini",
+      "Donatello",
+      "Canova",
+      "Miguel Ángel"
     ],
-    "respuesta_correcta": "Navegador"
+    "respuesta_correcta": "Miguel Ángel"
   },
   {
     "id": 259,
-    "categoria": "Tecnología",
+    "categoria": "Arte y literatura",
     "dificultad": "media",
-    "pregunta": "¿Qué almacenamiento suele ser más rápido en un ordenador moderno?",
+    "pregunta": "¿Quién escribió La metamorfosis?",
     "opciones": [
-      "SSD",
-      "DVD",
-      "Cinta magnética",
-      "Disquete"
+      "Bertolt Brecht",
+      "Thomas Mann",
+      "Franz Kafka",
+      "Hermann Hesse"
     ],
-    "respuesta_correcta": "SSD"
+    "respuesta_correcta": "Franz Kafka"
   },
   {
     "id": 260,
-    "categoria": "Tecnología",
+    "categoria": "Arte y literatura",
     "dificultad": "media",
-    "pregunta": "¿Qué significa la sigla USB?",
+    "pregunta": "¿Qué escritor creó al detective Sherlock Holmes?",
     "opciones": [
-      "Bus serie universal",
-      "Unidad de sistema básico",
-      "Bloque único de seguridad",
-      "Base de software universal"
+      "Raymond Chandler",
+      "Edgar Allan Poe",
+      "Arthur Conan Doyle",
+      "Agatha Christie"
     ],
-    "respuesta_correcta": "Bus serie universal"
+    "respuesta_correcta": "Arthur Conan Doyle"
   },
   {
     "id": 261,
-    "categoria": "Tecnología",
+    "categoria": "Arte y literatura",
     "dificultad": "media",
-    "pregunta": "¿Qué lenguaje se usa frecuentemente para dar estilo visual a una web?",
+    "pregunta": "¿Qué novela comienza con la frase sobre un lugar de La Mancha cuyo nombre no quiere recordarse?",
     "opciones": [
-      "CSS",
-      "PNG",
-      "SMTP",
-      "JSON"
+      "Fortunata y Jacinta",
+      "La Regenta",
+      "La Celestina",
+      "Don Quijote de la Mancha"
     ],
-    "respuesta_correcta": "CSS"
+    "respuesta_correcta": "Don Quijote de la Mancha"
   },
   {
     "id": 262,
-    "categoria": "Tecnología",
+    "categoria": "Arte y literatura",
     "dificultad": "media",
-    "pregunta": "¿Qué protocolo seguro se usa habitualmente al visitar webs cifradas?",
+    "pregunta": "¿Qué poeta español escribió Romancero gitano?",
     "opciones": [
-      "HTTPS",
-      "FTP",
-      "POP3",
-      "SMS"
+      "Luis Cernuda",
+      "Rafael Alberti",
+      "Antonio Machado",
+      "Federico García Lorca"
     ],
-    "respuesta_correcta": "HTTPS"
+    "respuesta_correcta": "Federico García Lorca"
   },
   {
     "id": 263,
-    "categoria": "Tecnología",
+    "categoria": "Arte y literatura",
     "dificultad": "media",
-    "pregunta": "¿Qué componente guarda archivos de forma permanente incluso al apagar el equipo?",
+    "pregunta": "¿Qué pintor neerlandés es autor de La noche estrellada?",
     "opciones": [
-      "Almacenamiento",
-      "Memoria caché",
-      "Procesador",
-      "Tarjeta gráfica"
+      "Vincent van Gogh",
+      "Rembrandt",
+      "Vermeer",
+      "Mondrian"
     ],
-    "respuesta_correcta": "Almacenamiento"
+    "respuesta_correcta": "Vincent van Gogh"
   },
   {
     "id": 264,
-    "categoria": "Tecnología",
+    "categoria": "Arte y literatura",
     "dificultad": "media",
-    "pregunta": "¿Qué aplicación permite crear y editar documentos de texto?",
+    "pregunta": "¿Qué obra de Homero narra el regreso de Odiseo a Ítaca?",
     "opciones": [
-      "Procesador de textos",
-      "Antivirus",
-      "Navegador",
-      "Gestor de arranque"
+      "La Eneida",
+      "La Odisea",
+      "La Ilíada",
+      "Edipo rey"
     ],
-    "respuesta_correcta": "Procesador de textos"
+    "respuesta_correcta": "La Odisea"
   },
   {
     "id": 265,
-    "categoria": "Tecnología",
+    "categoria": "Arte y literatura",
     "dificultad": "media",
-    "pregunta": "¿Qué empresa fabrica el iPhone?",
+    "pregunta": "¿Quién escribió La casa de Bernarda Alba?",
     "opciones": [
-      "Apple",
-      "Samsung",
-      "Google",
-      "Sony"
+      "José Zorrilla",
+      "Camilo José Cela",
+      "Miguel de Unamuno",
+      "Federico García Lorca"
     ],
-    "respuesta_correcta": "Apple"
+    "respuesta_correcta": "Federico García Lorca"
   },
   {
     "id": 266,
-    "categoria": "Tecnología",
+    "categoria": "Arte y literatura",
     "dificultad": "media",
-    "pregunta": "¿Qué sigla se usa para la inteligencia artificial?",
+    "pregunta": "¿Qué museo de Madrid alberga Las meninas?",
     "opciones": [
-      "IA",
-      "IP",
-      "IR",
-      "IM"
+      "Museo Reina Sofía",
+      "Museo Thyssen",
+      "Museo Sorolla",
+      "Museo del Prado"
     ],
-    "respuesta_correcta": "IA"
+    "respuesta_correcta": "Museo del Prado"
   },
   {
     "id": 267,
-    "categoria": "Tecnología",
+    "categoria": "Arte y literatura",
     "dificultad": "media",
-    "pregunta": "¿Qué servicio permite almacenar archivos en servidores remotos accesibles por internet?",
+    "pregunta": "¿Quién pintó Las meninas?",
     "opciones": [
-      "Nube",
-      "Caché",
-      "Kernel",
-      "BIOS"
+      "Diego Velázquez",
+      "Murillo",
+      "El Greco",
+      "Francisco de Goya"
     ],
-    "respuesta_correcta": "Nube"
+    "respuesta_correcta": "Diego Velázquez"
   },
   {
     "id": 268,
-    "categoria": "Tecnología",
+    "categoria": "Arte y literatura",
     "dificultad": "media",
-    "pregunta": "¿Qué pieza de hardware muestra la imagen de un ordenador?",
+    "pregunta": "¿Qué escritor irlandés escribió Ulises?",
     "opciones": [
-      "Monitor",
-      "Router",
-      "Micrófono",
-      "Teclado"
+      "James Joyce",
+      "Oscar Wilde",
+      "Bram Stoker",
+      "Jonathan Swift"
     ],
-    "respuesta_correcta": "Monitor"
+    "respuesta_correcta": "James Joyce"
   },
   {
     "id": 269,
-    "categoria": "Tecnología",
+    "categoria": "Arte y literatura",
     "dificultad": "media",
-    "pregunta": "¿Qué red de corto alcance permite conectar auriculares inalámbricos a un móvil?",
+    "pregunta": "¿Qué autora británica escribió Orgullo y prejuicio?",
     "opciones": [
-      "Bluetooth",
-      "Ethernet",
-      "NFC",
-      "GPS"
+      "Mary Shelley",
+      "Emily Brontë",
+      "Jane Austen",
+      "Virginia Woolf"
     ],
-    "respuesta_correcta": "Bluetooth"
+    "respuesta_correcta": "Jane Austen"
   },
   {
     "id": 270,
-    "categoria": "Tecnología",
+    "categoria": "Arte y literatura",
     "dificultad": "media",
-    "pregunta": "¿Qué programa busca y elimina software malicioso?",
+    "pregunta": "¿Qué novela de Mary Shelley tiene como protagonista a un científico que crea vida?",
     "opciones": [
-      "Antivirus",
-      "Editor de vídeo",
-      "Compresor",
-      "Desfragmentador"
+      "Frankenstein",
+      "Jane Eyre",
+      "Cumbres borrascosas",
+      "Drácula"
     ],
-    "respuesta_correcta": "Antivirus"
+    "respuesta_correcta": "Frankenstein"
   },
   {
     "id": 271,
-    "categoria": "Tecnología",
+    "categoria": "Arte y literatura",
     "dificultad": "media",
-    "pregunta": "¿Qué significa PDF en el contexto de documentos?",
+    "pregunta": "¿Quién escribió El principito?",
     "opciones": [
-      "Formato de documento portátil",
-      "Programa de datos fijos",
-      "Perfil digital flexible",
-      "Paquete de diseño formal"
+      "Julio Verne",
+      "Victor Hugo",
+      "Albert Camus",
+      "Antoine de Saint-Exupéry"
     ],
-    "respuesta_correcta": "Formato de documento portátil"
+    "respuesta_correcta": "Antoine de Saint-Exupéry"
   },
   {
     "id": 272,
-    "categoria": "Tecnología",
+    "categoria": "Arte y literatura",
     "dificultad": "media",
-    "pregunta": "¿Qué lenguaje de programación es famoso por su sintaxis legible y su uso en ciencia de datos?",
+    "pregunta": "¿Qué pintor español es conocido por obras como El jardín de las delicias?",
     "opciones": [
-      "Python",
-      "Cobol",
-      "Fortran",
-      "Pascal"
+      "Sorolla",
+      "Zurbarán",
+      "El Bosco",
+      "El Greco"
     ],
-    "respuesta_correcta": "Python"
+    "respuesta_correcta": "El Bosco"
   },
   {
     "id": 273,
-    "categoria": "Tecnología",
+    "categoria": "Arte y literatura",
     "dificultad": "media",
-    "pregunta": "¿Qué tipo de dispositivo es un router?",
+    "pregunta": "¿Qué corriente artística representa formas fragmentadas y se asocia a Picasso y Braque?",
     "opciones": [
-      "Dispositivo de red",
-      "Pantalla",
-      "Almacenamiento externo",
-      "Sensor"
+      "Realismo",
+      "Dadaísmo",
+      "Rococó",
+      "Cubismo"
     ],
-    "respuesta_correcta": "Dispositivo de red"
+    "respuesta_correcta": "Cubismo"
   },
   {
     "id": 274,
-    "categoria": "Tecnología",
+    "categoria": "Arte y literatura",
     "dificultad": "media",
-    "pregunta": "¿Qué sigla se usa para el sistema de posicionamiento global?",
+    "pregunta": "¿Quién escribió La divina comedia?",
     "opciones": [
-      "GPS",
-      "GPU",
-      "GSM",
-      "GUI"
+      "Petrarca",
+      "Boccaccio",
+      "Dante Alighieri",
+      "Maquiavelo"
     ],
-    "respuesta_correcta": "GPS"
+    "respuesta_correcta": "Dante Alighieri"
   },
   {
     "id": 275,
-    "categoria": "Tecnología",
+    "categoria": "Arte y literatura",
     "dificultad": "media",
-    "pregunta": "¿Qué significa RAM en informática?",
+    "pregunta": "¿Qué dramaturgo español del Siglo de Oro escribió Fuenteovejuna?",
     "opciones": [
-      "Memoria de acceso aleatorio",
-      "Registro automático de máquina",
-      "Módulo rápido avanzado",
-      "Red de acceso múltiple"
+      "Lope de Vega",
+      "Cervantes",
+      "Quevedo",
+      "Góngora"
     ],
-    "respuesta_correcta": "Memoria de acceso aleatorio"
+    "respuesta_correcta": "Lope de Vega"
   },
   {
     "id": 276,
-    "categoria": "Tecnología",
+    "categoria": "Arte y literatura",
     "dificultad": "media",
-    "pregunta": "¿Qué componente realiza principalmente los cálculos de un ordenador?",
+    "pregunta": "¿Qué autora escribió Nada, novela ganadora del Premio Nadal en 1944?",
     "opciones": [
-      "Procesador",
-      "Micrófono",
-      "Carcasa",
-      "Cargador"
+      "Carmen Martín Gaite",
+      "Ana María Matute",
+      "Carmen Laforet",
+      "Rosa Chacel"
     ],
-    "respuesta_correcta": "Procesador"
+    "respuesta_correcta": "Carmen Laforet"
   },
   {
     "id": 277,
-    "categoria": "Tecnología",
+    "categoria": "Arte y literatura",
     "dificultad": "media",
-    "pregunta": "¿Qué servicio se usa habitualmente para enviar mensajes entre servidores de correo?",
+    "pregunta": "¿Qué pintor noruego creó El grito?",
     "opciones": [
-      "Correo electrónico",
-      "Podcast",
-      "Streaming",
-      "VPN"
+      "Egon Schiele",
+      "Edvard Munch",
+      "Paul Klee",
+      "Gustav Klimt"
     ],
-    "respuesta_correcta": "Correo electrónico"
+    "respuesta_correcta": "Edvard Munch"
   },
   {
     "id": 278,
-    "categoria": "Tecnología",
+    "categoria": "Arte y literatura",
     "dificultad": "media",
-    "pregunta": "¿Qué plataforma de vídeos es propiedad de Google?",
+    "pregunta": "¿Qué escritor francés escribió Los miserables?",
     "opciones": [
-      "YouTube",
-      "Vimeo",
-      "Twitch",
-      "Dailymotion"
+      "Victor Hugo",
+      "Molière",
+      "Gustave Flaubert",
+      "Émile Zola"
     ],
-    "respuesta_correcta": "YouTube"
+    "respuesta_correcta": "Victor Hugo"
   },
   {
     "id": 279,
-    "categoria": "Tecnología",
+    "categoria": "Arte y literatura",
     "dificultad": "media",
-    "pregunta": "¿Qué elemento se usa para introducir texto y comandos en un ordenador?",
+    "pregunta": "¿Qué poeta chileno recibió el Premio Nobel de Literatura en 1971?",
     "opciones": [
-      "Teclado",
-      "Escáner",
-      "Webcam",
-      "Altavoz"
+      "Gabriela Mistral",
+      "Pablo Neruda",
+      "Nicanor Parra",
+      "Vicente Huidobro"
     ],
-    "respuesta_correcta": "Teclado"
+    "respuesta_correcta": "Pablo Neruda"
   },
   {
     "id": 280,
-    "categoria": "Tecnología",
+    "categoria": "Arte y literatura",
     "dificultad": "media",
-    "pregunta": "¿Qué es una copia de seguridad?",
+    "pregunta": "¿Qué obra teatral de Shakespeare cuenta la historia de dos jóvenes amantes de familias enfrentadas?",
     "opciones": [
-      "Una duplicación de datos para recuperarlos",
-      "Un formateo completo",
-      "Una actualización del sistema",
-      "Una limpieza de pantalla"
+      "Otelo",
+      "El rey Lear",
+      "Macbeth",
+      "Romeo y Julieta"
     ],
-    "respuesta_correcta": "Una duplicación de datos para recuperarlos"
+    "respuesta_correcta": "Romeo y Julieta"
   },
   {
     "id": 281,
-    "categoria": "Tecnología",
+    "categoria": "Arte y literatura",
     "dificultad": "media",
-    "pregunta": "¿Qué significa app en el contexto de móviles?",
+    "pregunta": "¿Quién pintó Los fusilamientos del 3 de mayo?",
     "opciones": [
-      "Aplicación",
-      "Actualización",
-      "Antena",
-      "Accesorio"
+      "El Greco",
+      "Diego Velázquez",
+      "Francisco de Goya",
+      "Joaquín Sorolla"
     ],
-    "respuesta_correcta": "Aplicación"
+    "respuesta_correcta": "Francisco de Goya"
   },
   {
     "id": 282,
-    "categoria": "Tecnología",
+    "categoria": "Arte y literatura",
     "dificultad": "media",
-    "pregunta": "¿Qué red social se basa principalmente en publicaciones breves y conversación pública y hoy se llama X?",
+    "pregunta": "¿Qué escritor argentino escribió Ficciones?",
     "opciones": [
-      "Twitter",
-      "LinkedIn",
-      "Pinterest",
-      "Flickr"
+      "Julio Cortázar",
+      "Adolfo Bioy Casares",
+      "Jorge Luis Borges",
+      "Ernesto Sabato"
     ],
-    "respuesta_correcta": "Twitter"
+    "respuesta_correcta": "Jorge Luis Borges"
   },
   {
     "id": 283,
-    "categoria": "Tecnología",
+    "categoria": "Arte y literatura",
     "dificultad": "media",
-    "pregunta": "¿Qué tecnología se usa para pagar acercando el móvil o una tarjeta?",
+    "pregunta": "¿Qué novela de Cervantes tiene como compañero del protagonista a Sancho Panza?",
     "opciones": [
-      "NFC",
-      "VGA",
-      "HDMI",
-      "DSL"
+      "Novelas ejemplares",
+      "Don Quijote de la Mancha",
+      "La Galatea",
+      "Persiles y Sigismunda"
     ],
-    "respuesta_correcta": "NFC"
+    "respuesta_correcta": "Don Quijote de la Mancha"
   },
   {
     "id": 284,
-    "categoria": "Tecnología",
+    "categoria": "Arte y literatura",
     "dificultad": "media",
-    "pregunta": "¿Qué empresa desarrolla el navegador Chrome?",
+    "pregunta": "¿Qué arquitecto catalán diseñó gran parte de la Sagrada Familia?",
     "opciones": [
-      "Google",
-      "Mozilla",
-      "Microsoft",
-      "Opera"
+      "Antoni Gaudí",
+      "Lluís Domènech i Montaner",
+      "Santiago Calatrava",
+      "Rafael Moneo"
     ],
-    "respuesta_correcta": "Google"
+    "respuesta_correcta": "Antoni Gaudí"
   },
   {
     "id": 285,
-    "categoria": "Tecnología",
+    "categoria": "Arte y literatura",
     "dificultad": "media",
-    "pregunta": "¿Qué siglas se usan para realidad virtual?",
+    "pregunta": "¿Qué movimiento artístico del siglo XX exaltaba lo irracional y los sueños?",
     "opciones": [
-      "RV",
-      "RA",
-      "RF",
-      "RI"
+      "Realismo",
+      "Surrealismo",
+      "Neoclasicismo",
+      "Manierismo"
     ],
-    "respuesta_correcta": "RV"
+    "respuesta_correcta": "Surrealismo"
   },
   {
     "id": 286,
-    "categoria": "Tecnología",
+    "categoria": "Arte y literatura",
     "dificultad": "media",
-    "pregunta": "¿Qué componente gráfico se abrevia como GPU?",
+    "pregunta": "¿Quién escribió Veinte mil leguas de viaje submarino?",
     "opciones": [
-      "Unidad de procesamiento gráfico",
-      "Gestor principal de usuario",
-      "Grupo de puertos universales",
-      "Generador de procesos útiles"
+      "Julio Verne",
+      "H. G. Wells",
+      "Daniel Defoe",
+      "Robert Louis Stevenson"
     ],
-    "respuesta_correcta": "Unidad de procesamiento gráfico"
+    "respuesta_correcta": "Julio Verne"
   },
   {
     "id": 287,
-    "categoria": "Tecnología",
+    "categoria": "Arte y literatura",
     "dificultad": "media",
-    "pregunta": "¿Qué se entiende por software?",
+    "pregunta": "¿Qué autora escribió Los pazos de Ulloa?",
     "opciones": [
-      "Programas y sistemas informáticos",
-      "Solo piezas físicas",
-      "Únicamente cables",
-      "Solo bases de datos impresas"
+      "María Zambrano",
+      "Rosalía de Castro",
+      "Concepción Arenal",
+      "Emilia Pardo Bazán"
     ],
-    "respuesta_correcta": "Programas y sistemas informáticos"
+    "respuesta_correcta": "Emilia Pardo Bazán"
   },
   {
     "id": 288,
-    "categoria": "Tecnología",
+    "categoria": "Arte y literatura",
     "dificultad": "media",
-    "pregunta": "¿Qué se entiende por hardware?",
+    "pregunta": "¿Qué pintor valenciano es conocido por sus escenas luminosas de playa?",
     "opciones": [
-      "Los componentes físicos del equipo",
-      "Solo el sistema operativo",
-      "Un programa antivirus",
-      "Los archivos en la nube"
+      "Antoni Tàpies",
+      "Joaquín Sorolla",
+      "Juan Gris",
+      "Francisco de Zurbarán"
     ],
-    "respuesta_correcta": "Los componentes físicos del equipo"
+    "respuesta_correcta": "Joaquín Sorolla"
   },
   {
     "id": 289,
-    "categoria": "Tecnología",
+    "categoria": "Arte y literatura",
     "dificultad": "media",
-    "pregunta": "¿Qué archivo suele comprimir varios documentos en uno solo con menor tamaño, como .zip?",
+    "pregunta": "¿Qué poeta escribió Campos de Castilla?",
     "opciones": [
-      "Archivo comprimido",
-      "Archivo de audio",
-      "Archivo ejecutable",
-      "Base de datos"
+      "Juan Ramón Jiménez",
+      "Miguel Hernández",
+      "Federico García Lorca",
+      "Antonio Machado"
     ],
-    "respuesta_correcta": "Archivo comprimido"
+    "respuesta_correcta": "Antonio Machado"
   },
   {
     "id": 290,
-    "categoria": "Tecnología",
+    "categoria": "Arte y literatura",
     "dificultad": "media",
-    "pregunta": "¿Qué plataforma se utiliza ampliamente para videollamadas y reuniones en línea?",
+    "pregunta": "¿Qué novela de Bram Stoker popularizó al conde vampiro más famoso?",
     "opciones": [
-      "Zoom",
-      "Excel",
-      "Photoshop",
-      "Acrobat Reader"
+      "Drácula",
+      "Carmilla",
+      "Frankenstein",
+      "El extraño caso del doctor Jekyll y Mr. Hyde"
     ],
-    "respuesta_correcta": "Zoom"
+    "respuesta_correcta": "Drácula"
   },
   {
     "id": 291,
-    "categoria": "Tecnología",
+    "categoria": "Arte y literatura",
     "dificultad": "media",
-    "pregunta": "¿Qué empresa desarrolla macOS?",
+    "pregunta": "¿Quién escribió La Celestina?",
     "opciones": [
-      "Apple",
-      "IBM",
-      "Oracle",
-      "Meta"
+      "Garcilaso de la Vega",
+      "Fernando de Rojas",
+      "Jorge Manrique",
+      "Juan de Mena"
     ],
-    "respuesta_correcta": "Apple"
+    "respuesta_correcta": "Fernando de Rojas"
   },
   {
     "id": 292,
-    "categoria": "Tecnología",
+    "categoria": "Arte y literatura",
     "dificultad": "media",
-    "pregunta": "¿Qué sistema de control de versiones es muy usado en desarrollo de software?",
+    "pregunta": "¿Qué artista mexicano pintó numerosos autorretratos y estuvo casada con Diego Rivera?",
     "opciones": [
-      "Git",
-      "Paint",
-      "BIOS",
-      "HTTP"
+      "Remedios Varo",
+      "Leonora Carrington",
+      "Frida Kahlo",
+      "María Izquierdo"
     ],
-    "respuesta_correcta": "Git"
+    "respuesta_correcta": "Frida Kahlo"
   },
   {
     "id": 293,
-    "categoria": "Tecnología",
+    "categoria": "Arte y literatura",
     "dificultad": "media",
-    "pregunta": "¿Qué protocolo permite transferir páginas web al navegador?",
+    "pregunta": "¿Qué escritor ruso escribió Crimen y castigo?",
     "opciones": [
-      "HTTP",
-      "IMAP",
-      "MIDI",
-      "SMTP"
+      "Nikolái Gógol",
+      "Fiódor Dostoyevski",
+      "Antón Chéjov",
+      "León Tolstói"
     ],
-    "respuesta_correcta": "HTTP"
+    "respuesta_correcta": "Fiódor Dostoyevski"
   },
   {
     "id": 294,
-    "categoria": "Tecnología",
+    "categoria": "Arte y literatura",
     "dificultad": "media",
-    "pregunta": "¿Qué servicio crea una red privada virtual?",
+    "pregunta": "¿Qué novela de George Orwell presenta el Gran Hermano?",
     "opciones": [
-      "VPN",
-      "DNS",
-      "USB",
-      "UPS"
+      "1984",
+      "Sin blanca en París y Londres",
+      "Homenaje a Cataluña",
+      "Rebelión en la granja"
     ],
-    "respuesta_correcta": "VPN"
+    "respuesta_correcta": "1984"
   },
   {
     "id": 295,
-    "categoria": "Tecnología",
+    "categoria": "Arte y literatura",
     "dificultad": "media",
-    "pregunta": "¿Qué significa URL en una dirección web?",
+    "pregunta": "¿Qué pintor griego afincado en España es conocido como El Greco?",
     "opciones": [
-      "Localizador uniforme de recursos",
-      "Unidad remota lógica",
-      "Lenguaje universal de red",
-      "Usuario registrado local"
+      "Constantino Cavafis",
+      "Yannis Ritsos",
+      "Doménikos Theotokópoulos",
+      "Nikos Kazantzakis"
     ],
-    "respuesta_correcta": "Localizador uniforme de recursos"
+    "respuesta_correcta": "Doménikos Theotokópoulos"
   },
   {
     "id": 296,
-    "categoria": "Tecnología",
+    "categoria": "Arte y literatura",
     "dificultad": "media",
-    "pregunta": "¿Qué dispositivo convierte una señal digital en sonido audible?",
+    "pregunta": "¿Qué obra épica latina fue escrita por Virgilio?",
     "opciones": [
-      "Altavoz",
-      "Router",
-      "Escáner",
-      "Cargador"
+      "La Odisea",
+      "La Ilíada",
+      "Las metamorfosis",
+      "La Eneida"
     ],
-    "respuesta_correcta": "Altavoz"
+    "respuesta_correcta": "La Eneida"
   },
   {
     "id": 297,
-    "categoria": "Tecnología",
+    "categoria": "Arte y literatura",
     "dificultad": "media",
-    "pregunta": "¿Qué herramienta se usa para buscar información en internet, como Google o Bing?",
+    "pregunta": "¿Qué escritora británica creó a Hércules Poirot y Miss Marple?",
     "opciones": [
-      "Motor de búsqueda",
-      "Firewall",
-      "Compresor",
-      "Editor"
+      "Doris Lessing",
+      "Virginia Woolf",
+      "Jane Austen",
+      "Agatha Christie"
     ],
-    "respuesta_correcta": "Motor de búsqueda"
+    "respuesta_correcta": "Agatha Christie"
   },
   {
     "id": 298,
-    "categoria": "Tecnología",
+    "categoria": "Arte y literatura",
     "dificultad": "media",
-    "pregunta": "¿Qué sistema de nombres traduce dominios como ejemplo.com en direcciones IP?",
+    "pregunta": "¿Qué autor español escribió La familia de Pascual Duarte?",
     "opciones": [
-      "DNS",
-      "FTP",
-      "USB",
-      "OLED"
+      "Ramón J. Sender",
+      "Miguel Delibes",
+      "Camilo José Cela",
+      "Juan Marsé"
     ],
-    "respuesta_correcta": "DNS"
+    "respuesta_correcta": "Camilo José Cela"
   },
   {
     "id": 299,
-    "categoria": "Tecnología",
+    "categoria": "Arte y literatura",
     "dificultad": "media",
-    "pregunta": "¿Qué es un emoji?",
+    "pregunta": "¿Qué pintor ruso es considerado uno de los pioneros del arte abstracto?",
     "opciones": [
-      "Un pequeño pictograma digital",
-      "Un tipo de archivo de audio",
-      "Un cable de red",
-      "Una impresora portátil"
+      "Iliá Repin",
+      "Vasili Kandinski",
+      "Marc Chagall",
+      "Kazimir Malévich"
     ],
-    "respuesta_correcta": "Un pequeño pictograma digital"
+    "respuesta_correcta": "Vasili Kandinski"
   },
   {
     "id": 300,
-    "categoria": "Tecnología",
+    "categoria": "Arte y literatura",
     "dificultad": "media",
-    "pregunta": "¿Qué lenguaje se usa normalmente para consultar bases de datos relacionales?",
+    "pregunta": "¿Qué novela de Miguel Delibes está protagonizada por Azarías y la familia de Paco el Bajo?",
     "opciones": [
-      "SQL",
-      "HTML",
-      "CSS",
-      "XML"
+      "Cinco horas con Mario",
+      "La sombra del ciprés es alargada",
+      "Los santos inocentes",
+      "El camino"
     ],
-    "respuesta_correcta": "SQL"
+    "respuesta_correcta": "Los santos inocentes"
   }
 ]

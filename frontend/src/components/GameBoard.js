@@ -14,21 +14,19 @@ const getBackendURL = () => {
 
 const API_URL = getBackendURL();
 
-const DEFAULT_CATEGORIES = ['Geografía', 'Historia', 'Ciencia', 'Arte', 'Deportes', 'Entretenimiento'];
+const DEFAULT_CATEGORIES = ['Historia', 'Ciencia', 'Geografía', 'Entretenimiento', 'Deportes', 'Arte y literatura'];
 const DIGITAL_BOARD_SIZE = 36;
 const DIGITAL_WEDGE_INTERVAL = 6;
 const DIGITAL_OUTER_TRACK_SIZE = DIGITAL_BOARD_SIZE;
 const DIGITAL_BOARD_SEGMENTS = 6;
 
 const CATEGORY_STYLES = {
-  geografia: { emoji: '🌍', color: '#3b82f6' },
   historia: { emoji: '📜', color: '#8b5cf6' },
   ciencia: { emoji: '🔬', color: '#10b981' },
-  arte: { emoji: '🎨', color: '#f59e0b' },
+  geografia: { emoji: '🌍', color: '#3b82f6' },
+  entretenimiento: { emoji: '🎬', color: '#92400e' },
   deportes: { emoji: '⚽', color: '#ef4444' },
-  entretenimiento: { emoji: '🎬', color: '#ec4899' },
-  tecnologia: { emoji: '💻', color: '#06b6d4' },
-  'cultura general': { emoji: '🧠', color: '#f97316' }
+  'arte y literatura': { emoji: '🎨', color: '#d946ef' }
 };
 
 const normalizeCategory = (value) => String(value || '')
