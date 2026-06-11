@@ -557,7 +557,7 @@ function GameBoard({ gameData, playerName, announce, setGameData, onPauseGame, o
             <h2><span aria-hidden="true">🎲 </span>Tablero Digital</h2>
 
             <div style={{ marginBottom: '16px', padding: '12px', background: '#f8fafc', borderRadius: '8px', border: '1px solid #cbd5e1' }}>
-              <strong>Distancia a quesitos (oficial):</strong>
+              <strong>Distancia a quesitos:</strong>
               <p style={{ margin: '8px 0 0', fontSize: '0.9rem', color: '#475569' }}>
                 Cuántas casillas faltan para cada quesito si vas en dirección horaria.
               </p>
@@ -678,7 +678,7 @@ function GameBoard({ gameData, playerName, announce, setGameData, onPauseGame, o
               </summary>
               <ul style={{ paddingLeft: '20px', marginTop: '12px' }}>
                 <li>Tira el dado (1-6) para determinar cuántas casillas moverte</li>
-                <li><strong>Elige la dirección:</strong> horario o antihorario (como en el Trivial real)</li>
+                <li><strong>Elige la dirección:</strong> horario o antihorario</li>
                 <li>Cada {DIGITAL_WEDGE_INTERVAL} casillas hay un <strong>quesito</strong> disponible (posiciones {wedgePositionsLabel})</li>
                 <li>Responde correctamente en esas casillas especiales para ganar el quesito</li>
                 <li>Completa los {totalCategories} quesitos (uno por categoría) para ganar</li>
@@ -748,7 +748,7 @@ function GameBoard({ gameData, playerName, announce, setGameData, onPauseGame, o
         {/* Reglas del Trivial */}
         <details className="alert alert-info" style={{ marginTop: '1rem', fontSize: '0.9rem' }}>
           <summary style={{ cursor: 'pointer', fontWeight: 'bold', listStyle: 'none' }}>
-            <span aria-hidden="true">📋 </span>Reglas del Trivial Pursuit (pulsa para ver)
+            <span aria-hidden="true">📋 </span>Reglas del Trivial Accesible (pulsa para ver)
           </summary>
           <ul style={{ marginTop: '0.5rem', marginBottom: 0, paddingLeft: '1.5rem' }}>
             <li><span aria-hidden="true">✅ </span><strong>Si aciertas:</strong> Continúas jugando y puedes responder otra pregunta</li>
