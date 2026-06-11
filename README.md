@@ -87,9 +87,9 @@ La versión experimental para dispositivos iOS se distribuye mediante TestFlight
 
 1. Geografía
 2. Historia
-3. Ciencia
+3. Ciencias y Naturaleza
 4. Arte y Literatura
-5. Deportes
+5. Deportes y pasatiempos
 6. Entretenimiento
 
 ## Funcionamiento general

@@ -14,19 +14,19 @@ const getBackendURL = () => {
 
 const API_URL = getBackendURL();
 
-const DEFAULT_CATEGORIES = ['Historia', 'Ciencia', 'Geografía', 'Entretenimiento', 'Deportes', 'Arte y literatura'];
+const DEFAULT_CATEGORIES = ['Historia', 'Ciencias y Naturaleza', 'Geografía', 'Entretenimiento', 'Deportes y pasatiempos', 'Arte y Literatura'];
 const DIGITAL_BOARD_SIZE = 36;
 const DIGITAL_WEDGE_INTERVAL = 6;
 const DIGITAL_OUTER_TRACK_SIZE = DIGITAL_BOARD_SIZE;
 const DIGITAL_BOARD_SEGMENTS = 6;
 
 const CATEGORY_STYLES = {
-  historia: { emoji: '📜', color: '#8b5cf6' },
-  ciencia: { emoji: '🔬', color: '#10b981' },
-  geografia: { emoji: '🌍', color: '#3b82f6' },
-  entretenimiento: { emoji: '🎬', color: '#92400e' },
-  deportes: { emoji: '⚽', color: '#ef4444' },
-  'arte y literatura': { emoji: '🎨', color: '#d946ef' }
+  historia: { emoji: '📜', color: '#FFFF00', backgroundColor: '#FFED00' },
+  'ciencias y naturaleza': { emoji: '🔬', color: '#00FF00', backgroundColor: '#009846' },
+  geografia: { emoji: '🌍', color: '#00FFFF', backgroundColor: '#01B3E4' },
+  entretenimiento: { emoji: '🎬', color: '#A75F4A', backgroundColor: '#CC6F3C' },
+  'deportes y pasatiempos': { emoji: '⚽', color: '#FF6E00', backgroundColor: '#F29142' },
+  'arte y literatura': { emoji: '🎨', color: '#FF0080', backgroundColor: '#BF00EE' }
 };
 
 const normalizeCategory = (value) => String(value || '')
@@ -721,7 +721,8 @@ function GameBoard({ gameData, playerName, announce, setGameData, onPauseGame, o
                   style={{ 
                     background: hasCategory 
                       ? '#10b981' 
-                      : `linear-gradient(135deg, ${categoryStyle.color}, ${categoryStyle.color}dd)`
+                      : `linear-gradient(135deg, ${categoryStyle.backgroundColor}, ${categoryStyle.backgroundColor}dd)`,
+                    color: categoryStyle.color
                   }}
                   aria-label={`${categoryName}${hasCategory ? ', completada' : ''}${!isMyTurn ? ', no es tu turno' : ''}`}
                 >

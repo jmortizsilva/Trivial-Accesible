@@ -651,7 +651,7 @@
   },
   {
     "id": 51,
-    "categoria": "Ciencia",
+    "categoria": "Ciencias y Naturaleza",
     "dificultad": "media",
     "pregunta": "¿Cuál es el planeta más cercano al Sol?",
     "opciones": [
@@ -664,7 +664,7 @@
   },
   {
     "id": 52,
-    "categoria": "Ciencia",
+    "categoria": "Ciencias y Naturaleza",
     "dificultad": "media",
     "pregunta": "¿Qué gas constituye la mayor parte de la atmósfera terrestre?",
     "opciones": [
@@ -677,7 +677,7 @@
   },
   {
     "id": 53,
-    "categoria": "Ciencia",
+    "categoria": "Ciencias y Naturaleza",
     "dificultad": "media",
     "pregunta": "¿Qué órgano bombea la sangre por el cuerpo humano?",
     "opciones": [
@@ -690,7 +690,7 @@
   },
   {
     "id": 54,
-    "categoria": "Ciencia",
+    "categoria": "Ciencias y Naturaleza",
     "dificultad": "media",
     "pregunta": "¿Cuál es la fórmula química del agua?",
     "opciones": [
@@ -703,7 +703,7 @@
   },
   {
     "id": 55,
-    "categoria": "Ciencia",
+    "categoria": "Ciencias y Naturaleza",
     "dificultad": "media",
     "pregunta": "¿Qué fuerza mantiene a los planetas en órbita alrededor del Sol?",
     "opciones": [
@@ -716,7 +716,7 @@
   },
   {
     "id": 56,
-    "categoria": "Ciencia",
+    "categoria": "Ciencias y Naturaleza",
     "dificultad": "media",
     "pregunta": "¿Qué parte de la célula contiene la mayor parte del material genético?",
     "opciones": [
@@ -729,7 +729,7 @@
   },
   {
     "id": 57,
-    "categoria": "Ciencia",
+    "categoria": "Ciencias y Naturaleza",
     "dificultad": "media",
     "pregunta": "¿Qué astro ilumina y calienta la Tierra?",
     "opciones": [
@@ -742,7 +742,7 @@
   },
   {
     "id": 58,
-    "categoria": "Ciencia",
+    "categoria": "Ciencias y Naturaleza",
     "dificultad": "media",
     "pregunta": "¿Qué tipo de animal es una ballena desde el punto de vista biológico?",
     "opciones": [
@@ -755,7 +755,7 @@
   },
   {
     "id": 59,
-    "categoria": "Ciencia",
+    "categoria": "Ciencias y Naturaleza",
     "dificultad": "media",
     "pregunta": "¿Qué gas necesitan principalmente las plantas para realizar la fotosíntesis?",
     "opciones": [
@@ -768,7 +768,7 @@
   },
   {
     "id": 60,
-    "categoria": "Ciencia",
+    "categoria": "Ciencias y Naturaleza",
     "dificultad": "media",
     "pregunta": "¿Cómo se llama el cambio de estado de líquido a gas?",
     "opciones": [
@@ -781,7 +781,7 @@
   },
   {
     "id": 61,
-    "categoria": "Ciencia",
+    "categoria": "Ciencias y Naturaleza",
     "dificultad": "media",
     "pregunta": "¿Qué partícula tiene carga eléctrica negativa?",
     "opciones": [
@@ -794,7 +794,7 @@
   },
   {
     "id": 62,
-    "categoria": "Ciencia",
+    "categoria": "Ciencias y Naturaleza",
     "dificultad": "media",
     "pregunta": "¿Qué vitamina se produce en la piel con ayuda de la luz solar?",
     "opciones": [
@@ -807,7 +807,7 @@
   },
   {
     "id": 63,
-    "categoria": "Ciencia",
+    "categoria": "Ciencias y Naturaleza",
     "dificultad": "media",
     "pregunta": "¿Qué hueso protege principalmente el cerebro?",
     "opciones": [
@@ -820,7 +820,7 @@
   },
   {
     "id": 64,
-    "categoria": "Ciencia",
+    "categoria": "Ciencias y Naturaleza",
     "dificultad": "media",
     "pregunta": "¿Qué planeta es conocido por sus anillos visibles?",
     "opciones": [
@@ -833,7 +833,7 @@
   },
   {
     "id": 65,
-    "categoria": "Ciencia",
+    "categoria": "Ciencias y Naturaleza",
     "dificultad": "media",
     "pregunta": "¿Qué proceso convierte el azúcar en energía dentro de las células?",
     "opciones": [
@@ -846,7 +846,7 @@
   },
   {
     "id": 66,
-    "categoria": "Ciencia",
+    "categoria": "Ciencias y Naturaleza",
     "dificultad": "media",
     "pregunta": "¿Cuál es el metal líquido a temperatura ambiente más conocido?",
     "opciones": [
@@ -859,7 +859,7 @@
   },
   {
     "id": 67,
-    "categoria": "Ciencia",
+    "categoria": "Ciencias y Naturaleza",
     "dificultad": "media",
     "pregunta": "¿Qué instrumento se usa para observar objetos muy pequeños?",
     "opciones": [
@@ -872,7 +872,7 @@
   },
   {
     "id": 68,
-    "categoria": "Ciencia",
+    "categoria": "Ciencias y Naturaleza",
     "dificultad": "media",
     "pregunta": "¿Qué planeta es conocido como el planeta rojo?",
     "opciones": [
@@ -885,7 +885,7 @@
   },
   {
     "id": 69,
-    "categoria": "Ciencia",
+    "categoria": "Ciencias y Naturaleza",
     "dificultad": "media",
     "pregunta": "¿Qué animal pasa por metamorfosis de oruga a adulto?",
     "opciones": [
@@ -898,7 +898,7 @@
   },
   {
     "id": 70,
-    "categoria": "Ciencia",
+    "categoria": "Ciencias y Naturaleza",
     "dificultad": "media",
     "pregunta": "¿Cómo se llama la unidad básica de la herencia biológica?",
     "opciones": [
@@ -911,7 +911,7 @@
   },
   {
     "id": 71,
-    "categoria": "Ciencia",
+    "categoria": "Ciencias y Naturaleza",
     "dificultad": "media",
     "pregunta": "¿Qué sangre transporta principalmente oxígeno desde los pulmones al resto del cuerpo?",
     "opciones": [
@@ -924,7 +924,7 @@
   },
   {
     "id": 72,
-    "categoria": "Ciencia",
+    "categoria": "Ciencias y Naturaleza",
     "dificultad": "media",
     "pregunta": "¿Cuál es el satélite natural de la Tierra?",
     "opciones": [
@@ -937,7 +937,7 @@
   },
   {
     "id": 73,
-    "categoria": "Ciencia",
+    "categoria": "Ciencias y Naturaleza",
     "dificultad": "media",
     "pregunta": "¿Qué capa de la Tierra es la más externa y sólida?",
     "opciones": [
@@ -950,7 +950,7 @@
   },
   {
     "id": 74,
-    "categoria": "Ciencia",
+    "categoria": "Ciencias y Naturaleza",
     "dificultad": "media",
     "pregunta": "¿Cómo se llama el proceso por el que las plantas producen alimento usando luz?",
     "opciones": [
@@ -963,7 +963,7 @@
   },
   {
     "id": 75,
-    "categoria": "Ciencia",
+    "categoria": "Ciencias y Naturaleza",
     "dificultad": "media",
     "pregunta": "¿Qué elemento químico tiene el símbolo O?",
     "opciones": [
@@ -976,7 +976,7 @@
   },
   {
     "id": 76,
-    "categoria": "Ciencia",
+    "categoria": "Ciencias y Naturaleza",
     "dificultad": "media",
     "pregunta": "¿Qué planeta del sistema solar es el más grande?",
     "opciones": [
@@ -989,7 +989,7 @@
   },
   {
     "id": 77,
-    "categoria": "Ciencia",
+    "categoria": "Ciencias y Naturaleza",
     "dificultad": "media",
     "pregunta": "¿Qué estado de la materia tiene forma y volumen variables?",
     "opciones": [
@@ -1002,7 +1002,7 @@
   },
   {
     "id": 78,
-    "categoria": "Ciencia",
+    "categoria": "Ciencias y Naturaleza",
     "dificultad": "media",
     "pregunta": "¿Qué órgano filtra la sangre para producir orina?",
     "opciones": [
@@ -1015,7 +1015,7 @@
   },
   {
     "id": 79,
-    "categoria": "Ciencia",
+    "categoria": "Ciencias y Naturaleza",
     "dificultad": "media",
     "pregunta": "¿Cómo se llama la temperatura a la que hierve el agua al nivel del mar?",
     "opciones": [
@@ -1028,7 +1028,7 @@
   },
   {
     "id": 80,
-    "categoria": "Ciencia",
+    "categoria": "Ciencias y Naturaleza",
     "dificultad": "media",
     "pregunta": "¿Qué rama de la ciencia estudia los seres vivos?",
     "opciones": [
@@ -1041,7 +1041,7 @@
   },
   {
     "id": 81,
-    "categoria": "Ciencia",
+    "categoria": "Ciencias y Naturaleza",
     "dificultad": "media",
     "pregunta": "¿Qué se mide con un termómetro?",
     "opciones": [
@@ -1054,7 +1054,7 @@
   },
   {
     "id": 82,
-    "categoria": "Ciencia",
+    "categoria": "Ciencias y Naturaleza",
     "dificultad": "media",
     "pregunta": "¿Qué componente del aire es esencial para la respiración humana?",
     "opciones": [
@@ -1067,7 +1067,7 @@
   },
   {
     "id": 83,
-    "categoria": "Ciencia",
+    "categoria": "Ciencias y Naturaleza",
     "dificultad": "media",
     "pregunta": "¿Cómo se llama el proceso por el que un sólido pasa directamente a gas?",
     "opciones": [
@@ -1080,7 +1080,7 @@
   },
   {
     "id": 84,
-    "categoria": "Ciencia",
+    "categoria": "Ciencias y Naturaleza",
     "dificultad": "media",
     "pregunta": "¿Qué órgano del sistema nervioso central coordina muchas funciones del cuerpo?",
     "opciones": [
@@ -1093,7 +1093,7 @@
   },
   {
     "id": 85,
-    "categoria": "Ciencia",
+    "categoria": "Ciencias y Naturaleza",
     "dificultad": "media",
     "pregunta": "¿Qué tipo de energía obtiene un panel solar convencional?",
     "opciones": [
@@ -1106,7 +1106,7 @@
   },
   {
     "id": 86,
-    "categoria": "Ciencia",
+    "categoria": "Ciencias y Naturaleza",
     "dificultad": "media",
     "pregunta": "¿Cuál es el pH aproximado de una sustancia neutra?",
     "opciones": [
@@ -1119,7 +1119,7 @@
   },
   {
     "id": 87,
-    "categoria": "Ciencia",
+    "categoria": "Ciencias y Naturaleza",
     "dificultad": "media",
     "pregunta": "¿Qué planeta tarda aproximadamente un año en dar una vuelta al Sol?",
     "opciones": [
@@ -1132,7 +1132,7 @@
   },
   {
     "id": 88,
-    "categoria": "Ciencia",
+    "categoria": "Ciencias y Naturaleza",
     "dificultad": "media",
     "pregunta": "¿Qué tejido humano está especializado en la contracción y el movimiento?",
     "opciones": [
@@ -1145,7 +1145,7 @@
   },
   {
     "id": 89,
-    "categoria": "Ciencia",
+    "categoria": "Ciencias y Naturaleza",
     "dificultad": "media",
     "pregunta": "¿Qué ciencia estudia los terremotos y la estructura de la Tierra?",
     "opciones": [
@@ -1158,7 +1158,7 @@
   },
   {
     "id": 90,
-    "categoria": "Ciencia",
+    "categoria": "Ciencias y Naturaleza",
     "dificultad": "media",
     "pregunta": "¿Cuál es la principal fuente de energía para el clima terrestre?",
     "opciones": [
@@ -1171,7 +1171,7 @@
   },
   {
     "id": 91,
-    "categoria": "Ciencia",
+    "categoria": "Ciencias y Naturaleza",
     "dificultad": "media",
     "pregunta": "¿Qué elemento químico tiene el símbolo Fe?",
     "opciones": [
@@ -1184,7 +1184,7 @@
   },
   {
     "id": 92,
-    "categoria": "Ciencia",
+    "categoria": "Ciencias y Naturaleza",
     "dificultad": "media",
     "pregunta": "¿Qué propiedad física relaciona la masa con el espacio que ocupa un cuerpo?",
     "opciones": [
@@ -1197,7 +1197,7 @@
   },
   {
     "id": 93,
-    "categoria": "Ciencia",
+    "categoria": "Ciencias y Naturaleza",
     "dificultad": "media",
     "pregunta": "¿Cómo se llama el proceso por el que las nubes devuelven agua a la superficie?",
     "opciones": [
@@ -1210,7 +1210,7 @@
   },
   {
     "id": 94,
-    "categoria": "Ciencia",
+    "categoria": "Ciencias y Naturaleza",
     "dificultad": "media",
     "pregunta": "¿Qué estructura de la flor contiene normalmente el polen?",
     "opciones": [
@@ -1223,7 +1223,7 @@
   },
   {
     "id": 95,
-    "categoria": "Ciencia",
+    "categoria": "Ciencias y Naturaleza",
     "dificultad": "media",
     "pregunta": "¿Qué fenómeno óptico separa la luz blanca en varios colores?",
     "opciones": [
@@ -1236,7 +1236,7 @@
   },
   {
     "id": 96,
-    "categoria": "Ciencia",
+    "categoria": "Ciencias y Naturaleza",
     "dificultad": "media",
     "pregunta": "¿Cómo se llama el conjunto de huesos del cuerpo humano?",
     "opciones": [
@@ -1249,7 +1249,7 @@
   },
   {
     "id": 97,
-    "categoria": "Ciencia",
+    "categoria": "Ciencias y Naturaleza",
     "dificultad": "media",
     "pregunta": "¿Qué animal es un anfibio?",
     "opciones": [
@@ -1262,7 +1262,7 @@
   },
   {
     "id": 98,
-    "categoria": "Ciencia",
+    "categoria": "Ciencias y Naturaleza",
     "dificultad": "media",
     "pregunta": "¿Qué capa atmosférica contiene la mayor parte del ozono que nos protege de la radiación ultravioleta?",
     "opciones": [
@@ -1275,7 +1275,7 @@
   },
   {
     "id": 99,
-    "categoria": "Ciencia",
+    "categoria": "Ciencias y Naturaleza",
     "dificultad": "media",
     "pregunta": "¿Qué unidad se usa para medir la fuerza en el Sistema Internacional?",
     "opciones": [
@@ -1288,7 +1288,7 @@
   },
   {
     "id": 100,
-    "categoria": "Ciencia",
+    "categoria": "Ciencias y Naturaleza",
     "dificultad": "media",
     "pregunta": "¿Qué molécula transporta la información genética en la mayoría de los seres vivos?",
     "opciones": [
@@ -2601,7 +2601,7 @@
   },
   {
     "id": 201,
-    "categoria": "Deportes",
+    "categoria": "Deportes y pasatiempos",
     "dificultad": "media",
     "pregunta": "¿Cuántos jugadores tiene un equipo de fútbol sobre el campo al comenzar un partido?",
     "opciones": [
@@ -2614,7 +2614,7 @@
   },
   {
     "id": 202,
-    "categoria": "Deportes",
+    "categoria": "Deportes y pasatiempos",
     "dificultad": "media",
     "pregunta": "¿Cada cuántos años se celebran habitualmente los Juegos Olímpicos de verano?",
     "opciones": [
@@ -2627,7 +2627,7 @@
   },
   {
     "id": 203,
-    "categoria": "Deportes",
+    "categoria": "Deportes y pasatiempos",
     "dificultad": "media",
     "pregunta": "¿En qué deporte destacó Rafael Nadal?",
     "opciones": [
@@ -2640,7 +2640,7 @@
   },
   {
     "id": 204,
-    "categoria": "Deportes",
+    "categoria": "Deportes y pasatiempos",
     "dificultad": "media",
     "pregunta": "¿Qué selección ganó el Mundial de fútbol masculino de 2010?",
     "opciones": [
@@ -2653,7 +2653,7 @@
   },
   {
     "id": 205,
-    "categoria": "Deportes",
+    "categoria": "Deportes y pasatiempos",
     "dificultad": "media",
     "pregunta": "¿En qué deporte se utiliza una raqueta y un volante o pluma?",
     "opciones": [
@@ -2666,7 +2666,7 @@
   },
   {
     "id": 206,
-    "categoria": "Deportes",
+    "categoria": "Deportes y pasatiempos",
     "dificultad": "media",
     "pregunta": "¿Cuántos puntos vale un triple en baloncesto?",
     "opciones": [
@@ -2679,7 +2679,7 @@
   },
   {
     "id": 207,
-    "categoria": "Deportes",
+    "categoria": "Deportes y pasatiempos",
     "dificultad": "media",
     "pregunta": "¿Qué país es famoso por el arte marcial del judo?",
     "opciones": [
@@ -2692,7 +2692,7 @@
   },
   {
     "id": 208,
-    "categoria": "Deportes",
+    "categoria": "Deportes y pasatiempos",
     "dificultad": "media",
     "pregunta": "¿Cómo se llama la competición más importante de selecciones nacionales de fútbol en Europa?",
     "opciones": [
@@ -2705,7 +2705,7 @@
   },
   {
     "id": 209,
-    "categoria": "Deportes",
+    "categoria": "Deportes y pasatiempos",
     "dificultad": "media",
     "pregunta": "¿En qué deporte se usa un tablero, una ola y una tabla?",
     "opciones": [
@@ -2718,7 +2718,7 @@
   },
   {
     "id": 210,
-    "categoria": "Deportes",
+    "categoria": "Deportes y pasatiempos",
     "dificultad": "media",
     "pregunta": "¿Qué color suele llevar el maillot del líder del Tour de Francia?",
     "opciones": [
@@ -2731,7 +2731,7 @@
   },
   {
     "id": 211,
-    "categoria": "Deportes",
+    "categoria": "Deportes y pasatiempos",
     "dificultad": "media",
     "pregunta": "¿En qué deporte se usa un guante, un bate y bases?",
     "opciones": [
@@ -2744,7 +2744,7 @@
   },
   {
     "id": 212,
-    "categoria": "Deportes",
+    "categoria": "Deportes y pasatiempos",
     "dificultad": "media",
     "pregunta": "¿Qué deportista jamaicano fue campeón olímpico en velocidad y récord mundial de 100 metros?",
     "opciones": [
@@ -2757,7 +2757,7 @@
   },
   {
     "id": 213,
-    "categoria": "Deportes",
+    "categoria": "Deportes y pasatiempos",
     "dificultad": "media",
     "pregunta": "¿Cuántos jugadores tiene un equipo de balonmano en pista?",
     "opciones": [
@@ -2770,7 +2770,7 @@
   },
   {
     "id": 214,
-    "categoria": "Deportes",
+    "categoria": "Deportes y pasatiempos",
     "dificultad": "media",
     "pregunta": "¿En qué superficie se disputa tradicionalmente Wimbledon?",
     "opciones": [
@@ -2783,7 +2783,7 @@
   },
   {
     "id": 215,
-    "categoria": "Deportes",
+    "categoria": "Deportes y pasatiempos",
     "dificultad": "media",
     "pregunta": "¿Qué deporte practica Carlos Alcaraz?",
     "opciones": [
@@ -2796,7 +2796,7 @@
   },
   {
     "id": 216,
-    "categoria": "Deportes",
+    "categoria": "Deportes y pasatiempos",
     "dificultad": "media",
     "pregunta": "¿Cómo se llama la máxima categoría del fútbol español masculino?",
     "opciones": [
@@ -2809,7 +2809,7 @@
   },
   {
     "id": 217,
-    "categoria": "Deportes",
+    "categoria": "Deportes y pasatiempos",
     "dificultad": "media",
     "pregunta": "¿Qué piloto español ganó dos campeonatos del mundo de Fórmula 1 en 2005 y 2006?",
     "opciones": [
@@ -2822,7 +2822,7 @@
   },
   {
     "id": 218,
-    "categoria": "Deportes",
+    "categoria": "Deportes y pasatiempos",
     "dificultad": "media",
     "pregunta": "¿En qué deporte se compite por meter la pelota en un hoyo con el menor número de golpes?",
     "opciones": [
@@ -2835,7 +2835,7 @@
   },
   {
     "id": 219,
-    "categoria": "Deportes",
+    "categoria": "Deportes y pasatiempos",
     "dificultad": "media",
     "pregunta": "¿Qué nadador estadounidense ganó numerosas medallas olímpicas y es uno de los más laureados de la historia?",
     "opciones": [
@@ -2848,7 +2848,7 @@
   },
   {
     "id": 220,
-    "categoria": "Deportes",
+    "categoria": "Deportes y pasatiempos",
     "dificultad": "media",
     "pregunta": "¿Cuántos sets suele ganar un partido masculino de Grand Slam al mejor de cinco?",
     "opciones": [
@@ -2861,7 +2861,7 @@
   },
   {
     "id": 221,
-    "categoria": "Deportes",
+    "categoria": "Deportes y pasatiempos",
     "dificultad": "media",
     "pregunta": "¿Qué deporte combina natación, ciclismo y carrera a pie?",
     "opciones": [
@@ -2874,7 +2874,7 @@
   },
   {
     "id": 222,
-    "categoria": "Deportes",
+    "categoria": "Deportes y pasatiempos",
     "dificultad": "media",
     "pregunta": "¿En qué deporte se anota un ensayo?",
     "opciones": [
@@ -2887,7 +2887,7 @@
   },
   {
     "id": 223,
-    "categoria": "Deportes",
+    "categoria": "Deportes y pasatiempos",
     "dificultad": "media",
     "pregunta": "¿Qué selección ha ganado más Copas del Mundo masculinas de fútbol hasta la fecha?",
     "opciones": [
@@ -2900,7 +2900,7 @@
   },
   {
     "id": 224,
-    "categoria": "Deportes",
+    "categoria": "Deportes y pasatiempos",
     "dificultad": "media",
     "pregunta": "¿Qué aparato se usa para desplazarse sobre hielo en el curling?",
     "opciones": [
@@ -2913,7 +2913,7 @@
   },
   {
     "id": 225,
-    "categoria": "Deportes",
+    "categoria": "Deportes y pasatiempos",
     "dificultad": "media",
     "pregunta": "¿En qué deporte se usa una bicicleta en carretera, pista o montaña?",
     "opciones": [
@@ -2926,7 +2926,7 @@
   },
   {
     "id": 226,
-    "categoria": "Deportes",
+    "categoria": "Deportes y pasatiempos",
     "dificultad": "media",
     "pregunta": "¿Cómo se llama la competición anual de clubes más prestigiosa del fútbol europeo?",
     "opciones": [
@@ -2939,7 +2939,7 @@
   },
   {
     "id": 227,
-    "categoria": "Deportes",
+    "categoria": "Deportes y pasatiempos",
     "dificultad": "media",
     "pregunta": "¿En qué deporte se enfrentan dos personas o parejas separadas por una red y con palas macizas?",
     "opciones": [
@@ -2952,7 +2952,7 @@
   },
   {
     "id": 228,
-    "categoria": "Deportes",
+    "categoria": "Deportes y pasatiempos",
     "dificultad": "media",
     "pregunta": "¿Qué país organiza la NBA?",
     "opciones": [
@@ -2965,7 +2965,7 @@
   },
   {
     "id": 229,
-    "categoria": "Deportes",
+    "categoria": "Deportes y pasatiempos",
     "dificultad": "media",
     "pregunta": "¿Qué deporte practica Carolina Marín?",
     "opciones": [
@@ -2978,7 +2978,7 @@
   },
   {
     "id": 230,
-    "categoria": "Deportes",
+    "categoria": "Deportes y pasatiempos",
     "dificultad": "media",
     "pregunta": "¿Cuántas medallas de oro se otorgan por cada prueba olímpica individual?",
     "opciones": [
@@ -2991,7 +2991,7 @@
   },
   {
     "id": 231,
-    "categoria": "Deportes",
+    "categoria": "Deportes y pasatiempos",
     "dificultad": "media",
     "pregunta": "¿En qué deporte se usa una tabla y una vela unida a ella?",
     "opciones": [
@@ -3004,7 +3004,7 @@
   },
   {
     "id": 232,
-    "categoria": "Deportes",
+    "categoria": "Deportes y pasatiempos",
     "dificultad": "media",
     "pregunta": "¿Qué equipo de fútbol juega tradicionalmente en el estadio Santiago Bernabéu?",
     "opciones": [
@@ -3017,7 +3017,7 @@
   },
   {
     "id": 233,
-    "categoria": "Deportes",
+    "categoria": "Deportes y pasatiempos",
     "dificultad": "media",
     "pregunta": "¿En qué deporte compiten gimnastas en aparatos como barra, anillas o suelo?",
     "opciones": [
@@ -3030,7 +3030,7 @@
   },
   {
     "id": 234,
-    "categoria": "Deportes",
+    "categoria": "Deportes y pasatiempos",
     "dificultad": "media",
     "pregunta": "¿Qué distancia tiene oficialmente la prueba reina del atletismo, el maratón?",
     "opciones": [
@@ -3043,7 +3043,7 @@
   },
   {
     "id": 235,
-    "categoria": "Deportes",
+    "categoria": "Deportes y pasatiempos",
     "dificultad": "media",
     "pregunta": "¿En qué deporte se utiliza una espada, florete o sable?",
     "opciones": [
@@ -3056,7 +3056,7 @@
   },
   {
     "id": 236,
-    "categoria": "Deportes",
+    "categoria": "Deportes y pasatiempos",
     "dificultad": "media",
     "pregunta": "¿Qué selección femenina ganó el Mundial de fútbol de 2023?",
     "opciones": [
@@ -3069,7 +3069,7 @@
   },
   {
     "id": 237,
-    "categoria": "Deportes",
+    "categoria": "Deportes y pasatiempos",
     "dificultad": "media",
     "pregunta": "¿En qué deporte destaca Simone Biles?",
     "opciones": [
@@ -3082,7 +3082,7 @@
   },
   {
     "id": 238,
-    "categoria": "Deportes",
+    "categoria": "Deportes y pasatiempos",
     "dificultad": "media",
     "pregunta": "¿Qué color de cinturón suele representar un nivel inicial en muchas artes marciales?",
     "opciones": [
@@ -3095,7 +3095,7 @@
   },
   {
     "id": 239,
-    "categoria": "Deportes",
+    "categoria": "Deportes y pasatiempos",
     "dificultad": "media",
     "pregunta": "¿En qué deporte se compite sobre nieve descendiendo por una ladera con tablas estrechas?",
     "opciones": [
@@ -3108,7 +3108,7 @@
   },
   {
     "id": 240,
-    "categoria": "Deportes",
+    "categoria": "Deportes y pasatiempos",
     "dificultad": "media",
     "pregunta": "¿Cuál es la prueba de motor más famosa de Mónaco?",
     "opciones": [
@@ -3121,7 +3121,7 @@
   },
   {
     "id": 241,
-    "categoria": "Deportes",
+    "categoria": "Deportes y pasatiempos",
     "dificultad": "media",
     "pregunta": "¿Cuántos jugadores componen un equipo de voleibol en pista?",
     "opciones": [
@@ -3134,7 +3134,7 @@
   },
   {
     "id": 242,
-    "categoria": "Deportes",
+    "categoria": "Deportes y pasatiempos",
     "dificultad": "media",
     "pregunta": "¿Qué deportista argentino fue campeón del mundo de fútbol en 1986 y es conocido por la Mano de Dios?",
     "opciones": [
@@ -3147,7 +3147,7 @@
   },
   {
     "id": 243,
-    "categoria": "Deportes",
+    "categoria": "Deportes y pasatiempos",
     "dificultad": "media",
     "pregunta": "¿En qué deporte se marcan goles con sticks y una bola o disco?",
     "opciones": [
@@ -3160,7 +3160,7 @@
   },
   {
     "id": 244,
-    "categoria": "Deportes",
+    "categoria": "Deportes y pasatiempos",
     "dificultad": "media",
     "pregunta": "¿Qué torneo reúne a selecciones nacionales europeas de baloncesto?",
     "opciones": [
@@ -3173,7 +3173,7 @@
   },
   {
     "id": 245,
-    "categoria": "Deportes",
+    "categoria": "Deportes y pasatiempos",
     "dificultad": "media",
     "pregunta": "¿Qué persona dirige tácticamente un equipo desde el banquillo?",
     "opciones": [
@@ -3186,7 +3186,7 @@
   },
   {
     "id": 246,
-    "categoria": "Deportes",
+    "categoria": "Deportes y pasatiempos",
     "dificultad": "media",
     "pregunta": "¿En qué deporte se realizan llaves, inmovilizaciones y proyecciones sobre un tatami?",
     "opciones": [
@@ -3199,7 +3199,7 @@
   },
   {
     "id": 247,
-    "categoria": "Deportes",
+    "categoria": "Deportes y pasatiempos",
     "dificultad": "media",
     "pregunta": "¿Qué club juega tradicionalmente en el Camp Nou?",
     "opciones": [
@@ -3212,7 +3212,7 @@
   },
   {
     "id": 248,
-    "categoria": "Deportes",
+    "categoria": "Deportes y pasatiempos",
     "dificultad": "media",
     "pregunta": "¿Cómo se llama el organismo internacional que organiza los Juegos Olímpicos?",
     "opciones": [
@@ -3225,7 +3225,7 @@
   },
   {
     "id": 249,
-    "categoria": "Deportes",
+    "categoria": "Deportes y pasatiempos",
     "dificultad": "media",
     "pregunta": "¿En qué deporte se usa una canasta a 3,05 metros de altura?",
     "opciones": [
@@ -3238,7 +3238,7 @@
   },
   {
     "id": 250,
-    "categoria": "Deportes",
+    "categoria": "Deportes y pasatiempos",
     "dificultad": "media",
     "pregunta": "¿Qué tenista suizo ganó numerosos Grand Slam y es famoso por su elegancia en pista?",
     "opciones": [
@@ -3251,7 +3251,7 @@
   },
   {
     "id": 251,
-    "categoria": "Arte y literatura",
+    "categoria": "Arte y Literatura",
     "dificultad": "media",
     "pregunta": "¿Quién escribió Don Quijote de la Mancha?",
     "opciones": [
@@ -3264,7 +3264,7 @@
   },
   {
     "id": 252,
-    "categoria": "Arte y literatura",
+    "categoria": "Arte y Literatura",
     "dificultad": "media",
     "pregunta": "¿Quién pintó la Mona Lisa?",
     "opciones": [
@@ -3277,7 +3277,7 @@
   },
   {
     "id": 253,
-    "categoria": "Arte y literatura",
+    "categoria": "Arte y Literatura",
     "dificultad": "media",
     "pregunta": "¿Qué pintor español es autor de Guernica?",
     "opciones": [
@@ -3290,7 +3290,7 @@
   },
   {
     "id": 254,
-    "categoria": "Arte y literatura",
+    "categoria": "Arte y Literatura",
     "dificultad": "media",
     "pregunta": "¿Qué escritor inglés creó a Hamlet?",
     "opciones": [
@@ -3303,7 +3303,7 @@
   },
   {
     "id": 255,
-    "categoria": "Arte y literatura",
+    "categoria": "Arte y Literatura",
     "dificultad": "media",
     "pregunta": "¿Quién escribió Cien años de soledad?",
     "opciones": [
@@ -3316,7 +3316,7 @@
   },
   {
     "id": 256,
-    "categoria": "Arte y literatura",
+    "categoria": "Arte y Literatura",
     "dificultad": "media",
     "pregunta": "¿Qué artista surrealista español es famoso por sus relojes blandos?",
     "opciones": [
@@ -3329,7 +3329,7 @@
   },
   {
     "id": 257,
-    "categoria": "Arte y literatura",
+    "categoria": "Arte y Literatura",
     "dificultad": "media",
     "pregunta": "¿Qué movimiento artístico está asociado a Monet, Renoir y Degas?",
     "opciones": [
@@ -3342,7 +3342,7 @@
   },
   {
     "id": 258,
-    "categoria": "Arte y literatura",
+    "categoria": "Arte y Literatura",
     "dificultad": "media",
     "pregunta": "¿Qué escultor italiano realizó el David renacentista más famoso?",
     "opciones": [
@@ -3355,7 +3355,7 @@
   },
   {
     "id": 259,
-    "categoria": "Arte y literatura",
+    "categoria": "Arte y Literatura",
     "dificultad": "media",
     "pregunta": "¿Quién escribió La metamorfosis?",
     "opciones": [
@@ -3368,7 +3368,7 @@
   },
   {
     "id": 260,
-    "categoria": "Arte y literatura",
+    "categoria": "Arte y Literatura",
     "dificultad": "media",
     "pregunta": "¿Qué escritor creó al detective Sherlock Holmes?",
     "opciones": [
@@ -3381,7 +3381,7 @@
   },
   {
     "id": 261,
-    "categoria": "Arte y literatura",
+    "categoria": "Arte y Literatura",
     "dificultad": "media",
     "pregunta": "¿Qué novela comienza con la frase sobre un lugar de La Mancha cuyo nombre no quiere recordarse?",
     "opciones": [
@@ -3394,7 +3394,7 @@
   },
   {
     "id": 262,
-    "categoria": "Arte y literatura",
+    "categoria": "Arte y Literatura",
     "dificultad": "media",
     "pregunta": "¿Qué poeta español escribió Romancero gitano?",
     "opciones": [
@@ -3407,7 +3407,7 @@
   },
   {
     "id": 263,
-    "categoria": "Arte y literatura",
+    "categoria": "Arte y Literatura",
     "dificultad": "media",
     "pregunta": "¿Qué pintor neerlandés es autor de La noche estrellada?",
     "opciones": [
@@ -3420,7 +3420,7 @@
   },
   {
     "id": 264,
-    "categoria": "Arte y literatura",
+    "categoria": "Arte y Literatura",
     "dificultad": "media",
     "pregunta": "¿Qué obra de Homero narra el regreso de Odiseo a Ítaca?",
     "opciones": [
@@ -3433,7 +3433,7 @@
   },
   {
     "id": 265,
-    "categoria": "Arte y literatura",
+    "categoria": "Arte y Literatura",
     "dificultad": "media",
     "pregunta": "¿Quién escribió La casa de Bernarda Alba?",
     "opciones": [
@@ -3446,7 +3446,7 @@
   },
   {
     "id": 266,
-    "categoria": "Arte y literatura",
+    "categoria": "Arte y Literatura",
     "dificultad": "media",
     "pregunta": "¿Qué museo de Madrid alberga Las meninas?",
     "opciones": [
@@ -3459,7 +3459,7 @@
   },
   {
     "id": 267,
-    "categoria": "Arte y literatura",
+    "categoria": "Arte y Literatura",
     "dificultad": "media",
     "pregunta": "¿Quién pintó Las meninas?",
     "opciones": [
@@ -3472,7 +3472,7 @@
   },
   {
     "id": 268,
-    "categoria": "Arte y literatura",
+    "categoria": "Arte y Literatura",
     "dificultad": "media",
     "pregunta": "¿Qué escritor irlandés escribió Ulises?",
     "opciones": [
@@ -3485,7 +3485,7 @@
   },
   {
     "id": 269,
-    "categoria": "Arte y literatura",
+    "categoria": "Arte y Literatura",
     "dificultad": "media",
     "pregunta": "¿Qué autora británica escribió Orgullo y prejuicio?",
     "opciones": [
@@ -3498,7 +3498,7 @@
   },
   {
     "id": 270,
-    "categoria": "Arte y literatura",
+    "categoria": "Arte y Literatura",
     "dificultad": "media",
     "pregunta": "¿Qué novela de Mary Shelley tiene como protagonista a un científico que crea vida?",
     "opciones": [
@@ -3511,7 +3511,7 @@
   },
   {
     "id": 271,
-    "categoria": "Arte y literatura",
+    "categoria": "Arte y Literatura",
     "dificultad": "media",
     "pregunta": "¿Quién escribió El principito?",
     "opciones": [
@@ -3524,7 +3524,7 @@
   },
   {
     "id": 272,
-    "categoria": "Arte y literatura",
+    "categoria": "Arte y Literatura",
     "dificultad": "media",
     "pregunta": "¿Qué pintor español es conocido por obras como El jardín de las delicias?",
     "opciones": [
@@ -3537,7 +3537,7 @@
   },
   {
     "id": 273,
-    "categoria": "Arte y literatura",
+    "categoria": "Arte y Literatura",
     "dificultad": "media",
     "pregunta": "¿Qué corriente artística representa formas fragmentadas y se asocia a Picasso y Braque?",
     "opciones": [
@@ -3550,7 +3550,7 @@
   },
   {
     "id": 274,
-    "categoria": "Arte y literatura",
+    "categoria": "Arte y Literatura",
     "dificultad": "media",
     "pregunta": "¿Quién escribió La divina comedia?",
     "opciones": [
@@ -3563,7 +3563,7 @@
   },
   {
     "id": 275,
-    "categoria": "Arte y literatura",
+    "categoria": "Arte y Literatura",
     "dificultad": "media",
     "pregunta": "¿Qué dramaturgo español del Siglo de Oro escribió Fuenteovejuna?",
     "opciones": [
@@ -3576,7 +3576,7 @@
   },
   {
     "id": 276,
-    "categoria": "Arte y literatura",
+    "categoria": "Arte y Literatura",
     "dificultad": "media",
     "pregunta": "¿Qué autora escribió Nada, novela ganadora del Premio Nadal en 1944?",
     "opciones": [
@@ -3589,7 +3589,7 @@
   },
   {
     "id": 277,
-    "categoria": "Arte y literatura",
+    "categoria": "Arte y Literatura",
     "dificultad": "media",
     "pregunta": "¿Qué pintor noruego creó El grito?",
     "opciones": [
@@ -3602,7 +3602,7 @@
   },
   {
     "id": 278,
-    "categoria": "Arte y literatura",
+    "categoria": "Arte y Literatura",
     "dificultad": "media",
     "pregunta": "¿Qué escritor francés escribió Los miserables?",
     "opciones": [
@@ -3615,7 +3615,7 @@
   },
   {
     "id": 279,
-    "categoria": "Arte y literatura",
+    "categoria": "Arte y Literatura",
     "dificultad": "media",
     "pregunta": "¿Qué poeta chileno recibió el Premio Nobel de Literatura en 1971?",
     "opciones": [
@@ -3628,7 +3628,7 @@
   },
   {
     "id": 280,
-    "categoria": "Arte y literatura",
+    "categoria": "Arte y Literatura",
     "dificultad": "media",
     "pregunta": "¿Qué obra teatral de Shakespeare cuenta la historia de dos jóvenes amantes de familias enfrentadas?",
     "opciones": [
@@ -3641,7 +3641,7 @@
   },
   {
     "id": 281,
-    "categoria": "Arte y literatura",
+    "categoria": "Arte y Literatura",
     "dificultad": "media",
     "pregunta": "¿Quién pintó Los fusilamientos del 3 de mayo?",
     "opciones": [
@@ -3654,7 +3654,7 @@
   },
   {
     "id": 282,
-    "categoria": "Arte y literatura",
+    "categoria": "Arte y Literatura",
     "dificultad": "media",
     "pregunta": "¿Qué escritor argentino escribió Ficciones?",
     "opciones": [
@@ -3667,7 +3667,7 @@
   },
   {
     "id": 283,
-    "categoria": "Arte y literatura",
+    "categoria": "Arte y Literatura",
     "dificultad": "media",
     "pregunta": "¿Qué novela de Cervantes tiene como compañero del protagonista a Sancho Panza?",
     "opciones": [
@@ -3680,7 +3680,7 @@
   },
   {
     "id": 284,
-    "categoria": "Arte y literatura",
+    "categoria": "Arte y Literatura",
     "dificultad": "media",
     "pregunta": "¿Qué arquitecto catalán diseñó gran parte de la Sagrada Familia?",
     "opciones": [
@@ -3693,7 +3693,7 @@
   },
   {
     "id": 285,
-    "categoria": "Arte y literatura",
+    "categoria": "Arte y Literatura",
     "dificultad": "media",
     "pregunta": "¿Qué movimiento artístico del siglo XX exaltaba lo irracional y los sueños?",
     "opciones": [
@@ -3706,7 +3706,7 @@
   },
   {
     "id": 286,
-    "categoria": "Arte y literatura",
+    "categoria": "Arte y Literatura",
     "dificultad": "media",
     "pregunta": "¿Quién escribió Veinte mil leguas de viaje submarino?",
     "opciones": [
@@ -3719,7 +3719,7 @@
   },
   {
     "id": 287,
-    "categoria": "Arte y literatura",
+    "categoria": "Arte y Literatura",
     "dificultad": "media",
     "pregunta": "¿Qué autora escribió Los pazos de Ulloa?",
     "opciones": [
@@ -3732,7 +3732,7 @@
   },
   {
     "id": 288,
-    "categoria": "Arte y literatura",
+    "categoria": "Arte y Literatura",
     "dificultad": "media",
     "pregunta": "¿Qué pintor valenciano es conocido por sus escenas luminosas de playa?",
     "opciones": [
@@ -3745,7 +3745,7 @@
   },
   {
     "id": 289,
-    "categoria": "Arte y literatura",
+    "categoria": "Arte y Literatura",
     "dificultad": "media",
     "pregunta": "¿Qué poeta escribió Campos de Castilla?",
     "opciones": [
@@ -3758,7 +3758,7 @@
   },
   {
     "id": 290,
-    "categoria": "Arte y literatura",
+    "categoria": "Arte y Literatura",
     "dificultad": "media",
     "pregunta": "¿Qué novela de Bram Stoker popularizó al conde vampiro más famoso?",
     "opciones": [
@@ -3771,7 +3771,7 @@
   },
   {
     "id": 291,
-    "categoria": "Arte y literatura",
+    "categoria": "Arte y Literatura",
     "dificultad": "media",
     "pregunta": "¿Quién escribió La Celestina?",
     "opciones": [
@@ -3784,7 +3784,7 @@
   },
   {
     "id": 292,
-    "categoria": "Arte y literatura",
+    "categoria": "Arte y Literatura",
     "dificultad": "media",
     "pregunta": "¿Qué artista mexicano pintó numerosos autorretratos y estuvo casada con Diego Rivera?",
     "opciones": [
@@ -3797,7 +3797,7 @@
   },
   {
     "id": 293,
-    "categoria": "Arte y literatura",
+    "categoria": "Arte y Literatura",
     "dificultad": "media",
     "pregunta": "¿Qué escritor ruso escribió Crimen y castigo?",
     "opciones": [
@@ -3810,7 +3810,7 @@
   },
   {
     "id": 294,
-    "categoria": "Arte y literatura",
+    "categoria": "Arte y Literatura",
     "dificultad": "media",
     "pregunta": "¿Qué novela de George Orwell presenta el Gran Hermano?",
     "opciones": [
@@ -3823,7 +3823,7 @@
   },
   {
     "id": 295,
-    "categoria": "Arte y literatura",
+    "categoria": "Arte y Literatura",
     "dificultad": "media",
     "pregunta": "¿Qué pintor griego afincado en España es conocido como El Greco?",
     "opciones": [
@@ -3836,7 +3836,7 @@
   },
   {
     "id": 296,
-    "categoria": "Arte y literatura",
+    "categoria": "Arte y Literatura",
     "dificultad": "media",
     "pregunta": "¿Qué obra épica latina fue escrita por Virgilio?",
     "opciones": [
@@ -3849,7 +3849,7 @@
   },
   {
     "id": 297,
-    "categoria": "Arte y literatura",
+    "categoria": "Arte y Literatura",
     "dificultad": "media",
     "pregunta": "¿Qué escritora británica creó a Hércules Poirot y Miss Marple?",
     "opciones": [
@@ -3862,7 +3862,7 @@
   },
   {
     "id": 298,
-    "categoria": "Arte y literatura",
+    "categoria": "Arte y Literatura",
     "dificultad": "media",
     "pregunta": "¿Qué autor español escribió La familia de Pascual Duarte?",
     "opciones": [
@@ -3875,7 +3875,7 @@
   },
   {
     "id": 299,
-    "categoria": "Arte y literatura",
+    "categoria": "Arte y Literatura",
     "dificultad": "media",
     "pregunta": "¿Qué pintor ruso es considerado uno de los pioneros del arte abstracto?",
     "opciones": [
@@ -3888,7 +3888,7 @@
   },
   {
     "id": 300,
-    "categoria": "Arte y literatura",
+    "categoria": "Arte y Literatura",
     "dificultad": "media",
     "pregunta": "¿Qué novela de Miguel Delibes está protagonizada por Azarías y la familia de Paco el Bajo?",
     "opciones": [
