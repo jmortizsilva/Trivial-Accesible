@@ -22,11 +22,11 @@ const DIGITAL_BOARD_SEGMENTS = 6;
 
 const CATEGORY_STYLES = {
   historia: { emoji: '📜', color: '#000000', backgroundColor: '#FFED00' },
-  'ciencias y naturaleza': { emoji: '🔬', color: '#006400', backgroundColor: '#CFF5CF' },
-  geografia: { emoji: '🌍', color: '#005A7A', backgroundColor: '#D6F4FF' },
-  entretenimiento: { emoji: '🎬', color: '#7A3E2E', backgroundColor: '#F7DCCF' },
-  'deportes y pasatiempos': { emoji: '⚽', color: '#7A2F00', backgroundColor: '#FFA726' },
-  'arte y literatura': { emoji: '🎨', color: '#6A0080', backgroundColor: '#F2D9FF' }
+  'ciencias y naturaleza': { emoji: '🔬', color: '#006400', backgroundColor: '#7EDC81' },
+  geografia: { emoji: '🌍', color: '#005A80', backgroundColor: '#8ED8F8' },
+  entretenimiento: { emoji: '🎬', color: '#5D4037', backgroundColor: '#D7B899' },
+  'deportes y pasatiempos': { emoji: '⚽', color: '#A84300', backgroundColor: '#FFB74D' },
+  'arte y literatura': { emoji: '🎨', color: '#6A0080', backgroundColor: '#D89CF5' }
 };
 
 const normalizeCategory = (value) => String(value || '')
@@ -695,14 +695,15 @@ function GameBoard({ gameData, playerName, announce, setGameData, onPauseGame, o
 
             {isMyTurn && (
               <div style={{ marginBottom: '1.5rem', padding: '12px', background: '#fef3c7', borderRadius: '8px', border: '1px solid #fbbf24' }}>
-                <label style={{ display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer' }}>
+                <label style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', cursor: 'pointer' }}>
                   <input
                     type="checkbox"
                     checked={isWedgeSpace}
                     onChange={(e) => setIsWedgeSpace(e.target.checked)}
                     aria-label="¿Es una casilla de quesito?"
+                    style={{ width: '40px', minWidth: '40px', margin: 20 }}
                   />
-                  <span><strong>¿Es una casilla de quesito?</strong> (marca si caíste en una casilla roja)</span>
+                  <span style={{ flex: 1 }}><strong>¿Es una casilla de quesito?</strong> (marca si caíste en una casilla roja)</span>
                 </label>
               </div>
             )}
