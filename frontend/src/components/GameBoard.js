@@ -21,12 +21,12 @@ const DIGITAL_OUTER_TRACK_SIZE = DIGITAL_BOARD_SIZE;
 const DIGITAL_BOARD_SEGMENTS = 6;
 
 const CATEGORY_STYLES = {
-  historia: { emoji: '📜', color: '#FFFF00', backgroundColor: '#FFED00' },
-  'ciencias y naturaleza': { emoji: '🔬', color: '#00FF00', backgroundColor: '#009846' },
-  geografia: { emoji: '🌍', color: '#00FFFF', backgroundColor: '#01B3E4' },
-  entretenimiento: { emoji: '🎬', color: '#A75F4A', backgroundColor: '#CC6F3C' },
-  'deportes y pasatiempos': { emoji: '⚽', color: '#FF6E00', backgroundColor: '#F29142' },
-  'arte y literatura': { emoji: '🎨', color: '#FF0080', backgroundColor: '#BF00EE' }
+  historia: { emoji: '📜', color: '#000000', backgroundColor: '#FFED00' },
+  'ciencias y naturaleza': { emoji: '🔬', color: '#006400', backgroundColor: '#CFF5CF' },
+  geografia: { emoji: '🌍', color: '#005A7A', backgroundColor: '#D6F4FF' },
+  entretenimiento: { emoji: '🎬', color: '#7A3E2E', backgroundColor: '#F7DCCF' },
+  'deportes y pasatiempos': { emoji: '⚽', color: '#7A2F00', backgroundColor: '#FFA726' },
+  'arte y literatura': { emoji: '🎨', color: '#6A0080', backgroundColor: '#F2D9FF' }
 };
 
 const normalizeCategory = (value) => String(value || '')
